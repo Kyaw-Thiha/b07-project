@@ -1,0 +1,25 @@
+.gradle/
+gradle-app.setting
+/build/
+**/build/
+!src/**/build/
+
+# IDE & project files
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# Android/NDK outputs
+.cxx/
+.externalNativeBuild/
+captures/
+
+# OS / tooling noise
+.DS_Store
+Thumbs.db
+*.log
+local.properties
