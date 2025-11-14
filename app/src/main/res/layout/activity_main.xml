@@ -1,43 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.b07proj.MainActivity">
+    android:background="@drawable/login_background"
+    tools:context=".MainActivity">
 
-    <!--    <Button-->
-<!--        android:id="@+id/buttonNavigate"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Button"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView"-->
-<!--        app:layout_constraintVertical_bias="0.73" />-->
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="400dp"
-        android:layout_height="700dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" >
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:ignore="MissingConstraints">
+
+<!--        app:layout_constraintBottoms_toBottomOf="@+id/inputUsername"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/inputPassword">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="160dp"-->
+<!--                    android:layout_height="160dp"/>-->
+        <EditText
+            android:id="@+id/inputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/login_page_box"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:padding="18dp"
+            android:textColor="#446923"
+            android:textColorHint="#803610"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/login_page_box"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:padding="18dp"
+            android:textColor="#446923"
+            android:textColorHint="#803610"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:id="@+id/loginButton"/>
+        <!--            android:layout_marginTop="20sp"-->
+        <!--            android:textColor="@color/black"-->
+<!--            android:backgroundTint="@color/white"-->
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
