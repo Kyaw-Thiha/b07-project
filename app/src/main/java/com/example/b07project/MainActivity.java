@@ -1,13 +1,9 @@
 package com.example.b07project;
 
-import com.example.b07project.model.Account;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +13,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 
-import com.example.b07project.model.Account;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_page);
 
         // I don't really know what this is but it's just there --Simon
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -57,11 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
         inputEmail = findViewById(R.id.inputEmail);
         inputPassword = findViewById(R.id.inputPassword);
-        loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.buttonLogin);
 
         loginButton.setOnClickListener(v -> attemptLogin());
     }
-    
     /*
      * This method handles the login part of the homepage
      */

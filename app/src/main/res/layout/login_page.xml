@@ -19,12 +19,6 @@
         android:padding="16dp"
         tools:ignore="MissingConstraints">
 
-<!--        app:layout_constraintBottoms_toBottomOf="@+id/inputUsername"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/inputPassword">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="160dp"-->
-<!--                    android:layout_height="160dp"/>-->
         <EditText
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
@@ -34,8 +28,8 @@
             android:hint="email"
             android:inputType="textEmailAddress"
             android:padding="18dp"
-            android:textColor="#446923"
-            android:textColorHint="#803610"
+            android:textColor="@color/dark_green"
+            android:textColorHint="@color/dark_red"
             android:textSize="20sp" />
 
         <EditText
@@ -47,20 +41,47 @@
             android:hint="password"
             android:inputType="textPassword"
             android:padding="18dp"
-            android:textColor="#446923"
-            android:textColorHint="#803610"
+            android:textColor="@color/dark_green"
+            android:textColorHint="@color/dark_red"
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
             android:padding="5dp"
-            android:textSize="18dp"
-            android:id="@+id/loginButton"/>
-        <!--            android:layout_marginTop="20sp"-->
-        <!--            android:textColor="@color/black"-->
-<!--            android:backgroundTint="@color/white"-->
+            android:textSize="18dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+
+
+            <TextView
+            android:id="@+id/textSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No account? Take me to "
+            android:textColor="@android:color/white"
+            android:gravity="center_horizontal"
+            />
+
+            <Button
+                android:id="@+id/buttonSignup"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="SIGN UP"
+                android:textColor="@color/yellow"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
