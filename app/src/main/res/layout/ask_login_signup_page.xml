@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/askLoginSignupPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AskLoginSignupActivity">
 
     <include layout="@layout/back_button" />
 
@@ -22,50 +19,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Login"
+            android:text="Welcome"
             android:textAlignment="center"
-            android:textSize="40sp" />
-
-        <EditText
-            android:id="@+id/emailInput"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/login_page_box"
-            android:hint="@string/login_email"
-            android:inputType="textEmailAddress"
-            android:padding="18dp"
-            android:textColor="@color/dark_green"
-            android:textColorHint="@color/dark_red"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/passwordInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/login_page_box"
-            android:hint="@string/login_password"
-            android:inputType="textPassword"
-            android:padding="18dp"
-            android:textColor="@color/dark_green"
-            android:textColorHint="@color/dark_red"
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/SignupButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
             android:padding="5dp"
+            android:text="Signup"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/LoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Login"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
