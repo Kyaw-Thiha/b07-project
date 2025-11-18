@@ -34,7 +34,7 @@ public class CheckInRepository {
     ref.removeValue();
   }
 
-  public void get(String userId, ValueEventListener listener) {
+  public void get(String userId, String checkInId, ValueEventListener listener) {
     DatabaseReference ref = service
         .checkInDatabase()
         .child(userId)
@@ -43,7 +43,15 @@ public class CheckInRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
-  public void observe(String userId, ValueEventListener listener) {
+  public void getAll(String userId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .checkInDatabase()
+        .child(userId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .checkInDatabase()
         .child(userId);

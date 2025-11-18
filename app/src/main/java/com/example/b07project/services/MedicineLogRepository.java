@@ -34,7 +34,16 @@ public class MedicineLogRepository {
     ref.removeValue();
   }
 
-  public void get(String userId, ValueEventListener listener) {
+  public void get(String userId, String medicineLogId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId)
+        .child(medicineLogId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .medicineLogDatabase()
         .child(userId);
@@ -42,7 +51,7 @@ public class MedicineLogRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
-  public void observe(String userId, ValueEventListener listener) {
+  public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .medicineLogDatabase()
         .child(userId);

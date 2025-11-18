@@ -34,7 +34,16 @@ public class IncidentRepository {
     ref.removeValue();
   }
 
-  public void get(String userId, ValueEventListener listener) {
+  public void get(String userId, String incidentId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .incidentDatabase()
+        .child(userId)
+        .child(incidentId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .incidentDatabase()
         .child(userId);
@@ -42,7 +51,7 @@ public class IncidentRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
-  public void observe(String userId, ValueEventListener listener) {
+  public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .incidentDatabase()
         .child(userId);

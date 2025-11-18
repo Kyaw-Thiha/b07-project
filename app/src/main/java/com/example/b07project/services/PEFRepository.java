@@ -34,7 +34,16 @@ public class PEFRepository {
     ref.removeValue();
   }
 
-  public void get(String userId, ValueEventListener listener) {
+  public void get(String userId, String pefId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .pefDatabase()
+        .child(userId)
+        .child(pefId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .pefDatabase()
         .child(userId);
@@ -42,7 +51,7 @@ public class PEFRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
-  public void observe(String userId, ValueEventListener listener) {
+  public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .pefDatabase()
         .child(userId);

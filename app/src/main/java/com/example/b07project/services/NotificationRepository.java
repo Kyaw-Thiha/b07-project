@@ -34,7 +34,16 @@ public class NotificationRepository {
     ref.removeValue();
   }
 
-  public void get(String userId, ValueEventListener listener) {
+  public void get(String userId, String notificationId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .notificationDatabase()
+        .child(userId)
+        .child(notificationId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .notificationDatabase()
         .child(userId);
@@ -42,7 +51,7 @@ public class NotificationRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
-  public void observe(String userId, ValueEventListener listener) {
+  public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
         .notificationDatabase()
         .child(userId);
