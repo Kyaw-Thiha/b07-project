@@ -1,0 +1,52 @@
+package com.example.b07project;
+
+public class MedicineLogRepository {
+  private final Service service;
+
+  public MedicineLogRepository(Service service) {
+    this.service = service;
+  }
+
+  public void add(String userId, MedicineLog medicine) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId)
+        .push();
+
+    ref.setValue(medicine);
+  }
+
+  public void update(String userId, String medicineId, Map<String, Object> updates) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId)
+        .child(medicineId);
+
+    ref.updateChildren(updates);
+  }
+
+  public void delete(String userId, String medicineId) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId)
+        .child(medicineId);
+
+    ref.removeValue();
+  }
+
+  public void get(String userId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId);
+
+    ref.addListenerForSingleValueEvent(listener);
+  }
+
+  public void observe(String userId, ValueEventListener listener) {
+    DatabaseReference ref = service
+        .medicineLogDatabase()
+        .child(userId);
+
+    ref.addValueEventListener(listener);
+  }
+}
