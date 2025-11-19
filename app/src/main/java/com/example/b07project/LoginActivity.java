@@ -1,5 +1,6 @@
 package com.example.b07project;
 
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 
-
+import android.content.Intent;
 import com.example.b07project.model.BackButtonActivity;
 
 public class LoginActivity extends BackButtonActivity {
@@ -24,6 +25,7 @@ public class LoginActivity extends BackButtonActivity {
     private EditText emailInput;
     private EditText passwordInput;
     private Button loginButton;
+    private Button resetPasswordButton;
 
     private FirebaseAuth mAuth;
 //    private FirebaseUser mUser;
@@ -44,8 +46,10 @@ public class LoginActivity extends BackButtonActivity {
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
+        resetPasswordButton = findViewById(R.id.resetPasswordButton);
 
         loginButton.setOnClickListener(v->checkLogin());
+        resetPasswordButton.setOnClickListener(v->resetPassword());
     }
 
     void checkLogin() {
@@ -67,9 +71,13 @@ public class LoginActivity extends BackButtonActivity {
                 return;
             }
 
-            Toast.makeText(this, "Signin successful!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
             //TODO CONNECT TO THE NEXT PAGE
-
         });
+    }
+
+    void resetPassword() {
+        Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+        startActivity(intent);
     }
 }
