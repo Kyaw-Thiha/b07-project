@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.model.User;
+
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,7 +78,7 @@ public class SignupActivity extends BackButtonActivity {
 
             String uid = mUser.getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users").child(uid);
-//            ref.setValue(something)
+            ref.setValue(new User(email));
 
 
             Toast.makeText(this, "Sign up successful! Head to the sign in page to proceed", Toast.LENGTH_SHORT).show();
