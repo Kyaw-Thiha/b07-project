@@ -19,7 +19,7 @@ public class NotificationRepository {
         .child(userId)
         .push();
 
-    ref.setValue(notification);
+    //ref.setValue(medicine);
   }
 
   public void update(String userId, String notificationId, Map<String, Object> updates) {

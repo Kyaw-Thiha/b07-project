@@ -1,12 +1,35 @@
 <resources>
     <string name="app_name">b07 project</string>
+    <string name="child_welcome">How are you today?</string>
+    <string name="parent_and_provider_welcome">Welcome!</string>
+    <string name="child_log_medicine">Log your medicine</string>
+    <string name="child_log_symptom">Daily Check-In</string>
+    <string name="settings_bar">SETTINGS</string>
+    <string name="medicine_log_welcome">LOG MEDICINE</string>
+    <string name="medicine_time">What time did you take your medicine?</string>
+    <string name="medicine_dose">How many puffs did you take?</string>
+    <string name="symptom_log_welcome">DAILY CHECK-IN</string>
+    <string name="rescue_medicine_log_welcome">LOG RESCUE MEDICINE</string>
+    <string name="child_zone_text">Today\'s Zone:</string>
+    <string name="child_PEF_text">Today\'s PEF:</string>
+    <string name="inhaler_guide_button">Technique Helper</string>
+    <string name="peak_flow_button">Peak Flow</string>
     <string name="login_email">email</string>
+    <string name="sign_out_button">SIGN OUT</string>
     <string name="login_password">password</string>
+    <string name="badge_button">Badges</string>
+    <string name="medicine_streaks_description">Medicine Streaks</string>
+    <string name="technique_streaks_description">Technique Streaks</string>
+    <string name="controller_logging">Controller Log</string>
+    <string name="rescue_logging">Rescue Log</string>
+    <string name="table_time_header">TIME</string>
+    <string name="table_dose_header">DOSE</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="back">Back</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

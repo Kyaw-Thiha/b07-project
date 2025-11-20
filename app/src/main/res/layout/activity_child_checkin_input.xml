@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="check"
+    tools:context=".model.ChildCheckinInput">
+
+    <CheckBox
+        android:id="@+id/checkBox15"
+        android:layout_width="146dp"
+        android:layout_height="36dp"
+        android:text="Strong Odors"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox16"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="None"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox14"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Pets"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox13"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Dust"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        android:layout_width="108dp"
+        android:layout_height="34dp"
+        android:text="Exercise"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="464dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox10"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Smoke"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="464dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox12"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Illness"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox11"
+        android:layout_width="129dp"
+        android:layout_height="34dp"
+        android:text="Cold Air"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="465dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What triggers were you possibly exposed to?"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="445dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How often did you cough?"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="356dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Often"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="None"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="376dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="89dp"
+        android:layout_height="36dp"
+        android:text="Barely"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What level of activity did you do?"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="269dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="89dp"
+        android:layout_height="36dp"
+        android:text="Light"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <include layout="@layout/back_button" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is the date?"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Did you have trouble with your breathing at night?"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="182dp" />
+
+    <EditText
+        android:id="@+id/dateInput"
+        android:layout_width="399dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="@drawable/login_page_box"
+        android:hint="dd/mm/yyyy"
+        android:inputType="text"
+        android:padding="14dp"
+        android:textColor="@color/dark_green"
+        android:textColorHint="@color/dark_red"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="89dp"
+        android:layout_height="36dp"
+        android:text="No"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Yes"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="Hard"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:text="None"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="121dp"
+        android:layout_height="43dp"
+        android:text="Submit"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="644dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

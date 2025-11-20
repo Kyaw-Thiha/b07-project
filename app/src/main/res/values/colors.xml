@@ -8,4 +8,10 @@
     <color name="dark_green">#446923</color>
     <color name="dark_red">#803610</color>
     <color name="yellow">#FFE680</color>
+    <color name="light_grey">#D3D3D3</color>
+    <color name="grey">#808080</color>
+    <color name="light_purple">#DDC7F6</color>
+    <color name="red">#FD3131</color>
+    <color name="dark_purple">#593D97</color>
+
 </resources>
