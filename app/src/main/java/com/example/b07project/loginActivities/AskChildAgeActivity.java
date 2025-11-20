@@ -1,21 +1,21 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.R;
 import com.example.b07project.model.BackButtonActivity;
 
 public class AskChildAgeActivity extends BackButtonActivity {
     private Button below9Button;
     private Button above10Button;
-    boolean isBelow9 = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +35,15 @@ public class AskChildAgeActivity extends BackButtonActivity {
     }
 
     private void toPage(Button b) {
+        SharedPreferences prefs = getSharedPreferences("APP_DATA", MODE_PRIVATE);
         if (b == below9Button){
-            isBelow9 = true;
+            prefs.edit().putBoolean("user_age_below9", true).apply();
+        }
+        else {
+            prefs.edit().putBoolean("user_age_below9", false).apply();
         }
 
-        //TODO complete this method
         Intent intent = new Intent(AskChildAgeActivity.this, LoginActivity.class);
-
         startActivity(intent);
     }
 }

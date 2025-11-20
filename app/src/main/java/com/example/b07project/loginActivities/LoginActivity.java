@@ -1,23 +1,24 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences;
+import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.DatabaseReference;
+import com.example.b07project.ChildDashboardActivity;
+import com.example.b07project.ParentDashboardActivity;
+import com.example.b07project.R;
 import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
 
-import android.content.Intent;
+import com.example.b07project.model.UserType;
 import com.example.b07project.model.BackButtonActivity;
 
 public class LoginActivity extends BackButtonActivity {
@@ -72,7 +73,25 @@ public class LoginActivity extends BackButtonActivity {
             }
 
             Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-            //TODO CONNECT TO THE NEXT PAGE
+
+            UserType userType = UserType.valueOf(getSharedPreferences("APP_DATA", MODE_PRIVATE).getString("USER_TYPE", null));
+
+            Intent intent = new Intent();
+            switch (userType) {
+                case CHILD:
+                    intent = new Intent(LoginActivity.this, ChildDashboardActivity.class);
+                    break;
+                case PARENT:
+                    intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
+                    break;
+                case PROVIDER:
+                    //add stuffs later
+                    return;
+                default:
+                    break;
+            }
+            startActivity(intent);
+
         });
     }
 

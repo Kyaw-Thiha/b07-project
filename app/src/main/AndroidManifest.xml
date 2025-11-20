@@ -9,32 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.B07Project">
+
+        <!-- ========= LOGIN FLOW ========= -->
         <activity
-            android:name=".model.ChildCheckinInput"
+            android:name=".loginActivities.ResetPasswordActivity"
             android:exported="false" />
+
         <activity
-            android:name=".model.ChildBadge"
+            android:name=".loginActivities.LoginActivity"
             android:exported="false" />
+
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".loginActivities.AskChildAgeActivity"
             android:exported="false" />
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".loginActivities.AskLoginSignupActivity"
             android:exported="false" />
+
         <activity
-            android:name=".AskChildAgeActivity"
+            android:name=".loginActivities.AskUsertypeActivity"
             android:exported="false" />
+
         <activity
-            android:name=".AskLoginSignupActivity"
+            android:name=".loginActivities.SignupActivity"
             android:exported="false" />
+
+        <!-- App Entry -->
         <activity
-            android:name=".AskUsertypeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".loginActivities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +45,42 @@
             </intent-filter>
         </activity>
 
-    </application>
 
+        <!-- ========= CHILD DASHBOARD FLOW ========= -->
+        <activity
+            android:name=".ChildBadgeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ChildCheckinInputActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ChildDashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ChildSettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LogChildMedicineActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LogChildRescueActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LogChildSymptomActivity"
+            android:exported="false" />
+
+
+        <!-- ========= PARENT DASHBOARD ========= -->
+        <activity
+            android:name=".ParentDashboardActivity"
+            android:exported="false" />
+
+    </application>
 
 </manifest>

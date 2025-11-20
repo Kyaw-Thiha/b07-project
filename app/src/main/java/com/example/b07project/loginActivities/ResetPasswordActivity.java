@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 import android.os.Bundle;
 import android.util.Patterns;
@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.R;
 import com.example.b07project.model.BackButtonActivity;
 import com.google.firebase.auth.FirebaseAuth;
 

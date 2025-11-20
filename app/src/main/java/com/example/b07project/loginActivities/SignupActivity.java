@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.R;
 import com.example.b07project.model.User;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -79,7 +80,6 @@ public class SignupActivity extends BackButtonActivity {
             String uid = mUser.getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users").child(uid);
             ref.setValue(new User(email));
-
 
             Toast.makeText(this, "Sign up successful! Head to the sign in page to proceed", Toast.LENGTH_SHORT).show();
         });

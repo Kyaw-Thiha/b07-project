@@ -1,14 +1,16 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.b07project.R;
 //import com.google.firebase.auth.FirebaseUser;
 
 
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button getStartedButton;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -28,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //connect UIs
-        getStartedButton = findViewById((R.id.getStartedButton));
+        getStartedButton = findViewById(R.id.getStartedButton);
         getStartedButton.setOnClickListener(v->getStarted());
     }
 
     void getStarted() {
-        Intent intent = new Intent(MainActivity.this, AskLoginSignupActivity.class);
+        Intent intent = new Intent(MainActivity.this, AskUsertypeActivity.class);
         startActivity(intent);
     }
 
@@ -78,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
 //        loginButton.setOnClickListener(v -> attemptLogin());
 //        signupButton.setOnClickListener(v->signup());
 //    }
-//
+//void getStarted() {
+//        Intent intent = new Intent(MainActivity.this, AskLoginSignupActivity.class);
+//        startActivity(intent);
+//    }
+
 //    /*
 //     * This method handles the login part of the homepage
 //     */
