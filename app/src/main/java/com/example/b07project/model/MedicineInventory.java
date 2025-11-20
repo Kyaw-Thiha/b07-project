@@ -8,6 +8,9 @@ public class MedicineInventory {
   Date expiryDate;
   int amountLeft;
 
+  public MedicineInventory() {
+  }
+
   public MedicineInventory(String name, Date purchaseDate, Date expiryDate, int amountLeft) {
     this.name = name;
     this.purchaseDate = purchaseDate;

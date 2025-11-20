@@ -9,6 +9,9 @@ public class CheckIn {
   String author; // TODO: Need to update
   String triggers; // TODO: Need to update
 
+  public CheckIn() {
+  }
+
   public CheckIn(String nightWalking, String activityLimits, int cough) {
     this.nightWalking = nightWalking;
     this.activityLimits = activityLimits;

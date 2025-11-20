@@ -6,6 +6,9 @@ public class Incident {
   String userResponse;
   PEF pef;
 
+  public Incident() {
+  }
+
   public Incident(String flags, boolean guidanceShown, String userResponse, PEF pef) {
     this.flags = flags;
     this.guidanceShown = guidanceShown;
