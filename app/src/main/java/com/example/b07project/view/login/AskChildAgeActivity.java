@@ -1,4 +1,4 @@
-package com.example.b07project.loginActivities;
+package com.example.b07project.view.login;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class AskChildAgeActivity extends BackButtonActivity {
     private Button below9Button;

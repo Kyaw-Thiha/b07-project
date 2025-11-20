@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="check"
-    tools:context=".ChildCheckinInputActivity">
+    tools:context=".view.child.ChildCheckinInputActivity">
 
     <CheckBox
         android:id="@+id/checkBox15"
