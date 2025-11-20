@@ -1,19 +1,18 @@
-package com.example.b07project.model;
+package com.example.b07project;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.LoginActivity;
-import com.example.b07project.R;
+import com.example.b07project.loginActivities.LoginActivity;
+import com.example.b07project.model.BackButtonActivity;
 
-public class ChildDashboard extends BackButtonActivity {
+public class ChildDashboardActivity extends BackButtonActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class ChildDashboard extends BackButtonActivity {
     {
         // Do something in response to button click
         //startActivity(new Intent(getApplicationContext(), LogChildMedicine.class));
-        Intent intent = new Intent(this, LogChildMedicine.class);
+        Intent intent = new Intent(this, LogChildMedicineActivity.class);
         startActivity(intent);
     }
 
@@ -40,7 +39,7 @@ public class ChildDashboard extends BackButtonActivity {
     public void symptomLog(View view)
     {
         // Do something in response to button click
-        Intent intent = new Intent(this, LogChildSymptom.class);
+        Intent intent = new Intent(this, LogChildSymptomActivity.class);
         startActivity(intent);
     }
 
@@ -48,7 +47,7 @@ public class ChildDashboard extends BackButtonActivity {
     public void rescueMedicine(View view)
     {
         // Do something in response to button click
-        Intent intent = new Intent(this, LogChildRescue.class);
+        Intent intent = new Intent(this, LogChildRescueActivity.class);
         startActivity(intent);
     }
 
@@ -56,7 +55,7 @@ public class ChildDashboard extends BackButtonActivity {
     public void childSettings(View view)
     {
         // Do something in response to button click
-        Intent intent = new Intent(this, ChildSettings.class);
+        Intent intent = new Intent(this, ChildSettingsActivity.class);
         startActivity(intent);
     }
 
@@ -64,7 +63,7 @@ public class ChildDashboard extends BackButtonActivity {
     public void childBadge(View view)
     {
         // Do something in response to button click
-        Intent intent = new Intent(this, ChildBadge.class);
+        Intent intent = new Intent(this, ChildBadgeActivity.class);
         startActivity(intent);
     }
 

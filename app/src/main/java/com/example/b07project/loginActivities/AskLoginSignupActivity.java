@@ -1,16 +1,20 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.ChildDashboardActivity;
+import com.example.b07project.ParentDashboardActivity;
+import com.example.b07project.R;
 import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.model.UserType;
 
 public class AskLoginSignupActivity extends BackButtonActivity {
     private Button loginButton;
@@ -40,7 +44,22 @@ public class AskLoginSignupActivity extends BackButtonActivity {
     }
 
     void toSignup() {
-        Intent intent = new Intent(AskLoginSignupActivity.this, AskUsertypeActivity.class);
+        UserType userType = UserType.valueOf(getSharedPreferences("APP_DATA", MODE_PRIVATE).getString("USER_TYPE", null));
+
+        Intent intent = new Intent();
+        switch (userType) {
+            case CHILD:
+                intent = new Intent(AskLoginSignupActivity.this, AskChildAgeActivity.class);
+                break;
+            case PARENT:
+                intent = new Intent(AskLoginSignupActivity.this, SignupActivity.class);
+                break;
+            case PROVIDER:
+                //add stuffs later
+                return;
+            default:
+                break;
+        }
         startActivity(intent);
     }
 }

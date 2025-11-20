@@ -1,16 +1,21 @@
-package com.example.b07project;
+package com.example.b07project.loginActivities;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.ChildDashboardActivity;
+import com.example.b07project.ParentDashboardActivity;
+import com.example.b07project.R;
 import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.model.UserType;
+
 
 public class AskUsertypeActivity extends BackButtonActivity {
     private Button parentButton;
@@ -38,19 +43,21 @@ public class AskUsertypeActivity extends BackButtonActivity {
     }
 
     void toPage(Button b) {
-        //TODO complete this method
         Intent intent;
+        SharedPreferences prefs = getSharedPreferences("APP_DATA", MODE_PRIVATE);
 
         if(b == childButton) {
-            intent = new Intent(AskUsertypeActivity.this, AskChildAgeActivity.class);
+            prefs.edit().putString("USER_TYPE", UserType.CHILD.name()).apply();
         }
         else if(b == parentButton) {
-            intent = new Intent(AskUsertypeActivity.this, SignupActivity.class);
+            prefs.edit().putString("USER_TYPE", UserType.PARENT.name()).apply();
         }
         else {
+            prefs.edit().putString("USER_TYPE", UserType.PROVIDER.name()).apply();
             return;
         }
 
+        intent = new Intent(AskUsertypeActivity.this, AskLoginSignupActivity.class);
         startActivity(intent);
     }
 }

@@ -8,7 +8,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".loginActivities.MainActivity">
 
     <include layout="@layout/back_button" />
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/login_page_box"
-            android:hint="@string/login_password"
+            android:hint="password"
             android:inputType="textPassword"
             android:padding="18dp"
             android:textColor="@color/dark_green"
