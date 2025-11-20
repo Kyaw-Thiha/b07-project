@@ -1,4 +1,11 @@
 package com.example.b07project.services;
+import com.example.b07project.model.CheckIn;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
+
 
 public class CheckInRepository {
   private final Service service;
@@ -20,7 +27,7 @@ public class CheckInRepository {
     DatabaseReference ref = service
         .checkInDatabase()
         .child(userId)
-        .child(medicineId);
+        .child(checkInId);
 
     ref.updateChildren(updates);
   }
