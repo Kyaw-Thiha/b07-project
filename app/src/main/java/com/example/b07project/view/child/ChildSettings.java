@@ -1,4 +1,4 @@
-package com.example.b07project.model;
+package com.example.b07project.view.child;
 
 import android.os.Bundle;
 

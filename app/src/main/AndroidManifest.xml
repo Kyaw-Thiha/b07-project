@@ -10,28 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07Project">
         <activity
-            android:name=".model.ChildCheckinInput"
+            android:name=".view.child.ChildCheckinInput"
             android:exported="false" />
         <activity
-            android:name=".model.ChildBadge"
+            android:name=".view.child.ChildBadge"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".view.auth.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".AskChildAgeActivity"
+            android:name=".view.auth.AskChildAgeActivity"
             android:exported="false" />
         <activity
-            android:name=".AskLoginSignupActivity"
+            android:name=".view.auth.AskLoginSignupActivity"
             android:exported="false" />
         <activity
-            android:name=".AskUsertypeActivity"
+            android:name=".view.auth.AskUsertypeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".view.auth.SignupActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

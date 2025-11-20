@@ -5,7 +5,7 @@
     android:id="@+id/whoAreYouPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AskUsertypeActivity">
+    tools:context=".view.auth.AskUsertypeActivity">
 
     <include layout="@layout/back_button" />
 

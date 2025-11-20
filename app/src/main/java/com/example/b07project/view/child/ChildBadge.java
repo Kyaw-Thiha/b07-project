@@ -1,18 +1,14 @@
-package com.example.b07project.model;
+package com.example.b07project.view.child;
 
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import com.example.b07project.R;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class ChildBadge extends BackButtonActivity {
 

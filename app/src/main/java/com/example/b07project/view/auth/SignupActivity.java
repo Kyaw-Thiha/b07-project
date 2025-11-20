@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.view.auth;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.R;
 import com.example.b07project.model.User;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class SignupActivity extends BackButtonActivity {
 
