@@ -1,4 +1,4 @@
-package com.example.b07project.loginActivities;
+package com.example.b07project.view.login;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class SignupActivity extends BackButtonActivity {
 

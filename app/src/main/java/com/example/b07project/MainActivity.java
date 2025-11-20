@@ -1,4 +1,4 @@
-package com.example.b07project.loginActivities;
+package com.example.b07project;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.R;
+import com.example.b07project.view.login.AskUsertypeActivity;
 //import com.google.firebase.auth.FirebaseUser;
 
 
