@@ -9,6 +9,9 @@ public class MedicineLog {
   float postCheck;
   float breathRating;
 
+  public MedicineLog() {
+  }
+
   public MedicineLog(long timestamp, int doseCount, float preCheck, float postCheck, float breathRating) {
     this.timestamp = timestamp;
     this.doseCount = doseCount;
