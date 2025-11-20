@@ -1,5 +1,9 @@
 package com.example.b07project.services;
 
+import com.example.b07project.model.PEF;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import java.util.Map;
 public class PEFRepository {
   private final Service service;
 
@@ -7,13 +11,13 @@ public class PEFRepository {
     this.service = service;
   }
 
-  public void add(String userId, Notification notification) {
+  public void add(String userId, PEF pef) {
     DatabaseReference ref = service
         .pefDatabase()
         .child(userId)
         .push();
 
-    ref.setValue(medicine);
+    ref.setValue(pef);
   }
 
   public void update(String userId, String pefId, Map<String, Object> updates) {

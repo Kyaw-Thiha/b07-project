@@ -1,5 +1,11 @@
 package com.example.b07project.services;
 
+import com.example.b07project.model.Notification;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
+
 public class NotificationRepository {
   private final Service service;
 
@@ -13,7 +19,7 @@ public class NotificationRepository {
         .child(userId)
         .push();
 
-    ref.setValue(medicine);
+    ref.setValue(notification);
   }
 
   public void update(String userId, String notificationId, Map<String, Object> updates) {

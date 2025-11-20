@@ -1,5 +1,9 @@
 package com.example.b07project.services;
+import com.example.b07project.model.Incident;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import java.util.Map;
 public class IncidentRepository {
   private final Service service;
 
@@ -13,7 +17,7 @@ public class IncidentRepository {
         .child(userId)
         .push();
 
-    ref.setValue(checkIn);
+    ref.setValue(incident);
   }
 
   public void update(String userId, String incidentId, Map<String, Object> updates) {
