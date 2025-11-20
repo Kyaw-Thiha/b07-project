@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.services;
 
 public class PEFRepository {
   private final Service service;

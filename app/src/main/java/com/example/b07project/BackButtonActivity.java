@@ -1,9 +1,8 @@
-package com.example.b07project.model;
+package com.example.b07project;
 
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.b07project.R;
 
 public abstract class BackButtonActivity extends AppCompatActivity {
 

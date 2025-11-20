@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.services;
 
 public class MedicineLogRepository {
   private final Service service;

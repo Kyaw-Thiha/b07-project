@@ -1,4 +1,5 @@
-package com.example.b07project;
+package com.example.b07project.services;
+import com.example.b07project.model.Incident;
 
 public class IncidentRepository {
   private final Service service;

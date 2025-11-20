@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.model;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class CheckIn {
   String author; // TODO: Need to update
   String triggers; // TODO: Need to update
 
-  public MedicineInventory(String nightWalking, String activityLimits, int cough) {
+  public void MedicineInventory(String nightWalking, String activityLimits, int cough) {
     this.nightWalking = nightWalking;
     this.activityLimits = activityLimits;
     this.cough = cough;

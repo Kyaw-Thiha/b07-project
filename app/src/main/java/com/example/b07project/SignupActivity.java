@@ -16,8 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.example.b07project.model.BackButtonActivity;
-
 public class SignupActivity extends BackButtonActivity {
 
     private EditText emailInput;
