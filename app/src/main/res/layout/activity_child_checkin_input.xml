@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChildCheckinInputActivity">
+    android:onClick="check"
+    tools:context=".view.child.ChildCheckinInputActivity">
     <include layout="@layout/back_button" />
 
     <CheckBox
@@ -17,9 +18,12 @@
         android:layout_marginEnd="105dp"
         android:text="Strong Odors"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="587dp" />
+    app:layout_constraintEnd_toStartOf="@+id/checkBox16"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+
 
     <CheckBox
         android:id="@+id/checkBox16"

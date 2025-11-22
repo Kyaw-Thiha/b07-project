@@ -1,4 +1,4 @@
-package com.example.b07project.loginActivities;
+package com.example.b07project.view.login;
 
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPasswordActivity extends BackButtonActivity {

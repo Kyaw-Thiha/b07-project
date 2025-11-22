@@ -1,4 +1,4 @@
-package com.example.b07project;
+package com.example.b07project.view.child;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.R;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class ChildCheckinInputActivity extends BackButtonActivity {
     CheckBox nightY, nightN, hardAct, lowAct, noAct, cough, coughSome, coughNone, smoke, illness, pets, exercise, coldAir, dust, odor, noTrigger;

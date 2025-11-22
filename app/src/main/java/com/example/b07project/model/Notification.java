@@ -8,6 +8,9 @@ public class Notification {
   // User sender;
   // User receiver;
 
+  public Notification() {
+  }
+
   public Notification(String title, String text) {
     this.title = title;
     this.text = text;

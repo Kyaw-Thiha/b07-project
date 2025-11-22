@@ -1,4 +1,4 @@
-package com.example.b07project.model;
+package com.example.b07project.view.common;
 
 import android.widget.Button;
 

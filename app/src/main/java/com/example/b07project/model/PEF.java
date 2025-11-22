@@ -7,6 +7,9 @@ public class PEF {
   float preMedicine;
   float postMedicine;
 
+  public PEF() {
+  }
+
   public PEF(float value, float preMedicine, float postMedicine) {
     this.value = value;
     this.preMedicine = preMedicine;

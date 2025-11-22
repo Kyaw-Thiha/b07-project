@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".LogChildRescueActivity">
+    tools:context=".view.child.LogChildRescueActivity"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/imageView7"
@@ -50,7 +50,6 @@
         android:background="@color/red"
         android:text="TRIAGE QUESTIONS"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"

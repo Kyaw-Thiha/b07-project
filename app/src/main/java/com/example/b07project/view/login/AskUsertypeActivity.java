@@ -1,4 +1,4 @@
-package com.example.b07project.loginActivities;
+package com.example.b07project.view.login;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,10 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.ChildDashboardActivity;
-import com.example.b07project.ParentDashboardActivity;
 import com.example.b07project.R;
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 import com.example.b07project.model.UserType;
 
 
@@ -54,7 +52,6 @@ public class AskUsertypeActivity extends BackButtonActivity {
         }
         else {
             prefs.edit().putString("USER_TYPE", UserType.PROVIDER.name()).apply();
-            return;
         }
 
         intent = new Intent(AskUsertypeActivity.this, AskLoginSignupActivity.class);
