@@ -52,8 +52,7 @@ public class AskLoginSignupActivity extends BackButtonActivity {
                 intent = new Intent(AskLoginSignupActivity.this, SignupActivity.class);
                 break;
             case PROVIDER:
-                //add stuffs later
-                return;
+                intent = new Intent(AskLoginSignupActivity.this, SignupActivity.class);
             default:
                 break;
         }
