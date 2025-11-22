@@ -1,6 +1,9 @@
 package com.example.b07project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LogChildMedicineActivity extends AppCompatActivity {
+import com.example.b07project.model.BackButtonActivity;
+
+public class LogChildMedicineActivity extends BackButtonActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +25,13 @@ public class LogChildMedicineActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void addDose(View view){
+        Intent intent = new Intent(this, DoseCheckActivity.class);
+        //start dose check activity remembering the previous state
+        intent.putExtra("previous_activity", "LogChildMedicineActivity");
+        startActivity(intent);
+
     }
 }

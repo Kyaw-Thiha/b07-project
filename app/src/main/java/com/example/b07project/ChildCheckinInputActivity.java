@@ -1,5 +1,6 @@
 package com.example.b07project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -27,24 +28,24 @@ public class ChildCheckinInputActivity extends BackButtonActivity {
         });
         nightN=findViewById(R.id.checkBox);
         nightY=findViewById(R.id.checkBox2);
-        hardAct=findViewById(R.id.checkBox3);
-        lowAct=findViewById(R.id.checkBox4);
-        noAct=findViewById(R.id.checkBox4);
-        cough=findViewById(R.id.checkBox4);
-        coughSome=findViewById(R.id.checkBox4);
-        coughNone=findViewById(R.id.checkBox4);
-        smoke=findViewById(R.id.checkBox4);
-        illness=findViewById(R.id.checkBox4);
-        pets=findViewById(R.id.checkBox4);
-        exercise=findViewById(R.id.checkBox4);
-        coldAir=findViewById(R.id.checkBox4);
-        dust=findViewById(R.id.checkBox4);
-        odor=findViewById(R.id.checkBox4);
-        noTrigger=findViewById(R.id.checkBox4);
+        hardAct=findViewById(R.id.checkBox4);
+        lowAct=findViewById(R.id.checkBox3);
+        noAct=findViewById(R.id.checkBox5);
+        cough=findViewById(R.id.checkBox7);
+        coughSome=findViewById(R.id.checkBox6);
+        coughNone=findViewById(R.id.checkBox8);
+        smoke=findViewById(R.id.checkBox10);
+        illness=findViewById(R.id.checkBox12);
+        pets=findViewById(R.id.checkBox14);
+        exercise=findViewById(R.id.checkBox9);
+        coldAir=findViewById(R.id.checkBox11);
+        dust=findViewById(R.id.checkBox13);
+        odor=findViewById(R.id.checkBox15);
+        noTrigger=findViewById(R.id.checkBox16);
     }
 
-    public void check(View v){
-        String msg="Thank you for submitting!";
+    public void submit(View view){
+        String msg="Thank you for checking in!";
 
         // Checking the selection
         if(nightN.isChecked()){
@@ -100,7 +101,7 @@ public class ChildCheckinInputActivity extends BackButtonActivity {
         // Executing the Toast
         Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
 
-        // Clearing all the selection
+        // Clearing all the selections made by user
         nightN.setChecked(false);
         nightY.setChecked(false);
         hardAct.setChecked(false);
@@ -117,6 +118,9 @@ public class ChildCheckinInputActivity extends BackButtonActivity {
         dust.setChecked(false);
         odor.setChecked(false);
         noTrigger.setChecked(false);
+
+        Intent intent = new Intent(this, ChildDashboardActivity.class);
+        startActivity(intent);
 
     }
 }
