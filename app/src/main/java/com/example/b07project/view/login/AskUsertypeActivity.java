@@ -52,7 +52,6 @@ public class AskUsertypeActivity extends BackButtonActivity {
         }
         else {
             prefs.edit().putString("USER_TYPE", UserType.PROVIDER.name()).apply();
-            return;
         }
 
         intent = new Intent(AskUsertypeActivity.this, AskLoginSignupActivity.class);
