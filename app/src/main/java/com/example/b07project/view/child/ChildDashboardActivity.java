@@ -11,7 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.PefEntryActivity;
 import com.example.b07project.R;
+import com.example.b07project.TechniqueHelperActivity;
 import com.example.b07project.view.login.LoginActivity;
 import com.example.b07project.view.common.BackButtonActivity;
 
