@@ -20,7 +20,7 @@ public class AskChildAgeActivity extends BackButtonActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.ask_child_age_page);
+        setContentView(R.layout.activity_ask_child_age);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.askChildAgePage), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

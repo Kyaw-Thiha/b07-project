@@ -3,13 +3,12 @@ package com.example.b07project.view.child;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.example.b07project.R;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class ChildSettingsActivity extends BackButtonActivity {
 

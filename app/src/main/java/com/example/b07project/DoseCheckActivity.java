@@ -11,7 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.child.ChildDashboardActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class DoseCheckActivity extends BackButtonActivity {
 
