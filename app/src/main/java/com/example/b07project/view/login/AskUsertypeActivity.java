@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
-import com.example.b07project.model.UserType;
+import com.example.b07project.model.User.UserType;
 
 
 public class AskUsertypeActivity extends BackButtonActivity {

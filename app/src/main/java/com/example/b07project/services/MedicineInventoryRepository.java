@@ -1,6 +1,6 @@
 package com.example.b07project.services;
 
-import com.example.b07project.model.MedicineInventory;
+import com.example.b07project.model.Medecine;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
@@ -12,7 +12,7 @@ public class MedicineInventoryRepository {
     this.service = service;
   }
 
-  public void add(String userId, MedicineInventory medicine) {
+  public void add(String userId, Medecine medicine) {
     DatabaseReference ref = service
         .medicineInventoryDatabase()
         .child(userId)

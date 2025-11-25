@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
-import com.example.b07project.model.UserType;
+import com.example.b07project.model.User.UserType;
 
 public class AskLoginSignupActivity extends BackButtonActivity {
     private Button loginButton;
@@ -21,7 +21,7 @@ public class AskLoginSignupActivity extends BackButtonActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.ask_login_signup_page);
+        setContentView(R.layout.activity_ask_login_signup);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.askLoginSignupPage), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -2,16 +2,16 @@ package com.example.b07project.model;
 
 import java.util.Date;
 
-public class MedicineInventory {
+public class Medecine {
   String name;
   Date purchaseDate;
   Date expiryDate;
   int amountLeft;
 
-  public MedicineInventory() {
+  public Medecine() {
   }
 
-  public MedicineInventory(String name, Date purchaseDate, Date expiryDate, int amountLeft) {
+  public Medecine(String name, Date purchaseDate, Date expiryDate, int amountLeft) {
     this.name = name;
     this.purchaseDate = purchaseDate;
     this.expiryDate = expiryDate;
