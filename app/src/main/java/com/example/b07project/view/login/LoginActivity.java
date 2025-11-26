@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.view.child.ChildDashboardActivity;
 import com.example.b07project.view.parent.ParentDashboardActivity;
+import com.example.b07project.view.provider.ProviderDashboardActivity;
 import com.example.b07project.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -96,8 +97,8 @@ public class LoginActivity extends BackButtonActivity {
                     intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
                     break;
                 case PROVIDER:
-                    //add stuffs later
-                    return;
+                    intent = new Intent(LoginActivity.this, ProviderDashboardActivity.class);
+                    break;
                 default:
                     break;
             }
