@@ -30,6 +30,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="back">Back</string>
+    <string name="alerts_notification">Alerts and Notifications</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -67,4 +68,37 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="weekly_rescue_count">Weekly Rescue Count:</string>
+    <string name="last_rescue_time">Last Rescue Time:</string>
+    <string name="trend_snippet">Trend Snippet:</string>
+    <string name="manage_child_button">Manage Child</string>
+    <string name="Inventory_button">Inventory</string>
+    <string name="incident_log_button">Incident Log</string>
+    <string name="child_choose_button">Child</string>
+    <string name="provider_choose_button">Provider</string>
+    <string name="my_dashboard">My Dashboard</string>
+    <string name="medicine">Medicine</string>
+    <string name="purchase_date">Purchase Date</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="amount_left">Amount Left</string>
+    <string name="replacement_reminder">Replacement Reminder</string>
+    <string name="enter_button">Enter</string>
+    <string name="add_new_medicine">Add New Medicine</string>
+    <string name="shared_with_provider_label">Shared with Provider</string>
+    <string name="rescue_logs_label">Rescue Logs</string>
+    <string name="controller_adherence_label">Controller Adherence</string>
+    <string name="symptoms_label">Symptoms</string>
+    <string name="triggers_label">Triggers</string>
+    <string name="triage_incidents_label">Triage Incidents</string>
+    <string name="summary_charts_label">Summary Charts</string>
+    <string name="labels">Labels</string>
+    <string name="data_label">Data</string>
+    <string name="name">Name:</string>
+    <string name="date_of_birth">Date of Birth:</string>
+    <string name="age">Age:</string>
+    <string name="optional_notes">optional Notes:</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="provider">Provider</string>
+    <string name="notifications_button">Notifications</string>
+    <string name="add_Inventory_button">Add_inventory_button</string>
 </resources>
