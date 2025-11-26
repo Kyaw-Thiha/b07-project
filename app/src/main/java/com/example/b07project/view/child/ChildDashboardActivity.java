@@ -11,7 +11,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.b07project.PefEntryActivity;
 import com.example.b07project.R;
+import com.example.b07project.TechniqueHelperActivity;
+import com.example.b07project.view.login.AskLoginSignupActivity;
+import com.example.b07project.view.login.AskUsertypeActivity;
 import com.example.b07project.view.login.LoginActivity;
 import com.example.b07project.view.common.BackButtonActivity;
 
@@ -80,16 +84,17 @@ public class ChildDashboardActivity extends BackButtonActivity {
         startActivity(intent);
     }
 
-    /** Called when the user touches the sign out button in child dashboard to take user back to homescreen*/
+    /** Called when the user touches the sign out button in child dashboard to take user back to askusertype activity and blocks them from going back*/
     public void signOut(View view)
     {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, AskUsertypeActivity.class);
         startActivity(intent);
     }
 
+    /** gets the PB and PEF from firebase*/
     public void getCurrentZone() {
-        int personalBest = 5;
-        int currentPEF = 7;
+        int personalBest = 5;//get PB from firebase
+        int currentPEF = 7;//get PEF from firebase
         ImageView red, yellow, green;
         green=findViewById(R.id.imageView9);
         yellow=findViewById(R.id.imageView10);
