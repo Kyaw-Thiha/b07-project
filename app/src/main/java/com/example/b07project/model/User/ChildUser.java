@@ -1,7 +1,5 @@
 package com.example.b07project.model.User;
 
-package com.example.b07project.model.User;
-
 import com.example.b07project.model.*;
 
 import java.util.Map;
