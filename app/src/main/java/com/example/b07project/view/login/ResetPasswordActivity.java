@@ -26,7 +26,7 @@ public class ResetPasswordActivity extends BackButtonActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        setContentView(R.layout.reset_password_page);
+        setContentView(R.layout.activity_reset_password);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.b07project.model.MedicineInventory;
+import com.example.b07project.model.Medecine;
 import com.example.b07project.services.MedicineInventoryRepository;
 import com.example.b07project.services.Service;
 import com.google.firebase.database.DataSnapshot;
@@ -21,11 +21,11 @@ public class MedicineInventoryViewModel extends ViewModel {
     private final Service service = new Service();
     private final MedicineInventoryRepository medicineInventoryRepository = new MedicineInventoryRepository(service);
 
-    private final MutableLiveData<List<MedicineInventory>> medicineInventory = new MutableLiveData<>();
+    private final MutableLiveData<List<Medecine>> medicineInventory = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
 
     // Getters
-    public LiveData<List<MedicineInventory>> getInventory() {
+    public LiveData<List<Medecine>> getInventory() {
         return this.medicineInventory;
     }
     public LiveData<String> getLogError() {
@@ -37,10 +37,10 @@ public class MedicineInventoryViewModel extends ViewModel {
         medicineInventoryRepository.getAll(uid, new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<MedicineInventory> inventories = new ArrayList<>();
+                List<Medecine> inventories = new ArrayList<>();
 
                 for (DataSnapshot child: snapshot.getChildren()) {
-                    MedicineInventory inventory = child.getValue(MedicineInventory.class);
+                    Medecine inventory = child.getValue(Medecine.class);
                     if (inventory != null) {
                         inventories.add(inventory);
                     }
@@ -57,7 +57,7 @@ public class MedicineInventoryViewModel extends ViewModel {
     }
 
     // CREATE
-    public void addInventory(String uid, MedicineInventory item) {
+    public void addInventory(String uid, Medecine item) {
         medicineInventoryRepository.add(uid, item);
         loadInventoryByUser(uid);
     }
