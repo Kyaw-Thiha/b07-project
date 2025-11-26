@@ -17,4 +17,8 @@ public class ChildUser extends User {
     public Boolean isAgeBelow9() {
         return ageBelow9;
     }
+
+    public void setAgeBelow9(Boolean ageBelow9) {
+        this.ageBelow9 = ageBelow9;
+    }
 }

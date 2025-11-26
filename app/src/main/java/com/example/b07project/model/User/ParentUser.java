@@ -17,4 +17,28 @@ public class ParentUser extends User {
     public ParentUser(String uid, String name, String email, Map<String, Boolean> roles) {
         super(uid, name, email, roles);
     }
+
+    public ArrayList<ChildUser> getChildren() {
+        return children;
+    }
+
+    public void setChildren(ArrayList<ChildUser> children) {
+        this.children = children;
+    }
+
+    public ArrayList<ProviderUser> getProviders() {
+        return providers;
+    }
+
+    public void setProviders(ArrayList<ProviderUser> providers) {
+        this.providers = providers;
+    }
+
+    public ArrayList<Medicine> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Medicine> inventory) {
+        this.inventory = inventory;
+    }
 }

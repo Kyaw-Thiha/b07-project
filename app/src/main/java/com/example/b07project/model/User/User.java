@@ -28,4 +28,20 @@ public abstract class User {
     public Map<String, Boolean> getRoles() {
         return roles;
     }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRoles(Map<String, Boolean> roles) {
+        this.roles = roles;
+    }
 }
