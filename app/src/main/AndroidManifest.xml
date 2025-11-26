@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07Project">
         <activity
-            android:name=".ThirdTechniqueHelperActivity"
+            android:name=".view.child.ThirdTechniqueHelperActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondTechniqueHelperActivity"
+            android:name=".view.child.SecondTechniqueHelperActivity"
             android:exported="false" />
         <activity
-            android:name=".PefEntryActivity"
+            android:name=".view.child.PefEntryActivity"
             android:exported="false" />
         <activity
-            android:name=".RescueDecisionActivity"
+            android:name=".view.child.RescueDecisionActivity"
             android:exported="false" />
         <activity
-            android:name=".TechniqueHelperActivity"
+            android:name=".view.child.TechniqueHelperActivity"
             android:exported="false" />
         <activity
-            android:name=".ControllerMedicineInputActivity"
+            android:name=".view.child.ControllerMedicineInputActivity"
             android:exported="false" />
         <activity
-            android:name=".DoseCheckActivity"
+            android:name=".view.child.DoseCheckActivity"
             android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
         <activity
             android:name=".view.login.ResetPasswordActivity"
