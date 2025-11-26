@@ -71,6 +71,10 @@ public class Service {
     return database.getReference("invites");
   }
 
+  public DatabaseReference motivationDatabase(String childId) {
+    return database.getReference("motivation").child(childId);
+  }
+
   // The Logs
   public DatabaseReference medicineInventoryDatabase(String parentId) {
     return database.getReference("users")
