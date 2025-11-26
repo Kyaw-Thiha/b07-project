@@ -1,42 +1,50 @@
 package com.example.b07project.model;
 
-import java.util.Date;
-
 public class PEF {
-  private float value;
-  private float preMedicine;
-  private float postMedicine;
+  private long time;
+  private float pre_med;
+  private float post_med;
+  private String uid;
 
   public PEF() {
   }
 
-  public PEF(float value, float preMedicine, float postMedicine) {
-    this.value = value;
-    this.preMedicine = preMedicine;
-    this.postMedicine = postMedicine;
+  public PEF(long time, float pre_med, float post_med, String uid) {
+    this.time = time;
+    this.pre_med = pre_med;
+    this.post_med = post_med;
+    this.uid = uid;
   }
 
-  public float getValue() {
-    return value;
+  public long getTime() {
+    return time;
   }
 
-  public void setValue(float value) {
-    this.value = value;
+  public void setTime(long time) {
+    this.time = time;
   }
 
-  public float getPreMedicine() {
-    return preMedicine;
+  public float getPre_med() {
+    return pre_med;
   }
 
-  public void setPreMedicine(float preMedicine) {
-    this.preMedicine = preMedicine;
+  public void setPre_med(float pre_med) {
+    this.pre_med = pre_med;
   }
 
-  public float getPostMedicine() {
-    return postMedicine;
+  public float getPost_med() {
+    return post_med;
   }
 
-  public void setPostMedicine(float postMedicine) {
-    this.postMedicine = postMedicine;
+  public void setPost_med(float post_med) {
+    this.post_med = post_med;
+  }
+
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
   }
 }

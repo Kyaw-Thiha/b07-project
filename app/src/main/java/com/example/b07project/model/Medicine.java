@@ -1,62 +1,62 @@
 package com.example.b07project.model;
 
-import java.util.Date;
-
 public class Medicine {
-  private String name;
-  private Date purchaseDate;
-  private Date expiryDate;
-  private int canisterPuffs;
-  private String replacementRemainder;
+  private String purchase_date;
+  private String expiry_date;
+  private int canister_puffs;
+  private String replacement_reminder;
+  private String uid;
 
   public Medicine() {
   }
 
-  public Medicine(String name, Date purchaseDate, Date expiryDate, int canisterPuffs, String replacementRemainder) {
+  public Medicine(String name, Date purchase_date, Date expiry_date, int canister_puffs, String replacement_reminder,
+      String uid) {
     this.name = name;
-    this.purchaseDate = purchaseDate;
-    this.expiryDate = expiryDate;
-    this.canisterPuffs = canisterPuffs;
-    this.replacementRemainder = replacementRemainder;
+    this.purchase_date = purchase_date;
+    this.expiry_date = expiry_date;
+    this.canister_puffs = canister_puffs;
+    this.replacement_reminder = replacement_reminder;
+    this.uid = uid;
   }
 
-  public String getName() {
-    return name;
+  public String getPurchase_date() {
+    return purchase_date;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setPurchase_date(String purchase_date) {
+    this.purchase_date = purchase_date;
   }
 
-  public Date getPurchaseDate() {
-    return purchaseDate;
+  public String getExpiry_date() {
+    return expiry_date;
   }
 
-  public void setPurchaseDate(Date purchaseDate) {
-    this.purchaseDate = purchaseDate;
+  public void setExpiry_date(String expiry_date) {
+    this.expiry_date = expiry_date;
   }
 
-  public Date getExpiryDate() {
-    return expiryDate;
+  public String getCanister_puffs() {
+    return expiry_date;
   }
 
-  public void setExpiryDate(Date expiryDate) {
-    this.expiryDate = expiryDate;
+  public void setCanister_puffs(String canister_puffs) {
+    this.canister_puffs = canister_puffs;
   }
 
-  public int getCanisterPuffs() {
-    return canisterPuffs;
+  public String getReplacement_reminder() {
+    return replacement_reminder;
   }
 
-  public void setCanisterPuffs(int canisterPuffs) {
-    this.canisterPuffs = canisterPuffs;
+  public void setReplacement_reminder(String replacement_reminder) {
+    this.replacement_reminder = replacement_reminder;
   }
 
-  public int getReplacementRemainder() {
-    return replacementRemainder;
+  public String getUid() {
+    return uid;
   }
 
-  public void setReplacementRemainder(int replacementRemainder) {
-    this.replacementRemainder = replacementRemainder;
+  public void setUid(String uid) {
+    this.uid = uid;
   }
 }
