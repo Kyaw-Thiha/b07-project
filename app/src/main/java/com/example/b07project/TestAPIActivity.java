@@ -123,7 +123,7 @@ public class TestAPIActivity extends AppCompatActivity {
             CheckIn.NightWalking nightWalking = new CheckIn.NightWalking(false, triggers, "nothing");
             CheckIn checkIn = new CheckIn(now, nightWalking, null, null, childUid);
 
-            Medicine med = new Medicine("11/20/25", "01/26/26", 0.63, "stuffs", parentUid);
+            Medicine med = new Medicine("11/20/25", "01/26/26", 0.63, 200, "stuffs", parentUid);
             MedicineLog medicineLog = new MedicineLog(now, 2, "worse", "better", childUid);
             PEF pef = new PEF(now, 250, 300, childUid);
 
