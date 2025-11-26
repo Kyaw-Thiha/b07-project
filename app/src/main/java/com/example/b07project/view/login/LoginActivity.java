@@ -25,7 +25,7 @@ import com.example.b07project.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.example.b07project.model.User.UserType;
-import com.example.b07project.model.FirebaseManager;
+import com.example.b07project.services.Service;
 import com.example.b07project.view.common.BackButtonActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,6 +47,7 @@ public class LoginActivity extends BackButtonActivity {
 
     private UserType userType;
     private FirebaseDatabase db;
+    private final Service service = new Service();
     private FirebaseAuth mAuth;
     SharedPreferences prefs;
     private ParentProfileViewModel parentProfileViewModel;
@@ -128,7 +129,8 @@ public class LoginActivity extends BackButtonActivity {
 
                     childProfileViewModel.createChild(child_uid, user);
 
-                    DatabaseReference childRef = FirebaseManager.getRefParent().child(uid)
+                    DatabaseReference childRef = service.parentUserDatabase()
+                            .child(uid)
                             .child("children")
                             .child(user.getUid());
                     Map<String, Object> data = new HashMap();
