@@ -1,24 +1,26 @@
 package com.example.b07project.model;
 
+import java.util.ArrayList;
+
 public class Incident {
-  String flags;
-  boolean guidanceShown;
+  ArrayList<Boolean> flags;
+  String guidanceText;
   String userResponse;
   PEF pef;
 
   public Incident() {
   }
 
-  public Incident(String flags, boolean guidanceShown, String userResponse, PEF pef) {
+  public Incident(ArrayList<Boolean> flags, String guidanceText, String userResponse, PEF pef) {
     this.flags = flags;
-    this.guidanceShown = guidanceShown;
+    this.guidanceText = guidanceText;
     this.userResponse = userResponse;
     this.pef = pef;
   }
 
-  public Incident(String flags, boolean guidanceShown, String userResponse) {
+  public Incident(ArrayList<Boolean> flags, String guidanceText, String userResponse) {
     this.flags = flags;
-    this.guidanceShown = guidanceShown;
+    this.guidanceText = guidanceText;
     this.userResponse = userResponse;
   }
 }

@@ -5,7 +5,7 @@ public class ProviderUser extends User {
         super();
     }
 
-    public ProviderUser(String uid) {
-        super(uid);
+    public ProviderUser(String uid, String name) {
+        super(uid, name);
     }
 }

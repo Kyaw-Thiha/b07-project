@@ -7,14 +7,16 @@ public class Medecine {
   Date purchaseDate;
   Date expiryDate;
   int amountLeft;
+  String replacementRemainder;
 
   public Medecine() {
   }
 
-  public Medecine(String name, Date purchaseDate, Date expiryDate, int amountLeft) {
+  public Medecine(String name, Date purchaseDate, Date expiryDate, int amountLeft, String replacementRemainder) {
     this.name = name;
     this.purchaseDate = purchaseDate;
     this.expiryDate = expiryDate;
     this.amountLeft = amountLeft;
+    this.replacementRemainder = replacementRemainder;
   }
 }

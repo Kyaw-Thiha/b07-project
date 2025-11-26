@@ -4,34 +4,34 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Service {
-  private final FirebaseDatabase database;
+  private FirebaseDatabase database;
 
   public Service() {
-    this.database = FirebaseDatabase.getInstance();
+      database = FirebaseDatabase.getInstance();
   }
 
-  public DatabaseReference root() {
-    return this.database.getReference();
+  public DatabaseReference getRoot() {
+      return database.getReference();
   }
 
-  public DatabaseReference userDatabase() {
-    return this.database.getReference("user");
+  public DatabaseReference getUserDatabase() {
+      return database.getReference("users");
   }
 
   public DatabaseReference medicineInventoryDatabase() {
-    return this.database.getReference("medicine-inventory");
+      return database.getReference("medicineInventory");
   }
 
   public DatabaseReference medicineLogDatabase() {
-    return this.database.getReference("medicine-log");
+      return database.getReference("medicineLog");
   }
 
   public DatabaseReference pefDatabase() {
-    return this.database.getReference("pef");
+      return database.getReference("pefLog");
   }
 
   public DatabaseReference checkInDatabase() {
-    return this.database.getReference("check-in");
+      return database.getReference("check-in");
   }
 
   public DatabaseReference notificationDatabase() {
@@ -39,6 +39,6 @@ public class Service {
   }
 
   public DatabaseReference incidentDatabase() {
-    return this.database.getReference("incident");
+      return database.getReference("incidentLog");
   }
 }
