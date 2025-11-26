@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.view.login.AskUsertypeActivity;
+import com.example.b07project.view.parent.ParentDashboardActivity;
 //import com.google.firebase.auth.FirebaseUser;
 
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void getStarted() {
-        Intent intent = new Intent(MainActivity.this, AskUsertypeActivity.class);
+        Intent intent = new Intent(MainActivity.this, ParentDashboardActivity.class);
         startActivity(intent);
     }
 

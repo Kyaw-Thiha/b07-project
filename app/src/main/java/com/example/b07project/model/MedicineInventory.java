@@ -6,15 +6,15 @@ public class MedicineInventory {
   String name;
   Date purchaseDate;
   Date expiryDate;
-  int amountLeft;
+  int canisterPuffs;
 
   public MedicineInventory() {
   }
 
-  public MedicineInventory(String name, Date purchaseDate, Date expiryDate, int amountLeft) {
+  public MedicineInventory(String name, Date purchaseDate, Date expiryDate, int canisterPuffs) {
     this.name = name;
     this.purchaseDate = purchaseDate;
     this.expiryDate = expiryDate;
-    this.amountLeft = amountLeft;
+    this.canisterPuffs = canisterPuffs;
   }
 }
