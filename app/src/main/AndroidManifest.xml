@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07Project">
         <activity
+            android:name=".ThirdTechniqueHelperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SecondTechniqueHelperActivity"
+            android:exported="false" />
+        <activity
             android:name=".PefEntryActivity"
             android:exported="false" />
         <activity
@@ -27,69 +33,51 @@
         <activity
             android:name=".view.login.ResetPasswordActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.login.AskChildAgeActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.login.AskLoginSignupActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.login.AskUsertypeActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.login.SignupActivity"
-            android:exported="false" />
-
-        <!-- App Entry -->
+            android:exported="false" /> <!-- App Entry -->
         <activity
             android:name=".view.login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-        <!-- ========= CHILD DASHBOARD FLOW ========= -->
+        </activity> <!-- ========= CHILD DASHBOARD FLOW ========= -->
         <activity
             android:name=".view.child.ChildBadgeActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.ChildCheckinInputActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.ChildDashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.ChildSettingsActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.LogChildMedicineActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.LogChildRescueActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.child.LogChildSymptomActivity"
-            android:exported="false" />
-
-
-        <!-- ========= PARENT DASHBOARD ========= -->
+            android:exported="false" /> <!-- ========= PARENT DASHBOARD ========= -->
         <activity
             android:name=".view.parent.ParentDashboardActivity"
             android:exported="false" />
@@ -111,7 +99,6 @@
         <activity
             android:name=".view.parent.NotificationsActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
