@@ -15,6 +15,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.model.User.*;
 import com.example.b07project.view.child.ChildDashboardActivity;
@@ -28,6 +29,10 @@ import com.example.b07project.model.FirebaseManager;
 import com.example.b07project.view.common.BackButtonActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import com.example.b07project.viewModel.ParentProfileViewModel;
+import com.example.b07project.viewModel.ProviderProfileViewModel;
+import com.example.b07project.viewModel.ChildProfileViewModel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +49,11 @@ public class LoginActivity extends BackButtonActivity {
     private FirebaseDatabase db;
     private FirebaseAuth mAuth;
     SharedPreferences prefs;
+    private ParentProfileViewModel parentProfileViewModel;
+    private ProviderProfileViewModel providerProfileViewModel;
+    private ChildProfileViewModel childProfileViewModel;
+    private UserType pendingNavigation;
+    private String pendingUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +71,11 @@ public class LoginActivity extends BackButtonActivity {
 
         userType = UserType.valueOf(prefs.getString("USER_TYPE", null));
         db = FirebaseDatabase.getInstance();
+        parentProfileViewModel = new ViewModelProvider(this).get(ParentProfileViewModel.class);
+        providerProfileViewModel = new ViewModelProvider(this).get(ProviderProfileViewModel.class);
+        childProfileViewModel = new ViewModelProvider(this).get(ChildProfileViewModel.class);
+
+        observeUserProfiles();
 
         text = findViewById(R.id.Text);
         emailInput = findViewById(R.id.emailInput);
@@ -100,14 +115,15 @@ public class LoginActivity extends BackButtonActivity {
 
             Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
 
-            Intent intent = getIntent();
             String uid = mAuth.getCurrentUser().getUid();
+            pendingUid = uid;
 
             if (userType == UserType.CHILD) {
+                Intent intent = getIntent();
                 if (intent.hasExtra("child-user-age-below-9")) {
                     Boolean age_below_9 = intent.getBooleanExtra("child-user-age-below-9", false);
                     String child_uid = db.getReference("children").push().getKey();
-                    ChildUser user = new ChildUser(child_uid, "placeholder name", age_below_9);
+                    ChildUser user = new ChildUser(child_uid, "placeholder name", "", null, age_below_9);
                     SessionManager.setUser(user);
 
                     DatabaseReference childRef = FirebaseManager.getRefParent().child(uid)
@@ -123,20 +139,50 @@ public class LoginActivity extends BackButtonActivity {
                     data.put("symptomsLog", null);
                     childRef.setValue(data);
                 }
-                intent = new Intent(LoginActivity.this, ChildDashboardActivity.class);
+                startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+                return;
             }
-            else if (userType == UserType.PARENT) {
-                intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
+
+            pendingNavigation = userType;
+            if (userType == UserType.PARENT) {
+                parentProfileViewModel.loadParent(uid);
+            } else if (userType == UserType.PROVIDER) {
+                providerProfileViewModel.loadProvider(uid);
             }
-            else {
-                //stuffs to handle PROVIDER case
-            }
-            startActivity(intent);
         });
     }
 
     void resetPassword() {
         Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
         startActivity(intent);
+    }
+
+    private void observeUserProfiles() {
+        parentProfileViewModel.getParent().observe(this, parent -> {
+            if (parent != null && pendingNavigation == UserType.PARENT && pendingUid != null) {
+                SessionManager.setUser(parent);
+                pendingNavigation = null;
+                pendingUid = null;
+                startActivity(new Intent(LoginActivity.this, ParentDashboardActivity.class));
+            }
+        });
+
+        providerProfileViewModel.getProvider().observe(this, provider -> {
+            if (provider != null && pendingNavigation == UserType.PROVIDER && pendingUid != null) {
+                SessionManager.setUser(provider);
+                pendingNavigation = null;
+                pendingUid = null;
+                startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
+            }
+        });
+
+        childProfileViewModel.getChild().observe(this, child -> {
+            if (child != null && pendingNavigation == UserType.CHILD && pendingUid != null) {
+                SessionManager.setUser(child);
+                pendingNavigation = null;
+                pendingUid = null;
+                startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+            }
+        });
     }
 }

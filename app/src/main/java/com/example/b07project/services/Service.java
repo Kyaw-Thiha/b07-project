@@ -18,6 +18,22 @@ public class Service {
       return database.getReference("users");
   }
 
+  public DatabaseReference baseUserDatabase() {
+      return database.getReference("users").child("profiles");
+  }
+
+  public DatabaseReference parentUserDatabase() {
+      return database.getReference("users").child("parents");
+  }
+
+  public DatabaseReference childUserDatabase() {
+      return database.getReference("users").child("children");
+  }
+
+  public DatabaseReference providerUserDatabase() {
+      return database.getReference("users").child("providers");
+  }
+
   public DatabaseReference medicineInventoryDatabase() {
       return database.getReference("medicineInventory");
   }
