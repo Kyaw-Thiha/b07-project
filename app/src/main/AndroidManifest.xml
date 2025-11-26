@@ -29,7 +29,14 @@
             android:exported="false" />
         <activity
             android:name=".view.child.DoseCheckActivity"
-            android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
+            android:exported="false" /> 
+
+        <!-- ========= API Testing Driver ========= -->
+        <activity
+            android:name=".TestAPIActivity"
+            android:exported="true" />
+
+        <!-- ========= LOGIN FLOW ========= -->
         <activity
             android:name=".view.login.ResetPasswordActivity"
             android:exported="false" />
