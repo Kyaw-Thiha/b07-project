@@ -3,16 +3,16 @@ package com.example.b07project.view.child;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.b07project.DoseCheckActivity;
 import com.example.b07project.R;
 
-import com.example.b07project.model.BackButtonActivity;
+import com.example.b07project.view.common.BackButtonActivity;
 
 public class LogChildMedicineActivity extends BackButtonActivity {
 

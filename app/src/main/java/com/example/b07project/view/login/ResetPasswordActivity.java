@@ -41,7 +41,7 @@ public class ResetPasswordActivity extends BackButtonActivity {
 
         sendButton.setOnClickListener(v -> attemptSend());
     }
-
+    @SuppressWarnings("deprecation")
     private void attemptSend() {
         String email = emailInput.getText().toString().trim();
 
