@@ -1,6 +1,6 @@
 package com.example.b07project.model.User;
 
-import com.example.b07project.model.Medecine;
+import com.example.b07project.model.Medicine;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class ParentUser extends User {
     private String email;
     private ArrayList<ChildUser> children;
     private ArrayList<ProviderUser> providers;
-    private ArrayList<Medecine> inventory;
+    private ArrayList<Medicine> inventory;
 
     public ParentUser() {
         super();

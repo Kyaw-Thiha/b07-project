@@ -1,18 +1,18 @@
 package com.example.b07project.services;
 
-import com.example.b07project.model.Medecine;
+import com.example.b07project.model.Medicine;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import java.util.Map;
-public class MedicineInventoryRepository {
+public class MedicineRepository {
   private final Service service;
 
-  public MedicineInventoryRepository(Service service) {
+  public MedicineRepository(Service service) {
     this.service = service;
   }
 
-  public void add(String userId, Medecine medicine) {
+  public void add(String userId, Medicine medicine) {
     DatabaseReference ref = service
         .medicineInventoryDatabase()
         .child(userId)

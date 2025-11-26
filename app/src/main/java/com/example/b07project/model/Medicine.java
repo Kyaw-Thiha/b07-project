@@ -2,21 +2,21 @@ package com.example.b07project.model;
 
 import java.util.Date;
 
-public class Medecine {
+public class Medicine {
   private String name;
   private Date purchaseDate;
   private Date expiryDate;
   private int canisterPuffs;
   private String replacementRemainder;
 
-  public Medecine() {
+  public Medicine() {
   }
 
-  public Medecine(String name, Date purchaseDate, Date expiryDate, int canisterPuffs, String replacementRemainder) {
+  public Medicine(String name, Date purchaseDate, Date expiryDate, int canisterPuffs, String replacementRemainder) {
     this.name = name;
     this.purchaseDate = purchaseDate;
     this.expiryDate = expiryDate;
-    this.amountLeft = amountLeft;
+    this.canisterPuffs = canisterPuffs;
     this.replacementRemainder = replacementRemainder;
   }
 
@@ -44,11 +44,19 @@ public class Medecine {
     this.expiryDate = expiryDate;
   }
 
-  public int getAmountLeft() {
-    return amountLeft;
+  public int getCanisterPuffs() {
+    return canisterPuffs;
   }
 
-  public void setAmountLeft(int amountLeft) {
-    this.amountLeft = amountLeft;
+  public void setCanisterPuffs(int canisterPuffs) {
+    this.canisterPuffs = canisterPuffs;
+  }
+
+  public int getReplacementRemainder() {
+    return replacementRemainder;
+  }
+
+  public void setReplacementRemainder(int replacementRemainder) {
+    this.replacementRemainder = replacementRemainder;
   }
 }
