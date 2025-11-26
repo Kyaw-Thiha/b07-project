@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RescueDecisionActivity">
+    tools:context=".view.child.RescueDecisionActivity">
 
     <TextView
         android:id="@+id/textView42"
