@@ -14,10 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.b07project.R;
 
 import com.example.b07project.model.User.*;
+import com.example.b07project.model.FirebaseManager;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import com.example.b07project.view.common.BackButtonActivity;
 
@@ -93,13 +93,8 @@ public class SignupActivity extends BackButtonActivity {
 
             String uid = result.getResult().getUser().getUid();
 
-            DatabaseReference baseRef = FirebaseDatabase.getInstance().getReference()
-                    .child("users");
-
             if (userType == UserType.PARENT){
-                DatabaseReference ref = baseRef
-                        .child("parents")
-                        .child(uid);
+                DatabaseReference ref = FirebaseManager.getRefParent().child(uid);
                 Map<String, Object> data = new HashMap<>();
                 data.put("name", name);
                 data.put("email", email);
@@ -109,9 +104,7 @@ public class SignupActivity extends BackButtonActivity {
                 ref.setValue(data);
             }
             if (userType == UserType.PROVIDER){
-                DatabaseReference ref = baseRef
-                        .child("providers")
-                        .child(uid);
+                DatabaseReference ref = FirebaseManager.getRefProvider().child(uid);
                 Map<String, Object> data = new HashMap<>();
                 data.put("name", name);
                 data.put("email", email);

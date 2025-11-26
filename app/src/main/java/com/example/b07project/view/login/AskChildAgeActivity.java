@@ -3,7 +3,6 @@ package com.example.b07project.view.login;
 import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
@@ -35,15 +34,13 @@ public class AskChildAgeActivity extends BackButtonActivity {
     }
 
     private void toPage(Button b) {
-        SharedPreferences prefs = getSharedPreferences("APP_DATA", MODE_PRIVATE);
+        Boolean user_age_below9 = false;
         if (b == below9Button){
-            prefs.edit().putBoolean("user_age_below9", true).apply();
-        }
-        else {
-            prefs.edit().putBoolean("user_age_below9", false).apply();
+            user_age_below9 = true;
         }
 
         Intent intent = new Intent(AskChildAgeActivity.this, LoginActivity.class);
+        intent.putExtra("child-user-age-below-9", user_age_below9);
         startActivity(intent);
     }
 }

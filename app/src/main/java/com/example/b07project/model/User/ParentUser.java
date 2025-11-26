@@ -14,8 +14,8 @@ public class ParentUser extends User {
         super();
     }
 
-    public ParentUser(String uid, String email) {
-        super(uid);
+    public ParentUser(String uid, String name, String email) {
+        super(uid, name);
         this.email = email;
     }
 }
