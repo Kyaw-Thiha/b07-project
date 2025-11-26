@@ -13,8 +13,7 @@ public class IncidentRepository {
 
   public void add(String userId, Incident incident) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId)
+        .incidentDatabase(userId)
         .push();
 
     ref.setValue(incident);
@@ -22,8 +21,7 @@ public class IncidentRepository {
 
   public void update(String userId, String incidentId, Map<String, Object> updates) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId)
+        .incidentDatabase(userId)
         .child(incidentId);
 
     ref.updateChildren(updates);
@@ -31,8 +29,7 @@ public class IncidentRepository {
 
   public void delete(String userId, String incidentId) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId)
+        .incidentDatabase(userId)
         .child(incidentId);
 
     ref.removeValue();
@@ -40,8 +37,7 @@ public class IncidentRepository {
 
   public void get(String userId, String incidentId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId)
+        .incidentDatabase(userId)
         .child(incidentId);
 
     ref.addListenerForSingleValueEvent(listener);
@@ -49,16 +45,14 @@ public class IncidentRepository {
 
   public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId);
+        .incidentDatabase(userId);
 
     ref.addListenerForSingleValueEvent(listener);
   }
 
   public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .incidentDatabase()
-        .child(userId);
+        .incidentDatabase(userId);
 
     ref.addValueEventListener(listener);
   }
