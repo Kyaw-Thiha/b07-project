@@ -123,8 +123,10 @@ public class LoginActivity extends BackButtonActivity {
                 if (intent.hasExtra("child-user-age-below-9")) {
                     Boolean age_below_9 = intent.getBooleanExtra("child-user-age-below-9", false);
                     String child_uid = db.getReference("children").push().getKey();
-                    ChildUser user = new ChildUser(child_uid, "placeholder name", "", null, age_below_9);
+                    ChildUser user = new ChildUser(child_uid, "placeholder name", "", null, age_below_9, uid);
                     SessionManager.setUser(user);
+
+                    childProfileViewModel.createChild(child_uid, user);
 
                     DatabaseReference childRef = FirebaseManager.getRefParent().child(uid)
                             .child("children")
@@ -132,6 +134,7 @@ public class LoginActivity extends BackButtonActivity {
                     Map<String, Object> data = new HashMap();
                     data.put("name", user.getName());
                     data.put("ageBelow9", user.isAgeBelow9());
+                    data.put("parentId", uid);
                     data.put("optionalNote", "none");
                     data.put("medicineLog", null);
                     data.put("incidentLog", null);
