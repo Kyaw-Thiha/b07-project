@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".view.child.ChildBadgeActivity">
-
+    <include layout="@layout/back_button" />
 
     <TextView
         android:id="@+id/textView25"
@@ -46,8 +46,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView14"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <include layout="@layout/back_button" />
 
     <TextView
         android:id="@+id/textView11"
