@@ -7,7 +7,7 @@
  * Linked to /res/layout/activity_medicine_log_example.xml
  */
 
-package com.example.b07project;
+package com.example.b07project.view.child;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.b07project.R;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.viewModel.MedicineLogViewModel;
 
