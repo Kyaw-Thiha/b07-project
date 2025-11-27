@@ -10,7 +10,8 @@ public class Medicine {
   public Medicine() {
   }
 
-  public Medicine(String name, Date purchase_date, Date expiry_date, int canister_puffs, String replacement_reminder,
+  public Medicine(String name, String purchase_date, String expiry_date, int canister_puffs,
+      String replacement_reminder,
       String uid) {
     this.name = name;
     this.purchase_date = purchase_date;
