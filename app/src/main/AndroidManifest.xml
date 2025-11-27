@@ -93,6 +93,24 @@
         <activity
             android:name=".view.parent.ParentDashboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.parent.ManageChildActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.InviteProviderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.InventoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.IncidentLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.ChooseChildActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.NotificationsActivity"
+            android:exported="false" />
 
     </application>
 

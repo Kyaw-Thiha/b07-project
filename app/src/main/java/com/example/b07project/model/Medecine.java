@@ -6,13 +6,13 @@ public class Medecine {
   String name;
   Date purchaseDate;
   Date expiryDate;
-  int amountLeft;
+  int canisterPuffs;
   String replacementRemainder;
 
   public Medecine() {
   }
 
-  public Medecine(String name, Date purchaseDate, Date expiryDate, int amountLeft, String replacementRemainder) {
+  public Medecine(String name, Date purchaseDate, Date expiryDate, int canisterPuffs, String replacementRemainder) {
     this.name = name;
     this.purchaseDate = purchaseDate;
     this.expiryDate = expiryDate;
