@@ -29,16 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".view.child.DoseCheckActivity"
-            android:exported="false" /> 
-
-        <!-- ========= API Testing Driver ========= -->
+            android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
         <activity
-            android:name=".TestAPIActivity"
-            android:exported="true" />
-
-        <!-- ========= LOGIN FLOW ========= -->
-        <activity
-            android:name=".view.login.ResetPasswordActivity"
+            android:name=".view.child.ControllerMedicineInputActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
@@ -87,24 +80,6 @@
             android:exported="false" /> <!-- ========= PARENT DASHBOARD ========= -->
         <activity
             android:name=".view.parent.ParentDashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.ManageChildActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.InviteProviderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.InventoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.IncidentLogActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.ChooseChildActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.parent.NotificationsActivity"
             android:exported="false" />
     </application>
 

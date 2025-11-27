@@ -76,9 +76,10 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
       MedicineLog log = new MedicineLog(
           now,
           2, // doseCount
-          "worse", // preCheck
-          "better", // postCheck
-          uid);
+          250f, // preCheck
+          290f, // postCheck
+          4.5f // breathRating
+      );
 
       viewModel.addLog(uid, log);
       // ViewModel reloads and LiveData updates the UI
@@ -106,8 +107,8 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
     String exampleLogId = "REPLACE_WITH_REAL_LOG_ID";
 
     Map<String, Object> updates = new HashMap<>();
-    updates.put("dose", 3);
-    updates.put("after", "much better");
+    updates.put("doseCount", 3); // change dose count
+    updates.put("breathRating", 5.0f); // change breath rating
 
     viewModel.updateInventory(uid, exampleLogId, updates);
     // ViewModel will call loadLogByUser(uid) again internally
