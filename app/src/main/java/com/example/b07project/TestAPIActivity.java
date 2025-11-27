@@ -31,7 +31,6 @@ import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ChildProfileViewModel;
 import com.example.b07project.viewModel.UserViewModel;
-import com.example.b07project.viewModel.ReportViewModel;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -60,7 +59,6 @@ public class TestAPIActivity extends AppCompatActivity {
   private ProviderProfileViewModel providerProfileViewModel;
   private ChildProfileViewModel childProfileViewModel;
   private UserViewModel userViewModel;
-  private ReportViewModel reportViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +79,6 @@ public class TestAPIActivity extends AppCompatActivity {
     providerProfileViewModel = provider.get(ProviderProfileViewModel.class);
     childProfileViewModel = provider.get(ChildProfileViewModel.class);
     userViewModel = provider.get(UserViewModel.class);
-    reportViewModel = provider.get(ReportViewModel.class);
 
     buttonCreateSampleData.setOnClickListener(v -> createSampleData());
   }
@@ -146,15 +143,6 @@ public class TestAPIActivity extends AppCompatActivity {
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);
       notificationViewModel.addNotification(childUid, notification);
-
-      Report.ShareOptions shareOptions = new Report.ShareOptions();
-      reportViewModel.createReport(parentUser, childUser, providerUser,
-          java.util.Collections.singletonList(med),
-          java.util.Collections.singletonList(medicineLog),
-          java.util.Collections.singletonList(pef),
-          java.util.Collections.singletonList(checkIn),
-          java.util.Collections.singletonList(incident),
-          shareOptions);
 
       Toast
           .makeText(this, "Created parent " + parentUid + ", child " + childUid + ", provider " + providerUid,
