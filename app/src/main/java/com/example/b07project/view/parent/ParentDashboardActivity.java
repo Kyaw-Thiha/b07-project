@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.child.LogChildMedicineActivity;
+import com.example.b07project.view.child.PefEntryActivity;
 import com.example.b07project.view.common.BackButtonActivity;
 
 public class ParentDashboardActivity extends BackButtonActivity {

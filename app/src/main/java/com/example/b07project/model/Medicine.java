@@ -1,6 +1,7 @@
 package com.example.b07project.model;
 
 public class Medicine {
+  private String name;
   private String purchase_date;
   private String expiry_date;
   private int canister_puffs;
@@ -10,7 +11,8 @@ public class Medicine {
   public Medicine() {
   }
 
-  public Medicine(String name, Date purchase_date, Date expiry_date, int canister_puffs, String replacement_reminder,
+  public Medicine(String name, String purchase_date, String expiry_date, int canister_puffs,
+      String replacement_reminder,
       String uid) {
     this.name = name;
     this.purchase_date = purchase_date;
@@ -18,6 +20,14 @@ public class Medicine {
     this.canister_puffs = canister_puffs;
     this.replacement_reminder = replacement_reminder;
     this.uid = uid;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getPurchase_date() {
@@ -40,7 +50,7 @@ public class Medicine {
     return expiry_date;
   }
 
-  public void setCanister_puffs(String canister_puffs) {
+  public void setCanister_puffs(int canister_puffs) {
     this.canister_puffs = canister_puffs;
   }
 
