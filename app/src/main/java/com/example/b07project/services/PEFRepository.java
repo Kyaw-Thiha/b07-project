@@ -13,8 +13,7 @@ public class PEFRepository {
 
   public void add(String userId, PEF pef) {
     DatabaseReference ref = service
-        .pefDatabase()
-        .child(userId)
+        .pefDatabase(userId)
         .push();
 
     ref.setValue(pef);
@@ -22,26 +21,23 @@ public class PEFRepository {
 
   public void update(String userId, String pefId, Map<String, Object> updates) {
     DatabaseReference ref = service
-        .pefDatabase()
-        .child(userId)
+        .pefDatabase(userId)
         .child(pefId);
 
     ref.updateChildren(updates);
   }
 
-  public void delete(String userId, String notificationId) {
+  public void delete(String userId, String pefId) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId)
-        .child(notificationId);
+        .pefDatabase(userId)
+        .child(pefId);
 
     ref.removeValue();
   }
 
   public void get(String userId, String pefId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .pefDatabase()
-        .child(userId)
+        .pefDatabase(userId)
         .child(pefId);
 
     ref.addListenerForSingleValueEvent(listener);
@@ -49,16 +45,14 @@ public class PEFRepository {
 
   public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .pefDatabase()
-        .child(userId);
+        .pefDatabase(userId);
 
     ref.addListenerForSingleValueEvent(listener);
   }
 
   public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .pefDatabase()
-        .child(userId);
+        .pefDatabase(userId);
 
     ref.addValueEventListener(listener);
   }

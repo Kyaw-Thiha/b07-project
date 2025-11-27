@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.b07project.model.MedicineInventory;
-import com.example.b07project.services.MedicineInventoryRepository;
+import com.example.b07project.model.Medicine;
+import com.example.b07project.services.MedicineRepository;
 import com.example.b07project.services.Service;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,15 +17,15 @@ import java.util.List;
 import java.util.Map;
 
 
-public class MedicineInventoryViewModel extends ViewModel {
+public class MedicineViewModel extends ViewModel {
     private final Service service = new Service();
-    private final MedicineInventoryRepository medicineInventoryRepository = new MedicineInventoryRepository(service);
+    private final MedicineRepository medicineRepository = new MedicineRepository(service);
 
-    private final MutableLiveData<List<MedicineInventory>> medicineInventory = new MutableLiveData<>();
+    private final MutableLiveData<List<Medicine>> medicineInventory = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
 
     // Getters
-    public LiveData<List<MedicineInventory>> getInventory() {
+    public LiveData<List<Medicine>> getInventory() {
         return this.medicineInventory;
     }
     public LiveData<String> getLogError() {
@@ -34,13 +34,13 @@ public class MedicineInventoryViewModel extends ViewModel {
 
     // GET
     public void loadInventoryByUser(String uid) {
-        medicineInventoryRepository.getAll(uid, new ValueEventListener() {
+        medicineRepository.getAll(uid, new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<MedicineInventory> inventories = new ArrayList<>();
+                List<Medicine> inventories = new ArrayList<>();
 
                 for (DataSnapshot child: snapshot.getChildren()) {
-                    MedicineInventory inventory = child.getValue(MedicineInventory.class);
+                    Medicine inventory = child.getValue(Medicine.class);
                     if (inventory != null) {
                         inventories.add(inventory);
                     }
@@ -57,20 +57,20 @@ public class MedicineInventoryViewModel extends ViewModel {
     }
 
     // CREATE
-    public void addInventory(String uid, MedicineInventory item) {
-        medicineInventoryRepository.add(uid, item);
+    public void addInventory(String uid, Medicine item) {
+        medicineRepository.add(uid, item);
         loadInventoryByUser(uid);
     }
 
     // UPDATE
     public void updateInventory(String uid, String medicineId, Map<String, Object> updates) {
-        medicineInventoryRepository.update(uid, medicineId, updates);
+        medicineRepository.update(uid, medicineId, updates);
          loadInventoryByUser(uid);
     }
 
     // DELETE
     public void deleteInventory(String uid, String medicineId) {
-        medicineInventoryRepository.delete(uid, medicineId);
+        medicineRepository.delete(uid, medicineId);
          loadInventoryByUser(uid);
     }
 }

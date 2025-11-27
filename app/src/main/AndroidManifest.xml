@@ -31,7 +31,7 @@
             android:name=".view.child.DoseCheckActivity"
             android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
         <activity
-            android:name=".view.login.ResetPasswordActivity"
+            android:name=".view.child.ControllerMedicineInputActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
@@ -49,7 +49,7 @@
             android:name=".view.login.SignupActivity"
             android:exported="false" /> <!-- App Entry -->
         <activity
-            android:name=".MainActivity"
+            android:name=".view.login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,231 @@
+{
+  "motivation": {
+    "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
+      "streaks": {
+        "medicineLog": {
+          "best": 1,
+          "current": 1,
+          "updatedAt": 20418
+        }
+      }
+    }
+  },
+  "reports": {
+    "-Of1XCgQJbVZHSGTMXOT": {
+      "checkIns": [
+        {
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "nothing",
+            "triggers": {
+              "cold_air": true,
+              "dust": false,
+              "exercise": true,
+              "illness": false,
+              "perfume_odors": false,
+              "smoking_weed_hopefully_not": true
+            }
+          },
+          "time": 1764200340206,
+          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        }
+      ],
+      "childId": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3",
+      "childName": "Test Child",
+      "createdAt": 1764200340251,
+      "incidents": [
+        {
+          "flags": {
+            "blueLips": false,
+            "cantSpeakFullSentences": true,
+            "chestPulling": false,
+            "severeWheeze": true,
+            "unableToLieFlat": false
+          },
+          "guidance": "guidance text",
+          "pefNumber": 3,
+          "time": 1764200440206,
+          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        }
+      ],
+      "medicineLogs": [
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 2,
+          "time": 1764200340206,
+          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        }
+      ],
+      "medicines": [
+        {
+          "amount": 0.63,
+          "cannisterPuffs": 200,
+          "expiry_date": "01/26/26",
+          "purchase_date": "11/20/25",
+          "replacement_reminder": "stuffs",
+          "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+        }
+      ],
+      "parentId": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748",
+      "parentName": "Test Parent",
+      "pefLogs": [
+        {
+          "post_med": 300,
+          "pre_med": 250,
+          "time": 1764200340206,
+          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        }
+      ],
+      "providerId": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278",
+      "providerName": "Test Provider",
+      "shareOptions": {
+        "includeCheckIns": true,
+        "includeIncidents": true,
+        "includeMedicineLogs": true,
+        "includeMedicines": true,
+        "includePefLogs": true
+      },
+      "uid": "-Of1XCgQJbVZHSGTMXOT"
+    }
+  },
+  "users": {
+    "children": {
+      "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
+        "ageBelow9": true,
+        "checkIn": {
+          "-Of1XCgLXb4VQmvLEZ_A": {
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "nothing",
+              "triggers": {
+                "cold_air": true,
+                "dust": false,
+                "exercise": true,
+                "illness": false,
+                "perfume_odors": false,
+                "smoking_weed_hopefully_not": true
+              }
+            },
+            "time": 1764200340206,
+            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          }
+        },
+        "email": "child+test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3@example.com",
+        "incidentLog": {
+          "-Of1XCgPFkqFcn7QT2Ml": {
+            "flags": {
+              "blueLips": false,
+              "cantSpeakFullSentences": true,
+              "chestPulling": false,
+              "severeWheeze": true,
+              "unableToLieFlat": false
+            },
+            "guidance": "guidance text",
+            "pefNumber": 3,
+            "time": 1764200440206,
+            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          }
+        },
+        "medicineLog": {
+          "-Of1XCgOgN4KjKNk6S_H": {
+            "after": "better",
+            "before": "worse",
+            "dose": 2,
+            "time": 1764200340206,
+            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          }
+        },
+        "name": "Test Child",
+        "notification": {
+          "-Of1XCgQJbVZHSGTMXOS": {
+            "text": "Generated at Wed Nov 26 18:39:00 EST 2025",
+            "title": "Firebase smoke test"
+          }
+        },
+        "parentId": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748",
+        "pefLog": {
+          "-Of1XCgOgN4KjKNk6S_I": {
+            "post_med": 300,
+            "pre_med": 250,
+            "time": 1764200340206,
+            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          }
+        },
+        "reports": {
+          "-Of1XCgQJbVZHSGTMXOT": true
+        },
+        "roles": {
+          "child": true
+        },
+        "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+      }
+    },
+    "parents": {
+      "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748": {
+        "email": "parent+test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748@example.com",
+        "inventory": {
+          "-Of1XCgNRkBH2eP1SXyK": {
+            "amount": 0.63,
+            "cannisterPuffs": 200,
+            "expiry_date": "01/26/26",
+            "purchase_date": "11/20/25",
+            "replacement_reminder": "stuffs",
+            "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+          }
+        },
+        "name": "Test Parent",
+        "reports": {
+          "-Of1XCgQJbVZHSGTMXOT": true
+        },
+        "roles": {
+          "parent": true
+        },
+        "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+      },
+      "xoS7iK3YrVONYB7j5VRcFDPeOek1": {
+        "email": "a@gmail.com",
+        "name": "Simon"
+      }
+    },
+    "profiles": {
+      "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
+        "email": "child+test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3@example.com",
+        "name": "Test Child",
+        "roles": {
+          "child": true
+        },
+        "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+      },
+      "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748": {
+        "email": "parent+test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748@example.com",
+        "name": "Test Parent",
+        "roles": {
+          "parent": true
+        },
+        "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+      },
+      "test-provider-94f7659e-b323-4f93-90fb-530d7a686278": {
+        "email": "provider+test-provider-94f7659e-b323-4f93-90fb-530d7a686278@example.com",
+        "name": "Test Provider",
+        "roles": {
+          "provider": true
+        },
+        "uid": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278"
+      }
+    },
+    "providers": {
+      "test-provider-94f7659e-b323-4f93-90fb-530d7a686278": {
+        "email": "provider+test-provider-94f7659e-b323-4f93-90fb-530d7a686278@example.com",
+        "name": "Test Provider",
+        "reports": {
+          "-Of1XCgQJbVZHSGTMXOT": true
+        },
+        "roles": {
+          "provider": true
+        },
+        "uid": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278"
+      }
+    }
+  }
+}

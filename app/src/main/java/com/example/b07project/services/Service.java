@@ -4,41 +4,117 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Service {
-  private final FirebaseDatabase database;
+  private FirebaseDatabase database;
 
   public Service() {
-    this.database = FirebaseDatabase.getInstance();
+    database = FirebaseDatabase.getInstance();
   }
 
-  public DatabaseReference root() {
-    return this.database.getReference();
+  public DatabaseReference getRoot() {
+    return database.getReference();
   }
 
-  public DatabaseReference userDatabase() {
-    return this.database.getReference("user");
+  public DatabaseReference getUserDatabase() {
+    return database.getReference("users");
   }
 
-  public DatabaseReference medicineInventoryDatabase() {
-    return this.database.getReference("medicine-inventory");
+  public DatabaseReference baseUserDatabase() {
+    return database.getReference("users").child("profiles");
   }
 
-  public DatabaseReference medicineLogDatabase() {
-    return this.database.getReference("medicine-log");
+  public DatabaseReference parentUserDatabase() {
+    return database.getReference("users").child("parents");
   }
 
-  public DatabaseReference pefDatabase() {
-    return this.database.getReference("pef");
+  public DatabaseReference childUserDatabase() {
+    return database.getReference("users").child("children");
   }
 
-  public DatabaseReference checkInDatabase() {
-    return this.database.getReference("check-in");
+  public DatabaseReference providerUserDatabase() {
+    return database.getReference("users").child("providers");
   }
 
-  public DatabaseReference notificationDatabase() {
-    return this.database.getReference("notification");
+  // For the reports
+  public DatabaseReference reportDatabase() {
+    return database.getReference("reports");
   }
 
-  public DatabaseReference incidentDatabase() {
-    return this.database.getReference("incident");
+  public DatabaseReference parentReportsIndex(String parentId) {
+    return database.getReference("users")
+        .child("parents")
+        .child(parentId)
+        .child("reports");
+  }
+
+  public DatabaseReference childReportsIndex(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("reports");
+  }
+
+  public DatabaseReference providerReportsIndex(String providerId) {
+    return database.getReference("users")
+        .child("providers")
+        .child(providerId)
+        .child("reports");
+  }
+
+  public DatabaseReference parentInviteDatabase(String parentId) {
+    return database.getReference("users")
+        .child("parents")
+        .child(parentId)
+        .child("invite");
+  }
+
+  public DatabaseReference inviteCodeIndex() {
+    return database.getReference("invites");
+  }
+
+  public DatabaseReference motivationDatabase(String childId) {
+    return database.getReference("motivation").child(childId);
+  }
+
+  // The Logs
+  public DatabaseReference medicineInventoryDatabase(String parentId) {
+    return database.getReference("users")
+        .child("parents")
+        .child(parentId)
+        .child("inventory");
+  }
+
+  public DatabaseReference medicineLogDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("medicineLog");
+  }
+
+  public DatabaseReference pefDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("pefLog");
+  }
+
+  public DatabaseReference checkInDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("checkIn");
+  }
+
+  public DatabaseReference notificationDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("notification");
+  }
+
+  public DatabaseReference incidentDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("incidentLog");
   }
 }

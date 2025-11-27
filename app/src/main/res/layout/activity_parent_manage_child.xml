@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <include layout="@layout/back_button" />
+    <LinearLayout
+        android:id="@+id/child_card"
+        android:layout_width="300dp"
+        android:layout_height="580dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/card_background"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView38"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/age" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Provider(s):"
+            android:layout_marginBottom="40dp"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="clip_vertical"
+            android:layout_margin="24dp"
+            android:layout_marginTop="100dp">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView55"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/labels"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/data_label"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ToggleButton
+                    android:id="@+id/toggle_rescue_logs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView56"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/rescue_logs_label" />
+
+                <TextView
+                    android:id="@+id/on6"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ToggleButton
+                    android:id="@+id/toggle_controller_adherence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/controller_adherence_label" />
+
+                <TextView
+                    android:id="@+id/on0"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ToggleButton
+                    android:id="@+id/toggle_symptoms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/symptoms_label" />
+
+                <TextView
+                    android:id="@+id/on1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ToggleButton
+                    android:id="@+id/toggle_triggers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/triggers_label" />
+
+                <TextView
+                    android:id="@+id/on2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ToggleButton
+                    android:id="@+id/toggle_peak_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/peak_flow_button" />
+
+                <TextView
+                    android:id="@+id/on3"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ToggleButton
+                    android:id="@+id/toggle_triage_incidents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView53"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/triage_incidents_label" />
+
+                <TextView
+                    android:id="@+id/on4"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ToggleButton
+                    android:id="@+id/toggle_summary_charts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:background="@color/white"
+                    android:text="@string/togglebutton"
+                    android:textOn="@string/shared_with_provider_label"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/summary_charts_label" />
+
+                <TextView
+                    android:id="@+id/on17"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:paddingRight="100dp"
+                    android:text="@string/shared_with_provider_label"
+                    android:textColor="@color/green"
+                    android:visibility="gone" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:text="Manage My Child"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/child_card"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
