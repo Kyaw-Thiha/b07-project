@@ -1,12 +1,11 @@
 package com.example.b07project.viewModel;
 
-import android.app.Notification;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.b07project.model.Notification;
 import com.example.b07project.services.NotificationRepository;
 import com.example.b07project.services.Service;
 import com.google.firebase.database.DataSnapshot;

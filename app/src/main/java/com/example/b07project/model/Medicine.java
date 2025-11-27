@@ -1,6 +1,7 @@
 package com.example.b07project.model;
 
 public class Medicine {
+  private String name;
   private String purchase_date;
   private String expiry_date;
   private int canister_puffs;
@@ -19,6 +20,14 @@ public class Medicine {
     this.canister_puffs = canister_puffs;
     this.replacement_reminder = replacement_reminder;
     this.uid = uid;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getPurchase_date() {
