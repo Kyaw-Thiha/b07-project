@@ -50,7 +50,7 @@ public class Medicine {
     return expiry_date;
   }
 
-  public void setCanister_puffs(String canister_puffs) {
+  public void setCanister_puffs(int canister_puffs) {
     this.canister_puffs = canister_puffs;
   }
 
