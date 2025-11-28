@@ -6,7 +6,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.model.CheckIn;
@@ -22,16 +26,18 @@ import com.example.b07project.model.User.ParentUser;
 import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
 import com.example.b07project.viewModel.CheckInViewModel;
+import com.example.b07project.viewModel.ChildProfileViewModel;
 import com.example.b07project.viewModel.IncidentViewModel;
-import com.example.b07project.viewModel.MedicineViewModel;
 import com.example.b07project.viewModel.MedicineLogViewModel;
+import com.example.b07project.viewModel.MedicineViewModel;
 import com.example.b07project.viewModel.NotificationViewModel;
 import com.example.b07project.viewModel.PEFViewModel;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
-import com.example.b07project.viewModel.ChildProfileViewModel;
+import com.example.b07project.viewModel.ReportViewModel;
 import com.example.b07project.viewModel.UserViewModel;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
@@ -59,12 +65,18 @@ public class TestAPIActivity extends AppCompatActivity {
   private ProviderProfileViewModel providerProfileViewModel;
   private ChildProfileViewModel childProfileViewModel;
   private UserViewModel userViewModel;
+  private ReportViewModel reportViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_test_api);
-
+      super.onCreate(savedInstanceState);
+      EdgeToEdge.enable(this);
+      setContentView(R.layout.activity_test_api);
+      ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+          Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+          v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+          return insets;
+      });
     textStatus = findViewById(R.id.textStatus);
     buttonCreateSampleData = findViewById(R.id.buttonCreateSampleData);
 
@@ -79,6 +91,7 @@ public class TestAPIActivity extends AppCompatActivity {
     providerProfileViewModel = provider.get(ProviderProfileViewModel.class);
     childProfileViewModel = provider.get(ChildProfileViewModel.class);
     userViewModel = provider.get(UserViewModel.class);
+    reportViewModel = provider.get(ReportViewModel.class);
 
     buttonCreateSampleData.setOnClickListener(v -> createSampleData());
   }
@@ -121,6 +134,7 @@ public class TestAPIActivity extends AppCompatActivity {
       childProfileViewModel.createChild(childUid, childUser);
       providerProfileViewModel.createProvider(providerUid, providerUser);
 
+
       // Build sample payloads
       CheckIn.Triggers triggers = new CheckIn.Triggers(true, true, false, true, false, false);
       CheckIn.NightWalking nightWalking = new CheckIn.NightWalking(false, triggers, "nothing");
@@ -143,6 +157,16 @@ public class TestAPIActivity extends AppCompatActivity {
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);
       notificationViewModel.addNotification(childUid, notification);
+      reportViewModel.createReport(
+          parentUser,
+          childUser,
+          providerUser,
+          Collections.singletonList(med),
+          Collections.singletonList(medicineLog),
+          Collections.singletonList(pef),
+          Collections.singletonList(checkIn),
+          Collections.singletonList(incident),
+          new Report.ShareOptions());
 
       Toast
           .makeText(this, "Created parent " + parentUid + ", child " + childUid + ", provider " + providerUid,
