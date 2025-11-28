@@ -77,7 +77,7 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
           2, // doseCount
           250f, // preCheck
           290f, // postCheck
-          4.5f // breathRating
+          "good" // breathRating
       );
 
       viewModel.addLog(uid, log);
