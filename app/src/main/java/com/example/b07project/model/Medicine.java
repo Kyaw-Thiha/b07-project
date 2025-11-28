@@ -46,8 +46,8 @@ public class Medicine {
     this.expiry_date = expiry_date;
   }
 
-  public String getCanister_puffs() {
-    return expiry_date;
+  public int getCanister_puffs() {
+    return canister_puffs;
   }
 
   public void setCanister_puffs(int canister_puffs) {
