@@ -2,11 +2,10 @@ package com.example.b07project.view.child;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
 import android.view.View;
 import android.widget.CheckBox;
->>>>>>> a1f68b8f356a853c3df536839b47ecd65f3232a8
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ToggleButton;
 
 import androidx.activity.EdgeToEdge;

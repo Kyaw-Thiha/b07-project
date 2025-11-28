@@ -159,7 +159,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
 <<<<<<< HEAD
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.027" />
+=======
+        app:layout_constraintVertical_bias="0.0" />
+>>>>>>> a1f68b8f356a853c3df536839b47ecd65f3232a8
 =======
         app:layout_constraintVertical_bias="0.0" />
 >>>>>>> a1f68b8f356a853c3df536839b47ecd65f3232a8
