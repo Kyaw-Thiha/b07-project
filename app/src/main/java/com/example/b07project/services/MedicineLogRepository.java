@@ -15,8 +15,7 @@ public class MedicineLogRepository {
 
   public void add(String userId, MedicineLog medicine) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId)
+        .medicineLogDatabase(userId)
         .push();
 
     ref.setValue(medicine);
@@ -24,8 +23,7 @@ public class MedicineLogRepository {
 
   public void update(String userId, String medicineId, Map<String, Object> updates) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId)
+        .medicineLogDatabase(userId)
         .child(medicineId);
 
     ref.updateChildren(updates);
@@ -33,8 +31,7 @@ public class MedicineLogRepository {
 
   public void delete(String userId, String medicineId) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId)
+        .medicineLogDatabase(userId)
         .child(medicineId);
 
     ref.removeValue();
@@ -42,8 +39,7 @@ public class MedicineLogRepository {
 
   public void get(String userId, String medicineLogId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId)
+        .medicineLogDatabase(userId)
         .child(medicineLogId);
 
     ref.addListenerForSingleValueEvent(listener);
@@ -51,16 +47,14 @@ public class MedicineLogRepository {
 
   public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId);
+        .medicineLogDatabase(userId);
 
     ref.addListenerForSingleValueEvent(listener);
   }
 
   public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .medicineLogDatabase()
-        .child(userId);
+        .medicineLogDatabase(userId);
 
     ref.addValueEventListener(listener);
   }

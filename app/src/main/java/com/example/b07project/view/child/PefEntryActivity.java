@@ -1,18 +1,19 @@
-package com.example.b07project;
+package com.example.b07project.view.child;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.b07project.view.child.ChildDashboardActivity;
-
+import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class PefEntryActivity extends BackButtonActivity {
 
@@ -25,6 +26,7 @@ public class PefEntryActivity extends BackButtonActivity {
     //TextInputEditText pefInput = findViewById(R.id.editText4);
     //TextInputEditText preDoseInput = findViewById(R.id.editText3);
     //TextInputEditText postDoseInput = findViewById(R.id.editText5);
+    int choice =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class PefEntryActivity extends BackButtonActivity {
         TextView bothPefBlock = findViewById(R.id.textView54);
         singlePefBlock.setVisibility(View.INVISIBLE);
         bothPefBlock.setVisibility(View.VISIBLE);
+        choice = 1;
     }
 
     public void bothPEF(View view){
@@ -54,12 +57,30 @@ public class PefEntryActivity extends BackButtonActivity {
         TextView bothPefBlock = findViewById(R.id.textView54);
         bothPefBlock.setVisibility(View.INVISIBLE);
         singlePefBlock.setVisibility(View.VISIBLE);
+        choice = 2;
     }
 
     public void pefSubmit(View view){
-        //add pef to firebase through repository
-        //go to dashboard
-        Intent intent = new Intent(this, ChildDashboardActivity.class);
-        startActivity(intent);
+        if(choice !=0) {
+            if(choice==1){
+                //add single pef to firebase through repository
+                TextInputEditText pefInput = findViewById(R.id.editText4);
+                String input = pefInput.getText().toString();
+            }
+            else {
+                //add both pef values to firebase through repository
+                TextInputEditText preDoseInput = findViewById(R.id.editText3);
+                TextInputEditText postDoseInput = findViewById(R.id.editText5);
+                String preInput = preDoseInput.getText().toString();
+                String postInput = postDoseInput.getText().toString();
+            }
+            //go to dashboard
+            Intent intent = new Intent(this, ChildDashboardActivity.class);
+            startActivity(intent);
+        }
+        else{
+            String msg = "Please choose and enter your PEF";
+            Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
+        }
     }
 }

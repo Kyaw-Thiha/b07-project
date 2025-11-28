@@ -1,6 +1,7 @@
 package com.example.b07project.viewModel;
 
 import com.example.b07project.model.MedicineLog;
+import com.example.b07project.model.MotivationManager;
 import com.example.b07project.services.MedicineLogRepository;
 import com.example.b07project.services.Service;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ import java.util.Map;
 public class MedicineLogViewModel extends ViewModel {
   private final Service service = new Service();
     private final MedicineLogRepository medicineLogRepository = new MedicineLogRepository(service);
+    private final MotivationManager motivationManager = new MotivationManager(service);
 
     private final MutableLiveData<List<MedicineLog>> medicineLogs = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
@@ -75,6 +77,7 @@ public class MedicineLogViewModel extends ViewModel {
     // CREATE
     public void addLog(String uid, MedicineLog item) {
         medicineLogRepository.add(uid, item);
+        motivationManager.onMedicineLogAdded(uid, item);
         loadLogByUser(uid);
     }
 

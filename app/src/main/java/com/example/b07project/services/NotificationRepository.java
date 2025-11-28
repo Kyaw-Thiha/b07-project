@@ -1,7 +1,6 @@
 package com.example.b07project.services;
 
-import android.app.Notification;
-
+import com.example.b07project.model.Notification;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
@@ -16,17 +15,15 @@ public class NotificationRepository {
 
   public void add(String userId, Notification notification) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId)
+        .notificationDatabase(userId)
         .push();
 
-    //ref.setValue(medicine);
+    ref.setValue(notification);
   }
 
   public void update(String userId, String notificationId, Map<String, Object> updates) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId)
+        .notificationDatabase(userId)
         .child(notificationId);
 
     ref.updateChildren(updates);
@@ -34,8 +31,7 @@ public class NotificationRepository {
 
   public void delete(String userId, String notificationId) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId)
+        .notificationDatabase(userId)
         .child(notificationId);
 
     ref.removeValue();
@@ -43,8 +39,7 @@ public class NotificationRepository {
 
   public void get(String userId, String notificationId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId)
+        .notificationDatabase(userId)
         .child(notificationId);
 
     ref.addListenerForSingleValueEvent(listener);
@@ -52,16 +47,14 @@ public class NotificationRepository {
 
   public void getAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId);
+        .notificationDatabase(userId);
 
     ref.addListenerForSingleValueEvent(listener);
   }
 
   public void observeAll(String userId, ValueEventListener listener) {
     DatabaseReference ref = service
-        .notificationDatabase()
-        .child(userId);
+        .notificationDatabase(userId);
 
     ref.addValueEventListener(listener);
   }
