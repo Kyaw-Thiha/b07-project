@@ -1,4 +1,6 @@
 package com.example.b07project.view.parent;
 
-public class NotificationsActivity {
+import com.example.b07project.view.common.BackButtonActivity;
+
+public class NotificationsActivity extends BackButtonActivity {
 }
