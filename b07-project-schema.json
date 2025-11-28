@@ -1,17 +1,17 @@
 {
   "motivation": {
-    "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
+    "test-child-37ada005-da2a-4951-bbf3-dd0814498d23": {
       "streaks": {
         "medicineLog": {
           "best": 1,
           "current": 1,
-          "updatedAt": 20418
+          "updatedAt": 20420
         }
       }
     }
   },
   "reports": {
-    "-Of1XCgQJbVZHSGTMXOT": {
+    "-Of71Fqe5tOXLTLSwDNB": {
       "checkIns": [
         {
           "night_walking": {
@@ -26,13 +26,13 @@
               "smoking_weed_hopefully_not": true
             }
           },
-          "time": 1764200340206,
-          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          "time": 1764292627664,
+          "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
         }
       ],
-      "childId": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3",
+      "childId": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23",
       "childName": "Test Child",
-      "createdAt": 1764200340251,
+      "createdAt": 1764292627882,
       "incidents": [
         {
           "flags": {
@@ -44,8 +44,8 @@
           },
           "guidance": "guidance text",
           "pefNumber": 3,
-          "time": 1764200440206,
-          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          "time": 1764292727664,
+          "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
         }
       ],
       "medicineLogs": [
@@ -53,31 +53,31 @@
           "after": "better",
           "before": "worse",
           "dose": 2,
-          "time": 1764200340206,
-          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          "time": 1764292627664,
+          "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
         }
       ],
       "medicines": [
         {
-          "amount": 0.63,
-          "cannisterPuffs": 200,
-          "expiry_date": "01/26/26",
-          "purchase_date": "11/20/25",
-          "replacement_reminder": "stuffs",
-          "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+          "canister_puffs": 200,
+          "expiry_date": "2026-01-26",
+          "name": "Penicillin",
+          "purchase_date": "2025-11-20",
+          "replacement_reminder": "2026-01-26",
+          "uid": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa"
         }
       ],
-      "parentId": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748",
+      "parentId": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa",
       "parentName": "Test Parent",
       "pefLogs": [
         {
           "post_med": 300,
           "pre_med": 250,
-          "time": 1764200340206,
-          "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+          "time": 1764292627664,
+          "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
         }
       ],
-      "providerId": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278",
+      "providerId": "test-provider-b0950f30-0594-4760-85ea-83f7e9695b45",
       "providerName": "Test Provider",
       "shareOptions": {
         "includeCheckIns": true,
@@ -86,15 +86,15 @@
         "includeMedicines": true,
         "includePefLogs": true
       },
-      "uid": "-Of1XCgQJbVZHSGTMXOT"
+      "uid": "-Of71Fqe5tOXLTLSwDNB"
     }
   },
   "users": {
     "children": {
-      "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
+      "test-child-37ada005-da2a-4951-bbf3-dd0814498d23": {
         "ageBelow9": true,
         "checkIn": {
-          "-Of1XCgLXb4VQmvLEZ_A": {
+          "-Of71FqZC4_zAx0W2r1i": {
             "night_walking": {
               "entry_by_parent": false,
               "note": "nothing",
@@ -107,13 +107,13 @@
                 "smoking_weed_hopefully_not": true
               }
             },
-            "time": 1764200340206,
-            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+            "time": 1764292627664,
+            "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
           }
         },
-        "email": "child+test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3@example.com",
+        "email": "child+test-child-37ada005-da2a-4951-bbf3-dd0814498d23@example.com",
         "incidentLog": {
-          "-Of1XCgPFkqFcn7QT2Ml": {
+          "-Of71Fqc60dmOY7Xf_qm": {
             "flags": {
               "blueLips": false,
               "cantSpeakFullSentences": true,
@@ -123,108 +123,104 @@
             },
             "guidance": "guidance text",
             "pefNumber": 3,
-            "time": 1764200440206,
-            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+            "time": 1764292727664,
+            "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
           }
         },
         "medicineLog": {
-          "-Of1XCgOgN4KjKNk6S_H": {
+          "-Of71FqbhZBW5T2VEfY6": {
             "after": "better",
             "before": "worse",
             "dose": 2,
-            "time": 1764200340206,
-            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+            "time": 1764292627664,
+            "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
           }
         },
         "name": "Test Child",
         "notification": {
-          "-Of1XCgQJbVZHSGTMXOS": {
-            "text": "Generated at Wed Nov 26 18:39:00 EST 2025",
+          "-Of71FqdDwvULh9VQavd": {
+            "text": "Generated at Thu Nov 27 20:17:07 EST 2025",
             "title": "Firebase smoke test"
           }
         },
-        "parentId": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748",
+        "parentId": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa",
         "pefLog": {
-          "-Of1XCgOgN4KjKNk6S_I": {
+          "-Of71Fqc60dmOY7Xf_ql": {
             "post_med": 300,
             "pre_med": 250,
-            "time": 1764200340206,
-            "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+            "time": 1764292627664,
+            "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
           }
         },
         "reports": {
-          "-Of1XCgQJbVZHSGTMXOT": true
+          "-Of71Fqe5tOXLTLSwDNB": true
         },
         "roles": {
           "child": true
         },
-        "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
       }
     },
     "parents": {
-      "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748": {
-        "email": "parent+test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748@example.com",
+      "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa": {
+        "email": "parent+test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa@example.com",
         "inventory": {
-          "-Of1XCgNRkBH2eP1SXyK": {
-            "amount": 0.63,
-            "cannisterPuffs": 200,
-            "expiry_date": "01/26/26",
-            "purchase_date": "11/20/25",
-            "replacement_reminder": "stuffs",
-            "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+          "-Of71FqbhZBW5T2VEfY5": {
+            "canister_puffs": 200,
+            "expiry_date": "2026-01-26",
+            "name": "Penicillin",
+            "purchase_date": "2025-11-20",
+            "replacement_reminder": "2026-01-26",
+            "uid": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa"
           }
         },
         "name": "Test Parent",
         "reports": {
-          "-Of1XCgQJbVZHSGTMXOT": true
+          "-Of71Fqe5tOXLTLSwDNB": true
         },
         "roles": {
           "parent": true
         },
-        "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
-      },
-      "xoS7iK3YrVONYB7j5VRcFDPeOek1": {
-        "email": "a@gmail.com",
-        "name": "Simon"
+        "uid": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa"
       }
     },
     "profiles": {
-      "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3": {
-        "email": "child+test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3@example.com",
+      "test-child-37ada005-da2a-4951-bbf3-dd0814498d23": {
+        "email": "child+test-child-37ada005-da2a-4951-bbf3-dd0814498d23@example.com",
         "name": "Test Child",
         "roles": {
           "child": true
         },
-        "uid": "test-child-b1d43b8f-79ee-4928-a589-af3ee590c3e3"
+        "uid": "test-child-37ada005-da2a-4951-bbf3-dd0814498d23"
       },
-      "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748": {
-        "email": "parent+test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748@example.com",
+      "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa": {
+        "email": "parent+test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa@example.com",
         "name": "Test Parent",
         "roles": {
           "parent": true
         },
-        "uid": "test-parent-50a1eda6-7bbe-4ef1-a0de-48ebc7320748"
+        "uid": "test-parent-7e992fa2-1584-4ed3-88cb-db62136e7baa"
       },
-      "test-provider-94f7659e-b323-4f93-90fb-530d7a686278": {
-        "email": "provider+test-provider-94f7659e-b323-4f93-90fb-530d7a686278@example.com",
+      "test-provider-b0950f30-0594-4760-85ea-83f7e9695b45": {
+        "email": "provider+test-provider-b0950f30-0594-4760-85ea-83f7e9695b45@example.com",
         "name": "Test Provider",
         "roles": {
           "provider": true
         },
-        "uid": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278"
+        "uid": "test-provider-b0950f30-0594-4760-85ea-83f7e9695b45"
       }
     },
     "providers": {
-      "test-provider-94f7659e-b323-4f93-90fb-530d7a686278": {
-        "email": "provider+test-provider-94f7659e-b323-4f93-90fb-530d7a686278@example.com",
+      "test-provider-b0950f30-0594-4760-85ea-83f7e9695b45": {
+        "email": "provider+test-provider-b0950f30-0594-4760-85ea-83f7e9695b45@example.com",
         "name": "Test Provider",
         "reports": {
-          "-Of1XCgQJbVZHSGTMXOT": true
+          "-Of71Fqe5tOXLTLSwDNB": true
         },
         "roles": {
           "provider": true
         },
-        "uid": "test-provider-94f7659e-b323-4f93-90fb-530d7a686278"
+        "uid": "test-provider-b0950f30-0594-4760-85ea-83f7e9695b45"
       }
     }
   }
