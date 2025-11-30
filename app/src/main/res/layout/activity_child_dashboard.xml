@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/roundedEdgeBackground"
         android:layout_width="159dp"
         android:layout_height="49dp"
         android:layout_marginStart="126dp"
@@ -79,7 +79,7 @@
         android:onClick="rescueMedicine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/roundedEdgeBackground"
         app:layout_constraintTop_toBottomOf="@+id/button4"
         app:srcCompat="@drawable/rescue_button_icon" />
 

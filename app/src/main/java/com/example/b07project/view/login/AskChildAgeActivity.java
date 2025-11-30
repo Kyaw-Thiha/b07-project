@@ -39,7 +39,7 @@ public class AskChildAgeActivity extends BackButtonActivity {
             user_age_below9 = true;
         }
 
-        Intent intent = new Intent(AskChildAgeActivity.this, LoginActivity.class);
+        Intent intent = new Intent(AskChildAgeActivity.this, AskChildNameActivity.class);
         intent.putExtra("child-user-age-below-9", user_age_below9);
         startActivity(intent);
     }

@@ -22,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/Text"
             android:layout_width="match_parent"
@@ -30,6 +31,19 @@
             android:text="Login"
             android:textAlignment="center"
             android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/ChildNameInput"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/login_page_box"
+            android:inputType="textEmailAddress"
+            android:padding="18dp"
+            android:textSize="20sp"
+            android:hint="child name"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/emailInput"

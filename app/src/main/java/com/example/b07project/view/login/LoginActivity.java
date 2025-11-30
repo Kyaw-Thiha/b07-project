@@ -4,6 +4,7 @@ package com.example.b07project.view.login;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -40,12 +41,14 @@ import java.util.Map;
 public class LoginActivity extends BackButtonActivity {
 
     private TextView text;
+    private EditText nameInput;
     private EditText emailInput;
     private EditText passwordInput;
     private Button loginButton;
     private Button resetPasswordButton;
 
     private UserType userType;
+    Boolean is_login;
     private FirebaseDatabase db;
     private final Service service = new Service();
     private FirebaseAuth mAuth;
@@ -76,19 +79,38 @@ public class LoginActivity extends BackButtonActivity {
         providerProfileViewModel = new ViewModelProvider(this).get(ProviderProfileViewModel.class);
         childProfileViewModel = new ViewModelProvider(this).get(ChildProfileViewModel.class);
 
+
+        is_login = prefs.getBoolean("USER_LOGIN", false);
+
         observeUserProfiles();
 
         text = findViewById(R.id.Text);
+        nameInput = findViewById(R.id.ChildNameInput);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         resetPasswordButton = findViewById(R.id.resetPasswordButton);
 
-        if (userType == UserType.PROVIDER) {
-            text.setText("Provider Login");
+        if (userType == UserType.CHILD) {
+
+            if (is_login) {
+                text.setText("Child Login");
+                nameInput.setVisibility(View.VISIBLE);
+            }
+            else {
+                text.setText("Parent Login");
+                nameInput.setVisibility(View.INVISIBLE);
+                emailInput.setHint("parent email");
+                passwordInput.setHint("parent password");
+            }
+        }
+
+
+        else if (userType == UserType.PARENT) {
+            text.setText("Parent Login");
         }
         else {
-            text.setText("Parent Login");
+            text.setText("Provider Login");
         }
 
         loginButton.setOnClickListener(v->checkLogin());
@@ -120,31 +142,21 @@ public class LoginActivity extends BackButtonActivity {
             pendingUid = uid;
 
             if (userType == UserType.CHILD) {
+                if (is_login) {
+                    startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+                    return;
+                }
                 Intent intent = getIntent();
                 if (intent.hasExtra("child-user-age-below-9")) {
                     Boolean age_below_9 = intent.getBooleanExtra("child-user-age-below-9", false);
                     String child_uid = db.getReference("children").push().getKey();
-                    ChildUser user = new ChildUser(child_uid, "placeholder name", "", null, age_below_9, uid);
+                    String child_name = intent.getStringExtra("child name");
+                    ChildUser user = new ChildUser(child_uid, child_name, "", null, age_below_9, uid);
                     SessionManager.setUser(user);
 
                     childProfileViewModel.createChild(child_uid, user);
-
-                    DatabaseReference childRef = service.parentUserDatabase()
-                            .child(uid)
-                            .child("children")
-                            .child(user.getUid());
-                    Map<String, Object> data = new HashMap();
-                    data.put("name", user.getName());
-                    data.put("ageBelow9", user.isAgeBelow9());
-                    data.put("parentId", uid);
-                    data.put("optionalNote", "none");
-                    data.put("medicineLog", null);
-                    data.put("incidentLog", null);
-                    data.put("PEFLog", null);
-                    data.put("symptomsLog", null);
-                    childRef.setValue(data);
                 }
-                startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+                Toast.makeText(this, "child account successfully created!", Toast.LENGTH_SHORT).show();
                 return;
             }
 

@@ -10,12 +10,21 @@ import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.R;
+import com.example.b07project.model.PEF;
 import com.example.b07project.view.login.AskUsertypeActivity;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.example.b07project.viewModel.PEFViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.List;
 
 public class ChildDashboardActivity extends BackButtonActivity {
+    private FirebaseUser user;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,7 @@ public class ChildDashboardActivity extends BackButtonActivity {
       v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
       return insets;
     });
+    user = FirebaseAuth.getInstance().getCurrentUser();
     getCurrentZone();
     getCurrentPEF();
     getControllerCounter();
@@ -97,53 +107,69 @@ public class ChildDashboardActivity extends BackButtonActivity {
    * user back to askusertype activity and blocks them from going back
    */
   public void signOut(View view) {
-    Intent intent = new Intent(this, AskUsertypeActivity.class);
-    startActivity(intent);
+    this.finish();
   }
 
   /** gets the PB and PEF from firebase */
   public void getCurrentZone() {
-    int personalBest = 5;// get PB from firebase
-    int currentPEF = 7;// get PEF from firebase
-    ImageView red, yellow, green;
-    green = findViewById(R.id.imageView9);
-    yellow = findViewById(R.id.imageView10);
-    red = findViewById(R.id.imageView11);
-
-    if (personalBest == 0) {
-      // make personalBest = currentPEF
-      // save this info to database
-      // make green zone component visible
-      green.setVisibility(View.VISIBLE);
-      yellow.setVisibility(View.INVISIBLE);
-      red.setVisibility(View.INVISIBLE);
-    } else {
-      double ratio = (double) currentPEF / (double) personalBest;
-      if (ratio >= 0.8) {
-        // make green zone image visible
-        green.setVisibility(View.VISIBLE);
-        yellow.setVisibility(View.INVISIBLE);
-        red.setVisibility(View.INVISIBLE);
-      } else if (ratio >= 0.5) {
-        // make yellow zone image visible
-        green.setVisibility(View.INVISIBLE);
-        yellow.setVisibility(View.VISIBLE);
-        red.setVisibility(View.INVISIBLE);
+      int personalBest = 5;// get PB from firebase
+      int currentPEF = 7;// get PEF from firebase
+      ImageView red, yellow, green;
+      green = findViewById(R.id.imageView9);
+      yellow = findViewById(R.id.imageView10);
+      red = findViewById(R.id.imageView11);
+      if (personalBest == 0) {
+          // make personalBest = currentPEF
+          // save this info to database
+          // make green zone component visible
+          green.setVisibility(View.VISIBLE);
+          yellow.setVisibility(View.INVISIBLE);
+          red.setVisibility(View.INVISIBLE);
       } else {
-        // make red zone image visible
-        green.setVisibility(View.INVISIBLE);
-        yellow.setVisibility(View.INVISIBLE);
-        red.setVisibility(View.VISIBLE);
+          double ratio = (double) currentPEF / (double) personalBest;
+          if (ratio >= 0.8) {
+              // make green zone image visible
+              green.setVisibility(View.VISIBLE);
+              yellow.setVisibility(View.INVISIBLE);
+              red.setVisibility(View.INVISIBLE);
+          } else if (ratio >= 0.5) {
+              // make yellow zone image visible
+              green.setVisibility(View.INVISIBLE);
+              yellow.setVisibility(View.VISIBLE);
+              red.setVisibility(View.INVISIBLE);
+          } else {
+              // make red zone image visible
+              green.setVisibility(View.INVISIBLE);
+              yellow.setVisibility(View.INVISIBLE);
+              red.setVisibility(View.VISIBLE);
+          }
       }
-    }
   }
 
   public void getCurrentPEF() {
-    // pull pef from firebase set default to 0
-    String pef = "2";
-    // set textview component for PEF to this value
-    TextView pefText = findViewById(R.id.textView32);
-    pefText.setText(pef);
+      // pull pef from firebase set default to 0
+      String pef = "0";
+
+      PEFViewModel viewModel = new ViewModelProvider(this).get(PEFViewModel.class);
+      LiveData<List<PEF>> pefs = viewModel.getPEF();
+
+      viewModel.loadPEFByUser(user.getUid());
+
+      viewModel.getPEF().observe(this, pefList -> {
+          String pefString = "0";
+          if (pefList != null && !pefList.isEmpty()) {
+              PEF latest = pefList.get(0);
+              for (PEF entry : pefList) {
+                  if (entry != null && entry.getTime() > latest.getTime()) {
+                      latest = entry;
+                  }
+              }
+              float val = latest.getPost_med() != 0 ? latest.getPost_med() : latest.getPre_med();
+              pefString = String.valueOf(Math.round(val));
+          }
+          TextView pefText = findViewById(R.id.textView32);
+          pefText.setText(pefString);
+      });
   }
 
   public void getControllerCounter() {

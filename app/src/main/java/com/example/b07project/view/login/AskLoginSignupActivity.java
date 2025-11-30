@@ -1,5 +1,6 @@
 package com.example.b07project.view.login;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
@@ -16,9 +17,11 @@ import com.example.b07project.model.User.UserType;
 public class AskLoginSignupActivity extends BackButtonActivity {
     private Button loginButton;
     private Button signupButton;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        prefs = getSharedPreferences("APP_DATA", MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ask_login_signup);
@@ -36,6 +39,8 @@ public class AskLoginSignupActivity extends BackButtonActivity {
     }
 
     void toLogin() {
+        prefs.edit().putBoolean("USER_LOGIN", true).apply();
+
         Intent intent = new Intent(AskLoginSignupActivity.this, LoginActivity.class);
         startActivity(intent);
     }
@@ -43,6 +48,7 @@ public class AskLoginSignupActivity extends BackButtonActivity {
     void toSignup() {
         UserType userType = UserType.valueOf(getSharedPreferences("APP_DATA", MODE_PRIVATE).getString("USER_TYPE", null));
 
+        prefs.edit().putBoolean("USER_LOGIN", false).apply();
         Intent intent = new Intent();
         switch (userType) {
             case CHILD:

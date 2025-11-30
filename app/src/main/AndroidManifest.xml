@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07Project">
         <activity
+            android:name=".view.login.AskChildNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.child.ThirdTechniqueHelperActivity"
             android:exported="false" />
         <activity
@@ -28,12 +31,12 @@
             android:exported="false" />
         <activity
             android:name=".view.child.ControllerMedicineInputActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.child.DoseCheckActivity"
             android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
         <activity
             android:name=".view.child.ControllerMedicineInputActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.child.DoseCheckActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
