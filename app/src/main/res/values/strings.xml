@@ -101,4 +101,11 @@
     <string name="provider">Provider</string>
     <string name="notifications_button">Notifications</string>
     <string name="add_Inventory_button">Add_inventory_button</string>
+    <string name="range_7d">7 days</string>
+    <string name="range_30d">30 days</string>
+    <string name="chart_rescue_usage">Rescue Usage Trend</string>
+    <string name="chart_controller_adherence">Controller Adherence Over Time</string>
+    <string name="chart_zone_distribution">Zone Distribution</string>
+    <string name="chart_zone_trend">Zone Trend</string>
+    <string name="chart_pef_trend">PEF Trend</string>
 </resources>

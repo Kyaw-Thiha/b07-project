@@ -61,4 +61,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
     implementation("com.google.firebase:firebase-auth")
+
+    //MP Android Chart
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }
