@@ -19,7 +19,7 @@ import com.example.b07project.model.Medicine;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.model.Notification;
 import com.example.b07project.model.PEF;
-import com.example.b07project.model.Report;
+import com.example.b07project.model.ShareSettings;
 import com.example.b07project.model.User.BaseUser;
 import com.example.b07project.model.User.ChildUser;
 import com.example.b07project.model.User.ParentUser;
@@ -117,7 +117,7 @@ public class TestAPIActivity extends AppCompatActivity {
 
       ParentUser parentUser = new ParentUser(parentUid, parentBase.getName(), parentBase.getEmail(), parentRole);
       ChildUser childUser = new ChildUser(childUid, childBase.getName(), childBase.getEmail(), childRole, true,
-          parentUid);
+          "2016-01-01", "Sample note", parentUid);
       ProviderUser providerUser = new ProviderUser(providerUid, providerBase.getName(), providerBase.getEmail(),
           providerRole);
 
@@ -152,6 +152,13 @@ public class TestAPIActivity extends AppCompatActivity {
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);
       notificationViewModel.addNotification(childUid, notification);
+      ShareSettings shareSettings = new ShareSettings();
+      shareSettings.setIncludeRescueLogs(true);
+      shareSettings.setIncludeControllerSummary(true);
+      shareSettings.setIncludeSymptoms(true);
+      shareSettings.setIncludeTriggers(true);
+      shareSettings.setIncludeSummaryCharts(true);
+
       reportViewModel.createReport(
           parentUser,
           childUser,
@@ -161,7 +168,7 @@ public class TestAPIActivity extends AppCompatActivity {
           Collections.singletonList(pef),
           Collections.singletonList(checkIn),
           Collections.singletonList(incident),
-          new Report.ShareOptions());
+          shareSettings);
 
       Toast
           .makeText(this, "Created parent " + parentUid + ", child " + childUid + ", provider " + providerUid,

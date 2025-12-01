@@ -11,6 +11,7 @@ import com.example.b07project.model.Medicine;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.model.PEF;
 import com.example.b07project.model.Report;
+import com.example.b07project.model.ShareSettings;
 import com.example.b07project.model.User.ChildUser;
 import com.example.b07project.model.User.ParentUser;
 import com.example.b07project.model.User.ProviderUser;
@@ -50,7 +51,7 @@ public class ReportViewModel extends ViewModel {
                              List<PEF> pefLogs,
                              List<CheckIn> checkIns,
                              List<Incident> incidents,
-                             Report.ShareOptions shareOptions) {
+                             ShareSettings shareSettings) {
         Report report = new Report();
         report.setParentId(parent != null ? parent.getUid() : null);
         report.setParentName(parent != null ? parent.getName() : null);
@@ -59,34 +60,43 @@ public class ReportViewModel extends ViewModel {
         report.setProviderId(provider != null ? provider.getUid() : null);
         report.setProviderName(provider != null ? provider.getName() : null);
         report.setCreatedAt(System.currentTimeMillis());
-        Report.ShareOptions options = shareOptions != null ? shareOptions : new Report.ShareOptions();
-        report.setShareOptions(options);
+        ShareSettings settings = shareSettings != null ? shareSettings : new ShareSettings();
+        if (settings.getParentId() == null && parent != null) {
+            settings.setParentId(parent.getUid());
+        }
+        if (settings.getChildId() == null && child != null) {
+            settings.setChildId(child.getUid());
+        }
+        if (settings.getProviderId() == null && provider != null) {
+            settings.setProviderId(provider.getUid());
+        }
+        report.setShareSettings(settings);
 
-        if (!options.isIncludeMedicines()) {
+        if (!settings.isIncludeMedicines()) {
             report.setMedicines(null);
         } else {
             report.setMedicines(medicines);
         }
 
-        if (!options.isIncludeMedicineLogs()) {
+        if (!settings.isIncludeMedicineLogs()) {
             report.setMedicineLogs(null);
         } else {
             report.setMedicineLogs(medicineLogs);
         }
 
-        if (!options.isIncludePefLogs()) {
+        if (!settings.isIncludePefLogs()) {
             report.setPefLogs(null);
         } else {
             report.setPefLogs(pefLogs);
         }
 
-        if (!options.isIncludeCheckIns()) {
+        if (!settings.isIncludeCheckIns()) {
             report.setCheckIns(null);
         } else {
             report.setCheckIns(checkIns);
         }
 
-        if (!options.isIncludeIncidents()) {
+        if (!settings.isIncludeIncidents()) {
             report.setIncidents(null);
         } else {
             report.setIncidents(incidents);

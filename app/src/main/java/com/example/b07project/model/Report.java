@@ -11,7 +11,7 @@ public class Report {
   private String providerId;
   private String providerName;
   private long createdAt;
-  private ShareOptions shareOptions;
+  private ShareSettings shareSettings;
   private List<Medicine> medicines;
   private List<MedicineLog> medicineLogs;
   private List<PEF> pefLogs;
@@ -85,12 +85,12 @@ public class Report {
     this.createdAt = createdAt;
   }
 
-  public ShareOptions getShareOptions() {
-    return shareOptions;
+  public ShareSettings getShareSettings() {
+    return shareSettings;
   }
 
-  public void setShareOptions(ShareOptions shareOptions) {
-    this.shareOptions = shareOptions;
+  public void setShareSettings(ShareSettings shareSettings) {
+    this.shareSettings = shareSettings;
   }
 
   public List<Medicine> getMedicines() {
@@ -133,54 +133,4 @@ public class Report {
     this.incidents = incidents;
   }
 
-  public static class ShareOptions {
-    private boolean includeMedicines = true;
-    private boolean includeMedicineLogs = true;
-    private boolean includePefLogs = true;
-    private boolean includeCheckIns = true;
-    private boolean includeIncidents = true;
-
-    public ShareOptions() {
-    }
-
-    public boolean isIncludeMedicines() {
-      return includeMedicines;
-    }
-
-    public void setIncludeMedicines(boolean includeMedicines) {
-      this.includeMedicines = includeMedicines;
-    }
-
-    public boolean isIncludeMedicineLogs() {
-      return includeMedicineLogs;
-    }
-
-    public void setIncludeMedicineLogs(boolean includeMedicineLogs) {
-      this.includeMedicineLogs = includeMedicineLogs;
-    }
-
-    public boolean isIncludePefLogs() {
-      return includePefLogs;
-    }
-
-    public void setIncludePefLogs(boolean includePefLogs) {
-      this.includePefLogs = includePefLogs;
-    }
-
-    public boolean isIncludeCheckIns() {
-      return includeCheckIns;
-    }
-
-    public void setIncludeCheckIns(boolean includeCheckIns) {
-      this.includeCheckIns = includeCheckIns;
-    }
-
-    public boolean isIncludeIncidents() {
-      return includeIncidents;
-    }
-
-    public void setIncludeIncidents(boolean includeIncidents) {
-      this.includeIncidents = includeIncidents;
-    }
-  }
 }

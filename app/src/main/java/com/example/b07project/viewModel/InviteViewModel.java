@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class InviteViewModel extends ViewModel {
@@ -53,7 +55,15 @@ public class InviteViewModel extends ViewModel {
     }
 
     public void generateInvite(String parentId) {
-        Invite invite = new Invite(generateCode(), System.currentTimeMillis() + SEVEN_DAYS_MILLIS, true, parentId);
+        long issuedAt = System.currentTimeMillis();
+        Map<String, Boolean> childIds = new HashMap<>();
+        Invite invite = new Invite(
+                UUID.randomUUID().toString(),
+                generateCode(),
+                issuedAt,
+                issuedAt + SEVEN_DAYS_MILLIS,
+                parentId,
+                childIds);
         String previousCode = currentInvite.getValue() != null ? currentInvite.getValue().getCode() : null;
         repository.saveInvite(parentId, invite, previousCode, new DatabaseReference.CompletionListener() {
             @Override
@@ -70,8 +80,16 @@ public class InviteViewModel extends ViewModel {
     }
 
     public void revokeInvite(String parentId) {
-        String currentCode = currentInvite.getValue() != null ? currentInvite.getValue().getCode() : null;
-        repository.revokeInvite(parentId, currentCode, new DatabaseReference.CompletionListener() {
+        Invite invite = currentInvite.getValue();
+        if (invite == null) {
+            errorMessage.postValue("No active invite to revoke");
+            actionSuccess.postValue(false);
+            return;
+        }
+        if (invite.getParentId() == null) {
+            invite.setParentId(parentId);
+        }
+        repository.revokeInvite(invite, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError error, @NonNull DatabaseReference ref) {
                 if (error != null) {
