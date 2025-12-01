@@ -8,6 +8,11 @@ public class Incident {
   private String guidance;
   private int pefNumber;
   private String uid;
+  private String triageSessionId;
+  private String decision;
+  private int rescueAttempts;
+  private boolean parentAlertSent;
+  private Long parentAlertSentAt;
 
   public Incident() {
   }
@@ -58,6 +63,46 @@ public class Incident {
 
   public void setUid(String uid) {
     this.uid = uid;
+  }
+
+  public String getTriageSessionId() {
+    return triageSessionId;
+  }
+
+  public void setTriageSessionId(String triageSessionId) {
+    this.triageSessionId = triageSessionId;
+  }
+
+  public String getDecision() {
+    return decision;
+  }
+
+  public void setDecision(String decision) {
+    this.decision = decision;
+  }
+
+  public int getRescueAttempts() {
+    return rescueAttempts;
+  }
+
+  public void setRescueAttempts(int rescueAttempts) {
+    this.rescueAttempts = rescueAttempts;
+  }
+
+  public boolean isParentAlertSent() {
+    return parentAlertSent;
+  }
+
+  public void setParentAlertSent(boolean parentAlertSent) {
+    this.parentAlertSent = parentAlertSent;
+  }
+
+  public Long getParentAlertSentAt() {
+    return parentAlertSentAt;
+  }
+
+  public void setParentAlertSentAt(Long parentAlertSentAt) {
+    this.parentAlertSentAt = parentAlertSentAt;
   }
 
   public static class Flags {

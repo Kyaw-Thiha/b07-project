@@ -109,6 +109,11 @@
             android:name=".view.provider.ProviderInstruction2Activity" />
         <activity
             android:name=".view.provider.ProviderInstruction3Activity" />
+
+        <!-- ========= API Tester ========= -->
+        <activity
+            android:name=".TestAPIActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

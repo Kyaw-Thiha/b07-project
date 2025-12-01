@@ -5,6 +5,8 @@ public class PEF {
   private float pre_med;
   private float post_med;
   private String uid;
+  private Integer personalBestAtEntry;
+  private String zone;
 
   public PEF() {
   }
@@ -46,5 +48,21 @@ public class PEF {
 
   public void setUid(String uid) {
     this.uid = uid;
+  }
+
+  public Integer getPersonalBestAtEntry() {
+    return personalBestAtEntry;
+  }
+
+  public void setPersonalBestAtEntry(Integer personalBestAtEntry) {
+    this.personalBestAtEntry = personalBestAtEntry;
+  }
+
+  public String getZone() {
+    return zone;
+  }
+
+  public void setZone(String zone) {
+    this.zone = zone;
   }
 }

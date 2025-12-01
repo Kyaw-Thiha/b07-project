@@ -14,12 +14,14 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.model.CheckIn;
+import com.example.b07project.model.ControllerPlan;
 import com.example.b07project.model.Incident;
 import com.example.b07project.model.Medicine;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.model.Notification;
 import com.example.b07project.model.PEF;
-import com.example.b07project.model.Report;
+import com.example.b07project.model.TriageSession;
+import com.example.b07project.model.ShareSettings;
 import com.example.b07project.model.User.BaseUser;
 import com.example.b07project.model.User.ChildUser;
 import com.example.b07project.model.User.ParentUser;
@@ -27,6 +29,7 @@ import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
 import com.example.b07project.viewModel.CheckInViewModel;
 import com.example.b07project.viewModel.ChildProfileViewModel;
+import com.example.b07project.viewModel.ControllerPlanViewModel;
 import com.example.b07project.viewModel.IncidentViewModel;
 import com.example.b07project.viewModel.MedicineLogViewModel;
 import com.example.b07project.viewModel.MedicineViewModel;
@@ -35,8 +38,10 @@ import com.example.b07project.viewModel.PEFViewModel;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ReportViewModel;
+import com.example.b07project.viewModel.TriageSessionViewModel;
 import com.example.b07project.viewModel.UserViewModel;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,6 +66,8 @@ public class TestAPIActivity extends AppCompatActivity {
   private MedicineLogViewModel medicineLogViewModel;
   private NotificationViewModel notificationViewModel;
   private PEFViewModel pefViewModel;
+  private ControllerPlanViewModel controllerPlanViewModel;
+  private TriageSessionViewModel triageSessionViewModel;
   private ParentProfileViewModel parentProfileViewModel;
   private ProviderProfileViewModel providerProfileViewModel;
   private ChildProfileViewModel childProfileViewModel;
@@ -81,6 +88,8 @@ public class TestAPIActivity extends AppCompatActivity {
     medicineViewModel = provider.get(MedicineViewModel.class);
     medicineLogViewModel = provider.get(MedicineLogViewModel.class);
     notificationViewModel = provider.get(NotificationViewModel.class);
+    controllerPlanViewModel = provider.get(ControllerPlanViewModel.class);
+    triageSessionViewModel = provider.get(TriageSessionViewModel.class);
     pefViewModel = provider.get(PEFViewModel.class);
     parentProfileViewModel = provider.get(ParentProfileViewModel.class);
     providerProfileViewModel = provider.get(ProviderProfileViewModel.class);
@@ -116,8 +125,9 @@ public class TestAPIActivity extends AppCompatActivity {
           providerRole);
 
       ParentUser parentUser = new ParentUser(parentUid, parentBase.getName(), parentBase.getEmail(), parentRole);
+      int personalBest = 350;
       ChildUser childUser = new ChildUser(childUid, childBase.getName(), childBase.getEmail(), childRole, true,
-          parentUid);
+          "2016-01-01", "Sample note", parentUid, personalBest, "Green", null);
       ProviderUser providerUser = new ProviderUser(providerUid, providerBase.getName(), providerBase.getEmail(),
           providerRole);
 
@@ -131,27 +141,76 @@ public class TestAPIActivity extends AppCompatActivity {
 
 
       // Build sample payloads
-      CheckIn.Triggers triggers = new CheckIn.Triggers(true, true, false, true, false, false);
+      CheckIn.Triggers triggers = new CheckIn.Triggers(true, true, false, true, false, false, false);
       CheckIn.NightWalking nightWalking = new CheckIn.NightWalking(false, triggers, "nothing");
       CheckIn checkIn = new CheckIn(now, nightWalking, null, null, childUid);
+      checkIn.setAuthorId(parentUid);
+      checkIn.setEnteredByParent(true);
 
       Medicine med = new Medicine("Penicillin", "2025-11-20", "2026-01-26", 200, "2026-01-26", parentUid);
+      med.setType("controller");
+      med.setInitialCanisterPuffs(200);
+      med.setLastUpdated(now);
+      medicineViewModel.addInventory(parentUid, med);
+
+      ControllerPlan controllerPlan = new ControllerPlan();
+      controllerPlan.setPlanName("Controller plan");
+      controllerPlan.setChildId(childUid);
+      controllerPlan.setMedicineId(med.getInventoryId());
+      controllerPlan.setDosesPerDay(2);
+      controllerPlan.setTimesOfDay(Arrays.asList("08:00", "20:00"));
+      controllerPlan.setStartDate("2025-11-01");
+      controllerPlan.setNotes("Sample plan");
+      controllerPlan.setCreatedAt(now);
+      controllerPlan.setUpdatedAt(now);
+      controllerPlanViewModel.addPlan(childUid, controllerPlan);
+
       MedicineLog medicineLog = new MedicineLog(now, 2, "worse", "better", childUid);
+      medicineLog.setMedicineId(med.getInventoryId());
+      medicineLog.setControllerPlanId(controllerPlan.getPlanId());
+      medicineLog.setMedicineType("controller");
       PEF pef = new PEF(now, 250, 300, childUid);
+      pef.setPersonalBestAtEntry(personalBest);
+      pef.setZone("Green");
 
       Incident.Flags flags = new Incident.Flags(true, false, false, true, false);
       Incident incident = new Incident(now + 100000, flags, "guidance text", 3, childUid);
       Notification notification = new Notification(
           "Firebase smoke test",
           "Generated at " + new Date(now).toString());
+      notification.setType("triage_escalation");
+      notification.setChildId(childUid);
+      notification.setStatus("pending");
+
+      TriageSession triageSession = new TriageSession();
+      triageSession.setStartedAt(now);
+      triageSession.setFlags(new Incident.Flags(true, true, false, false, false));
+      triageSession.setRescueAttempts(1);
+      triageSession.setPefNumber(260);
+      triageSession.setDecision("HOME_STEPS");
+      triageSession.setStatus("RESOLVED");
+      triageSession.setParentAlertSent(true);
+      triageSession.setParentAlertSentAt(now);
+      triageSession.setGuidanceShown("Use rescue inhaler and start home steps.");
+      triageSession.setUserResponse("Following guidance");
 
       // Fire the writes through each ViewModel
       checkInViewModel.addCheckIn(childUid, checkIn);
-      medicineViewModel.addInventory(parentUid, med);
       medicineLogViewModel.addLog(childUid, medicineLog);
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);
       notificationViewModel.addNotification(childUid, notification);
+      triageSessionViewModel.addSession(childUid, triageSession);
+      ShareSettings shareSettings = new ShareSettings();
+      shareSettings.setIncludeRescueLogs(true);
+      shareSettings.setIncludeControllerSummary(true);
+      shareSettings.setIncludeSymptoms(true);
+      shareSettings.setIncludeTriggers(true);
+      shareSettings.setIncludeSummaryCharts(true);
+
+      long endDate = now;
+      long startDate = now - (7L * 24L * 60L * 60L * 1000L);
+
       reportViewModel.createReport(
           parentUser,
           childUser,
@@ -161,7 +220,9 @@ public class TestAPIActivity extends AppCompatActivity {
           Collections.singletonList(pef),
           Collections.singletonList(checkIn),
           Collections.singletonList(incident),
-          new Report.ShareOptions());
+          startDate,
+          endDate,
+          shareSettings);
 
       Toast
           .makeText(this, "Created parent " + parentUid + ", child " + childUid + ", provider " + providerUid,

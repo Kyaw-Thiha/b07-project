@@ -37,6 +37,10 @@ android {
     }
 }
 
+tasks.register("testClasses") {
+    dependsOn("testDebugUnitTest")
+}
+
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)

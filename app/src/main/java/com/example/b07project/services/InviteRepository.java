@@ -27,12 +27,20 @@ public class InviteRepository {
     });
   }
 
-  public void revokeInvite(String parentId, String currentCode,
+  public void revokeInvite(Invite invite,
       DatabaseReference.CompletionListener listener) {
-    DatabaseReference parentRef = service.parentInviteDatabase(parentId);
-    parentRef.removeValue((error, ref) -> {
-      if (error == null && currentCode != null && !currentCode.isEmpty()) {
-        service.inviteCodeIndex().child(currentCode).removeValue();
+    if (invite == null || invite.getParentId() == null) {
+      if (listener != null) {
+        listener.onComplete(null, null);
+      }
+      return;
+    }
+    DatabaseReference parentRef = service.parentInviteDatabase(invite.getParentId());
+    invite.setStatus("revoked");
+    invite.setRevokedAt(System.currentTimeMillis());
+    parentRef.setValue(invite, (error, ref) -> {
+      if (error == null && invite.getCode() != null && !invite.getCode().isEmpty()) {
+        service.inviteCodeIndex().child(invite.getCode()).removeValue();
       }
       if (listener != null) {
         listener.onComplete(error, ref);
