@@ -8,7 +8,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,41 +43,39 @@ public class ProviderDashboardActivity extends OnboardingActivity {
     protected String getOnboardingPrefKey() {
         return "provider_dashboard";
     }
+
     @Override
     protected void showOnboarding() {
-
         recyclerView.post(() -> {
             RecyclerView.ViewHolder vh =
                     recyclerView.findViewHolderForAdapterPosition(0);
             if (vh == null) return;
 
-            View cardView = vh.itemView;
-            startBreathing(cardView);
-            TextView cardText = cardView.findViewById(R.id.childrenRecycler);
-            if (cardText != null) {
-                startBreathing(cardText);
-            }
-            showTooltip(cardView, "This card shows the basic information of a child shared with you.");
+            View card = vh.itemView;
+            View name = card.findViewById(R.id.textChildName);
 
-            TextView nameText = cardView.findViewById(R.id.textChildName);
-            if (nameText != null) {
-                startBreathing(nameText);
-                showTooltip(nameText,
-                        "Tap the name to view this child's detailed report."
-                );
-            }
+            addStep(card, "This card shows the basic information of a child shared with you.");
+            addStep(name, "Tap the name to view this child's detailed report.");
+
+            startOnboardingSequence();
         });
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_provider_dashboard);
-        setupBackButton();
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_child_dashboard);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         if (mUser == null) {
+            Toast.makeText(this, "error!", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -85,7 +87,7 @@ public class ProviderDashboardActivity extends OnboardingActivity {
         adapter = new ProviderChildAdapter(this, children);
         recyclerView.setAdapter(adapter);
 
-        loadChildrenForProvider();
+//        loadChildrenForProvider();
     }
     private void loadChildrenForProvider() {
 
@@ -104,6 +106,8 @@ public class ProviderDashboardActivity extends OnboardingActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 children.clear();
+
+
 
                 for (DataSnapshot childSnap : snapshot.getChildren()) {
                     // childId is the key under providerId
