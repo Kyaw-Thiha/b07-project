@@ -98,8 +98,7 @@ public class ChildCheckinInputActivity extends BackButtonActivity {
             //if no trigger
         }
 
-
-        // Executing the Toast
+        // Executing the toast for checking in
         Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
 
         // Clearing all the selections made by user

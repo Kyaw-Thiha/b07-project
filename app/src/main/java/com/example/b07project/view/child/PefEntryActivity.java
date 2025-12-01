@@ -66,6 +66,7 @@ public class PefEntryActivity extends BackButtonActivity {
                 //add single pef to firebase through repository
                 TextInputEditText pefInput = findViewById(R.id.editText4);
                 String input = pefInput.getText().toString();
+
             }
             else {
                 //add both pef values to firebase through repository
