@@ -42,6 +42,12 @@ public class MedicineViewModel extends ViewModel {
                 for (DataSnapshot child: snapshot.getChildren()) {
                     Medicine inventory = child.getValue(Medicine.class);
                     if (inventory != null) {
+                        if (inventory.getInventoryId() == null) {
+                            inventory.setInventoryId(child.getKey());
+                        }
+                        if (inventory.getInitialCanisterPuffs() == 0) {
+                            inventory.setInitialCanisterPuffs(inventory.getCanister_puffs());
+                        }
                         inventories.add(inventory);
                     }
                 }

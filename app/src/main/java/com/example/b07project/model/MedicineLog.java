@@ -6,16 +6,27 @@ public class MedicineLog {
   private String before;
   private String after;
   private String uid;
+  private String medicineId;
+  private String controllerPlanId;
+  private String medicineType;
 
   public MedicineLog() {
   }
 
   public MedicineLog(long time, int dose, String before, String after, String uid) {
+    this(time, dose, before, after, uid, null, null, null);
+  }
+
+  public MedicineLog(long time, int dose, String before, String after, String uid, String medicineId,
+      String medicineType, String controllerPlanId) {
     this.time = time;
     this.dose = dose;
     this.before = before;
     this.after = after;
     this.uid = uid;
+    this.medicineId = medicineId;
+    this.medicineType = medicineType;
+    this.controllerPlanId = controllerPlanId;
   }
 
   public long getTime() {
@@ -56,5 +67,29 @@ public class MedicineLog {
 
   public void setUid(String uid) {
     this.uid = uid;
+  }
+
+  public String getMedicineId() {
+    return medicineId;
+  }
+
+  public void setMedicineId(String medicineId) {
+    this.medicineId = medicineId;
+  }
+
+  public String getControllerPlanId() {
+    return controllerPlanId;
+  }
+
+  public void setControllerPlanId(String controllerPlanId) {
+    this.controllerPlanId = controllerPlanId;
+  }
+
+  public String getMedicineType() {
+    return medicineType;
+  }
+
+  public void setMedicineType(String medicineType) {
+    this.medicineType = medicineType;
   }
 }

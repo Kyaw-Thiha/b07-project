@@ -104,6 +104,13 @@ public class Service {
         .child("checkIn");
   }
 
+  public DatabaseReference controllerPlanDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("controllerPlans");
+  }
+
   public DatabaseReference notificationDatabase(String childId) {
     return database.getReference("users")
         .child("children")

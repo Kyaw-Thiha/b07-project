@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.model.CheckIn;
+import com.example.b07project.model.ControllerPlan;
 import com.example.b07project.model.Incident;
 import com.example.b07project.model.Medicine;
 import com.example.b07project.model.MedicineLog;
@@ -27,6 +28,7 @@ import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
 import com.example.b07project.viewModel.CheckInViewModel;
 import com.example.b07project.viewModel.ChildProfileViewModel;
+import com.example.b07project.viewModel.ControllerPlanViewModel;
 import com.example.b07project.viewModel.IncidentViewModel;
 import com.example.b07project.viewModel.MedicineLogViewModel;
 import com.example.b07project.viewModel.MedicineViewModel;
@@ -37,6 +39,7 @@ import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ReportViewModel;
 import com.example.b07project.viewModel.UserViewModel;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,6 +64,7 @@ public class TestAPIActivity extends AppCompatActivity {
   private MedicineLogViewModel medicineLogViewModel;
   private NotificationViewModel notificationViewModel;
   private PEFViewModel pefViewModel;
+  private ControllerPlanViewModel controllerPlanViewModel;
   private ParentProfileViewModel parentProfileViewModel;
   private ProviderProfileViewModel providerProfileViewModel;
   private ChildProfileViewModel childProfileViewModel;
@@ -81,6 +85,7 @@ public class TestAPIActivity extends AppCompatActivity {
     medicineViewModel = provider.get(MedicineViewModel.class);
     medicineLogViewModel = provider.get(MedicineLogViewModel.class);
     notificationViewModel = provider.get(NotificationViewModel.class);
+    controllerPlanViewModel = provider.get(ControllerPlanViewModel.class);
     pefViewModel = provider.get(PEFViewModel.class);
     parentProfileViewModel = provider.get(ParentProfileViewModel.class);
     providerProfileViewModel = provider.get(ProviderProfileViewModel.class);
@@ -136,7 +141,27 @@ public class TestAPIActivity extends AppCompatActivity {
       CheckIn checkIn = new CheckIn(now, nightWalking, null, null, childUid);
 
       Medicine med = new Medicine("Penicillin", "2025-11-20", "2026-01-26", 200, "2026-01-26", parentUid);
+      med.setType("controller");
+      med.setInitialCanisterPuffs(200);
+      med.setLastUpdated(now);
+      medicineViewModel.addInventory(parentUid, med);
+
+      ControllerPlan controllerPlan = new ControllerPlan();
+      controllerPlan.setPlanName("Controller plan");
+      controllerPlan.setChildId(childUid);
+      controllerPlan.setMedicineId(med.getInventoryId());
+      controllerPlan.setDosesPerDay(2);
+      controllerPlan.setTimesOfDay(Arrays.asList("08:00", "20:00"));
+      controllerPlan.setStartDate("2025-11-01");
+      controllerPlan.setNotes("Sample plan");
+      controllerPlan.setCreatedAt(now);
+      controllerPlan.setUpdatedAt(now);
+      controllerPlanViewModel.addPlan(childUid, controllerPlan);
+
       MedicineLog medicineLog = new MedicineLog(now, 2, "worse", "better", childUid);
+      medicineLog.setMedicineId(med.getInventoryId());
+      medicineLog.setControllerPlanId(controllerPlan.getPlanId());
+      medicineLog.setMedicineType("controller");
       PEF pef = new PEF(now, 250, 300, childUid);
 
       Incident.Flags flags = new Incident.Flags(true, false, false, true, false);
@@ -147,7 +172,6 @@ public class TestAPIActivity extends AppCompatActivity {
 
       // Fire the writes through each ViewModel
       checkInViewModel.addCheckIn(childUid, checkIn);
-      medicineViewModel.addInventory(parentUid, med);
       medicineLogViewModel.addLog(childUid, medicineLog);
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);

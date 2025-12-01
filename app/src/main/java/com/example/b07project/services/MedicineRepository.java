@@ -17,6 +17,14 @@ public class MedicineRepository {
         .medicineInventoryDatabase(userId)
         .push();
 
+    medicine.setInventoryId(ref.getKey());
+    if (medicine.getInitialCanisterPuffs() == 0) {
+      medicine.setInitialCanisterPuffs(medicine.getCanister_puffs());
+    }
+    if (medicine.getType() == null) {
+      medicine.setType("rescue");
+    }
+    medicine.setLastUpdated(System.currentTimeMillis());
     ref.setValue(medicine);
   }
 
