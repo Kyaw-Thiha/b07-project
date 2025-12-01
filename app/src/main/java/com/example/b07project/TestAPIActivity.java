@@ -141,9 +141,11 @@ public class TestAPIActivity extends AppCompatActivity {
 
 
       // Build sample payloads
-      CheckIn.Triggers triggers = new CheckIn.Triggers(true, true, false, true, false, false);
+      CheckIn.Triggers triggers = new CheckIn.Triggers(true, true, false, true, false, false, false);
       CheckIn.NightWalking nightWalking = new CheckIn.NightWalking(false, triggers, "nothing");
       CheckIn checkIn = new CheckIn(now, nightWalking, null, null, childUid);
+      checkIn.setAuthorId(parentUid);
+      checkIn.setEnteredByParent(true);
 
       Medicine med = new Medicine("Penicillin", "2025-11-20", "2026-01-26", 200, "2026-01-26", parentUid);
       med.setType("controller");
