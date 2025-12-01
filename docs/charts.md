@@ -23,10 +23,7 @@ Fragments expose `setTrendInput(TrendInput input)`. Build a `TrendInput` with lo
 
 ```java
 TrendInput trendInput = new TrendInput(medicineLogs, pefLogs, checkIns);
-
-RescueUsageTrendFragment fragment =
-    (RescueUsageTrendFragment) getSupportFragmentManager()
-        .findFragmentById(R.id.rescue_chart);
+RescueUsageTrendFragment fragment = (RescueUsageTrendFragment) getSupportFragmentManager().findFragmentById(R.id.rescue_chart);
 if (fragment != null) {
     fragment.setTrendInput(trendInput);
 }
@@ -39,9 +36,7 @@ When hosting charts inside another fragment, look up children via `getChildFragm
 
 ```java
 TrendInput input = new TrendInput(medicineLogs, pefLogs, checkIns);
-ZoneDistributionFragment zoneFragment =
-    (ZoneDistributionFragment) getChildFragmentManager()
-        .findFragmentById(R.id.zone_chart);
+ZoneDistributionFragment zoneFragment = (ZoneDistributionFragment) getChildFragmentManager().findFragmentById(R.id.zone_chart);
 if (zoneFragment != null) {
     zoneFragment.setTrendInput(input);
 }
