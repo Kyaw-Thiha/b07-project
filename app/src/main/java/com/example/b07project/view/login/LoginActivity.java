@@ -136,7 +136,7 @@ public class LoginActivity extends BackButtonActivity {
                             .child(user.getUid());
                     Map<String, Object> data = new HashMap();
                     data.put("name", user.getName());
-                    data.put("ageBelow9", user.isAgeBelow9());
+                    data.put("ageBelow9", user.getIsAgeBelow9());
                     data.put("parentId", uid);
                     data.put("optionalNote", "none");
                     data.put("medicineLog", null);
