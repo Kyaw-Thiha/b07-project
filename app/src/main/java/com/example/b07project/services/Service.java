@@ -111,6 +111,13 @@ public class Service {
         .child("controllerPlans");
   }
 
+  public DatabaseReference triageSessionDatabase(String childId) {
+    return database.getReference("users")
+        .child("children")
+        .child(childId)
+        .child("triageSessions");
+  }
+
   public DatabaseReference notificationDatabase(String childId) {
     return database.getReference("users")
         .child("children")

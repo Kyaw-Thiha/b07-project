@@ -17,7 +17,14 @@ public class NotificationRepository {
     DatabaseReference ref = service
         .notificationDatabase(userId)
         .push();
-
+    notification.setNotificationId(ref.getKey());
+    notification.setChildId(userId);
+    if (notification.getCreatedAt() == 0) {
+      notification.setCreatedAt(System.currentTimeMillis());
+    }
+    if (notification.getStatus() == null) {
+      notification.setStatus("pending");
+    }
     ref.setValue(notification);
   }
 

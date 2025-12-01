@@ -20,6 +20,7 @@ import com.example.b07project.model.Medicine;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.model.Notification;
 import com.example.b07project.model.PEF;
+import com.example.b07project.model.TriageSession;
 import com.example.b07project.model.ShareSettings;
 import com.example.b07project.model.User.BaseUser;
 import com.example.b07project.model.User.ChildUser;
@@ -37,6 +38,7 @@ import com.example.b07project.viewModel.PEFViewModel;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ReportViewModel;
+import com.example.b07project.viewModel.TriageSessionViewModel;
 import com.example.b07project.viewModel.UserViewModel;
 
 import java.util.Arrays;
@@ -65,6 +67,7 @@ public class TestAPIActivity extends AppCompatActivity {
   private NotificationViewModel notificationViewModel;
   private PEFViewModel pefViewModel;
   private ControllerPlanViewModel controllerPlanViewModel;
+  private TriageSessionViewModel triageSessionViewModel;
   private ParentProfileViewModel parentProfileViewModel;
   private ProviderProfileViewModel providerProfileViewModel;
   private ChildProfileViewModel childProfileViewModel;
@@ -86,6 +89,7 @@ public class TestAPIActivity extends AppCompatActivity {
     medicineLogViewModel = provider.get(MedicineLogViewModel.class);
     notificationViewModel = provider.get(NotificationViewModel.class);
     controllerPlanViewModel = provider.get(ControllerPlanViewModel.class);
+    triageSessionViewModel = provider.get(TriageSessionViewModel.class);
     pefViewModel = provider.get(PEFViewModel.class);
     parentProfileViewModel = provider.get(ParentProfileViewModel.class);
     providerProfileViewModel = provider.get(ProviderProfileViewModel.class);
@@ -121,8 +125,9 @@ public class TestAPIActivity extends AppCompatActivity {
           providerRole);
 
       ParentUser parentUser = new ParentUser(parentUid, parentBase.getName(), parentBase.getEmail(), parentRole);
+      int personalBest = 350;
       ChildUser childUser = new ChildUser(childUid, childBase.getName(), childBase.getEmail(), childRole, true,
-          "2016-01-01", "Sample note", parentUid);
+          "2016-01-01", "Sample note", parentUid, personalBest, "Green", null);
       ProviderUser providerUser = new ProviderUser(providerUid, providerBase.getName(), providerBase.getEmail(),
           providerRole);
 
@@ -163,12 +168,29 @@ public class TestAPIActivity extends AppCompatActivity {
       medicineLog.setControllerPlanId(controllerPlan.getPlanId());
       medicineLog.setMedicineType("controller");
       PEF pef = new PEF(now, 250, 300, childUid);
+      pef.setPersonalBestAtEntry(personalBest);
+      pef.setZone("Green");
 
       Incident.Flags flags = new Incident.Flags(true, false, false, true, false);
       Incident incident = new Incident(now + 100000, flags, "guidance text", 3, childUid);
       Notification notification = new Notification(
           "Firebase smoke test",
           "Generated at " + new Date(now).toString());
+      notification.setType("triage_escalation");
+      notification.setChildId(childUid);
+      notification.setStatus("pending");
+
+      TriageSession triageSession = new TriageSession();
+      triageSession.setStartedAt(now);
+      triageSession.setFlags(new Incident.Flags(true, true, false, false, false));
+      triageSession.setRescueAttempts(1);
+      triageSession.setPefNumber(260);
+      triageSession.setDecision("HOME_STEPS");
+      triageSession.setStatus("RESOLVED");
+      triageSession.setParentAlertSent(true);
+      triageSession.setParentAlertSentAt(now);
+      triageSession.setGuidanceShown("Use rescue inhaler and start home steps.");
+      triageSession.setUserResponse("Following guidance");
 
       // Fire the writes through each ViewModel
       checkInViewModel.addCheckIn(childUid, checkIn);
@@ -176,6 +198,7 @@ public class TestAPIActivity extends AppCompatActivity {
       pefViewModel.addPEF(childUid, pef);
       incidentViewModel.addIncident(childUid, incident);
       notificationViewModel.addNotification(childUid, notification);
+      triageSessionViewModel.addSession(childUid, triageSession);
       ShareSettings shareSettings = new ShareSettings();
       shareSettings.setIncludeRescueLogs(true);
       shareSettings.setIncludeControllerSummary(true);
