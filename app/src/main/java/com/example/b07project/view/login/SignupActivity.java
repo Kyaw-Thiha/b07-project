@@ -1,5 +1,6 @@
 package com.example.b07project.view.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.b07project.model.User.BaseUser;
 import com.example.b07project.model.User.ParentUser;
 import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
+import com.example.b07project.view.provider.ProviderInstruction1Activity;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.UserViewModel;
@@ -110,12 +112,15 @@ public class SignupActivity extends BackButtonActivity {
                 ParentUser parentUser = new ParentUser(uid, name, email, roles);
                 parentProfileViewModel.createParent(uid, parentUser);
             }
+
             if (userType == UserType.PROVIDER){
                 ProviderUser providerUser = new ProviderUser(uid, name, email, roles);
                 providerProfileViewModel.createProvider(uid, providerUser);
+                Intent intent = new Intent(SignupActivity.this, ProviderInstruction1Activity.class);
+                startActivity(intent);
+                finish();
             }
 
-            Toast.makeText(this, "Sign up successful! Head to the sign in page to proceed", Toast.LENGTH_SHORT).show();
         });
     }
 
