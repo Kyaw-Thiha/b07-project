@@ -7,42 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".view.child.ChildCheckinInputActivity">
 
-    <include layout="@layout/back_button" /><![CDATA[
-
-    app:layout_constraintEnd_toStartOf="@+id/checkBox16"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
-
-
-
-
-
-
-
-
-    ]]>
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="89dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="136dp"
-        android:text="Light"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox5" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="85dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="56dp"
-        android:text="None"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+    <include layout="@layout/back_button" />
 
     <CheckBox
         android:id="@+id/checkBox6"
@@ -59,12 +24,48 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="184dp"
         android:text="What level of activity did you do?"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="89dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="144dp"
+        android:text="Light"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox5" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="56dp"
+        android:text="None"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="47dp"
+        android:text="Hard"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <CheckBox
         android:id="@+id/checkBox10"
@@ -106,7 +107,7 @@
         android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="68dp"
         android:text="None"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,11 +118,11 @@
         android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Illness"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/checkBox14"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox10" />
 
@@ -129,10 +130,12 @@
         android:id="@+id/checkBox15"
         android:layout_width="146dp"
         android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
         android:text="Strong Odors"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="654dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
 
     <CheckBox
         android:id="@+id/checkBox7"
@@ -152,26 +155,26 @@
         android:id="@+id/checkBox9"
         android:layout_width="108dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="252dp"
         android:text="Exercise"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/checkBox11"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toEndOf="@+id/checkBox10" />
 
     <CheckBox
         android:id="@+id/checkBox11"
         android:layout_width="129dp"
         android:layout_height="34dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="144dp"
         android:text="Cold Air"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox8"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintVertical_bias="0.478" />
 
     <TextView
         android:id="@+id/textView16"
@@ -185,25 +188,11 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="85dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="47dp"
-        android:text="Hard"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <CheckBox
         android:id="@+id/checkBox14"
         android:layout_width="85dp"
         android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="68dp"
         android:text="Pets"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -213,11 +202,11 @@
         android:id="@+id/checkBox13"
         android:layout_width="85dp"
         android:layout_height="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="Dust"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/checkBox14"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toEndOf="@+id/checkBox12"
         app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
 
@@ -291,8 +280,8 @@
         android:id="@+id/button"
         android:layout_width="121dp"
         android:layout_height="43dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="156dp"
         android:onClick="submit"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"

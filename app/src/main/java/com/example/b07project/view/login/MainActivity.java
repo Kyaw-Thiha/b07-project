@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   void getStarted() {
-    Intent intent = new Intent(MainActivity.this, ParentDashboardActivity.class);
+    Intent intent = new Intent(MainActivity.this, AskUsertypeActivity.class);
     startActivity(intent);
   }
 

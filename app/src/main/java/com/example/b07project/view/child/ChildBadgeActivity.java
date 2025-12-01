@@ -25,30 +25,23 @@ public class ChildBadgeActivity extends BackButtonActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        getBadges();
+        getController();
+        getTechnique();
+        getRescue();
     }
 
-    public void getBadges(){
-        //get controller streak, technique streak and rescue count from firebase
+    public void getController(){
+        //get controller streak from firebase
         String controllerStreak="8";
-        String techniqueStreak="20";
-        String rescueCount = "3";
 
         //get configured threshold numbers from database
         int controllerThreshold= 10;
-        int techniqueThreshold= 15;
-        int rescueThreshold = 4;
 
         //get image view and text view components
-        ImageView badge;
-        ImageView badgeLock;
-        TextView badgeText;
-        TextView noBadgeText;
-
-        badge=findViewById(R.id.imageView8);
-        badgeText=findViewById(R.id.textView20);
-        badgeLock=findViewById(R.id.imageView18);
-        noBadgeText=findViewById(R.id.textView25);
+        ImageView badge=findViewById(R.id.imageView8);
+        ImageView badgeText=findViewById(R.id.textView20);
+        TextView badgeLock=findViewById(R.id.imageView18);
+        TextView noBadgeText=findViewById(R.id.textView25);
 
         if(Integer.parseInt(controllerStreak)>=controllerThreshold) {
             //then make badge with text visible & lock with text  invisible
@@ -64,10 +57,17 @@ public class ChildBadgeActivity extends BackButtonActivity {
             noBadgeText.setVisibility(View.VISIBLE);
         }
 
-        badge=findViewById(R.id.imageView14);
-        badgeText=findViewById(R.id.textView28);
-        badgeLock=findViewById(R.id.imageView20);
-        noBadgeText=findViewById(R.id.textView24);
+    }
+
+    public void getTechnique(){
+        String techniqueStreak="20";//get technique streak from database
+        int techniqueThreshold= 15; // get threshold from data base
+
+        //get image view and text view components
+        ImageView badge=findViewById(R.id.imageView14);
+        ImageView badgeText=findViewById(R.id.textView28);
+        TextView badgeLock=findViewById(R.id.imageView20);
+        TextView noBadgeText=findViewById(R.id.textView24);
 
         if(Integer.parseInt(techniqueStreak)>=techniqueThreshold) {
             //then make badge with text visible & lock with text  invisible
@@ -76,30 +76,37 @@ public class ChildBadgeActivity extends BackButtonActivity {
             badgeLock.setVisibility(View.INVISIBLE);
             noBadgeText.setVisibility(View.INVISIBLE);
         }
-        else{
+        else {
             badge.setVisibility(View.INVISIBLE);
             badgeText.setVisibility(View.INVISIBLE);
             badgeLock.setVisibility(View.VISIBLE);
             noBadgeText.setVisibility(View.VISIBLE);
         }
 
-        badge=findViewById(R.id.imageView13);
-        badgeText=findViewById(R.id.textView27);
-        badgeLock=findViewById(R.id.imageView19);
-        noBadgeText=findViewById(R.id.textView26);
+    }
 
-        if(Integer.parseInt(rescueCount)>=rescueThreshold) {
-            //then make badge with text visible & lock with text  invisible
-            badge.setVisibility(View.VISIBLE);
-            badgeText.setVisibility(View.VISIBLE);
-            badgeLock.setVisibility(View.INVISIBLE);
-            noBadgeText.setVisibility(View.INVISIBLE);
-        }
-        else{
-            badge.setVisibility(View.INVISIBLE);
-            badgeText.setVisibility(View.INVISIBLE);
-            badgeLock.setVisibility(View.VISIBLE);
-            noBadgeText.setVisibility(View.VISIBLE);
-        }
+    public void getRescue(){
+            String rescueCount = "3";//get rescue count from database
+            int rescueThreshold = 4;// get threshold from data base
+
+            //get image view and text view components
+            ImageView badge=findViewById(R.id.imageView13);
+            ImageView badgeText=findViewById(R.id.textView27);
+            TextView badgeLock=findViewById(R.id.imageView19);
+            TextView noBadgeText=findViewById(R.id.textView26);
+
+            if(Integer.parseInt(rescueCount)>=rescueThreshold) {
+                //then make badge with text visible & lock with text  invisible
+                badge.setVisibility(View.VISIBLE);
+                badgeText.setVisibility(View.VISIBLE);
+                badgeLock.setVisibility(View.INVISIBLE);
+                noBadgeText.setVisibility(View.INVISIBLE);
+            }
+            else{
+                badge.setVisibility(View.INVISIBLE);
+                badgeText.setVisibility(View.INVISIBLE);
+                badgeLock.setVisibility(View.VISIBLE);
+                noBadgeText.setVisibility(View.VISIBLE);
+            }
     }
 }

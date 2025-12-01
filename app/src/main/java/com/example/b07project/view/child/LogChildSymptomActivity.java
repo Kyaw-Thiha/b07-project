@@ -29,11 +29,11 @@ public class LogChildSymptomActivity extends BackButtonActivity {
             return insets;
         });
         //get most recent entry for check in and use that date
-        header1();//make arguments to assign correct info to components in the first header
-        header2();
-        header3(); //third last entry and so on
-        header4(); //second last entry
-        header5(); //most recent entry
+        header1("November 18", "yes", "hard", "often", 6);//make arguments to assign correct info to components in the first header
+        header2("November 19", "yes", "hard", "often", 6);
+        header3("November 20", "yes", "hard", "often", 6); //third last entry and so on
+        header4("November 21", "yes", "hard", "often", 6); //second last entry
+        header5("November 22", "yes", "hard", "often", 6); //most recent entry
 
         CalendarView calendar =findViewById(R.id.calendarView);
         calendar.setVisibility(View.GONE);
@@ -46,47 +46,47 @@ public class LogChildSymptomActivity extends BackButtonActivity {
         startActivity(intent);
     }
 
-    public void header1() {
-        TextView date = findViewById(R.id.textView72);
-        TextView night = findViewById(R.id.textView71);
-        TextView activity = findViewById(R.id.textView70);
-        TextView cough = findViewById(R.id.textView69);
+    public void header1(String date, String night, String activity, String cough, int triggerCount) {
+        TextView dateText = findViewById(R.id.textView72);
+        TextView nightText = findViewById(R.id.textView71);
+        TextView activityText = findViewById(R.id.textView70);
+        TextView coughText = findViewById(R.id.textView69);
         TextView trigger = findViewById(R.id.textView68);
 
     }
 
-    public void header2() {
-        TextView date = findViewById(R.id.textView93);
-        TextView night = findViewById(R.id.textView96);
-        TextView activity = findViewById(R.id.textView94);
-        TextView cough = findViewById(R.id.textView95);
+    public void header2(String date, String night, String activity, String cough, int triggerCount) {
+        TextView dateText = findViewById(R.id.textView93);
+        TextView nightText = findViewById(R.id.textView96);
+        TextView activityText = findViewById(R.id.textView94);
+        TextView coughText = findViewById(R.id.textView95);
         TextView trigger = findViewById(R.id.textView97);
 
     }
 
-    public void header3() {
-        TextView date = findViewById(R.id.textView98);
-        TextView night = findViewById(R.id.textView101);
-        TextView activity = findViewById(R.id.textView99);
-        TextView cough = findViewById(R.id.textView100);
+    public void header3(String date, String night, String activity, String cough, int triggerCount) {
+        TextView dateText = findViewById(R.id.textView98);
+        TextView nightText = findViewById(R.id.textView101);
+        TextView activityText = findViewById(R.id.textView99);
+        TextView coughText = findViewById(R.id.textView100);
         TextView trigger = findViewById(R.id.textView102);
 
     }
 
-    public void header4() {
-        TextView date = findViewById(R.id.textView103);
-        TextView night = findViewById(R.id.textView106);
-        TextView activity = findViewById(R.id.textView104);
-        TextView cough = findViewById(R.id.textView105);
+    public void header4(String date, String night, String activity, String cough, int triggerCount) {
+        TextView dateText = findViewById(R.id.textView103);
+        TextView nightText = findViewById(R.id.textView106);
+        TextView activityText = findViewById(R.id.textView104);
+        TextView coughText = findViewById(R.id.textView105);
         TextView trigger = findViewById(R.id.textView107);
 
     }
 
-    public void header5() {
-        TextView date = findViewById(R.id.textView108);
-        TextView night = findViewById(R.id.textView111);
-        TextView activity = findViewById(R.id.textView109);
-        TextView cough = findViewById(R.id.textView110);
+    public void header5(String date, String night, String activity, String cough, int triggerCount) {
+        TextView dateText = findViewById(R.id.textView108);
+        TextView nightText = findViewById(R.id.textView111);
+        TextView activityText = findViewById(R.id.textView109);
+        TextView coughText = findViewById(R.id.textView110);
         TextView trigger = findViewById(R.id.textView112);
 
     }

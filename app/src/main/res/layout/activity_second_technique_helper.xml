@@ -13,11 +13,12 @@
         android:layout_width="246dp"
         android:layout_height="75dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="13dp"
         android:text="Repeat from Step 1 for each puff leaving 30-60 seconds between each dose"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/button22"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView3" />
 
@@ -26,13 +27,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="116dp"
         android:text="HOLD FOR 10 SECONDS"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView2" />
 
@@ -74,9 +74,10 @@
         android:layout_width="408dp"
         android:layout_height="204dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
@@ -99,9 +100,10 @@
         android:layout_width="409dp"
         android:layout_height="190dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
@@ -110,11 +112,12 @@
         android:layout_width="40dp"
         android:layout_height="39dp"
         android:layout_marginTop="47dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="39dp"
         android:src="@drawable/technique_repeat_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView67"
-        app:layout_constraintTop_toBottomOf="@+id/videoView3" />
+        app:layout_constraintTop_toBottomOf="@+id/videoView3"
+        app:layout_constraintVertical_bias="0.324" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

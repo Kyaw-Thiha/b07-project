@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class ControllerMedicineInputActivity extends BackButtonActivity {
 
@@ -28,6 +29,9 @@ public class ControllerMedicineInputActivity extends BackButtonActivity {
 
     public void submitDose(View view){
         //save the info inputted in the text view input bar into database then go to the dose check after dose
+        TextInputEditText dose = findViewById(R.id.textInputDose);
+        TextInputEditText time = findViewById(R.id.textInputTime);
+        //save the dosage and time to firebase
         Intent intent = new Intent(this, DoseCheckActivity.class);
         //start dose check activity remembering the previous state
         intent.putExtra("previous_activity", "ControllerMedicineInputActivity");

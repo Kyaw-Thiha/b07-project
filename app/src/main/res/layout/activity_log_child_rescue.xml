@@ -9,16 +9,6 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="34dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39"
-        app:srcCompat="@drawable/red_flag" />
-
-    <ImageView
         android:id="@+id/imageView6"
         android:layout_width="34dp"
         android:layout_height="32dp"
@@ -86,17 +76,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="332dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="38dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <CheckBox
         android:id="@+id/checkBox24"
         android:layout_width="63dp"
@@ -157,24 +136,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox18" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="328dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="17dp"
-        android:hint="(Eg: 2, 5) Please enter a number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
         android:text="(Optional)Enter your current PEF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox24" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="34dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
+        app:srcCompat="@drawable/red_flag" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="328dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:hint="(Eg: 2, 5) Please enter a number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="rescueDecision"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
+        app:layout_constraintVertical_bias="0.573" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="352dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="22dp"
+        android:text="Note: This is guidance, not a diagnosis. If in doubt, call emergency."
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="108dp"
+        android:text="These are red flag/critical questions"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
     <TextView
         android:id="@+id/textView17"
@@ -206,32 +245,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="16dp"
-        android:onClick="rescueDecision"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
-
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="352dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="22dp"
-        android:text="Note: This is guidance, not a diagnosis. If in doubt, call emergency."
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="34dp"
@@ -241,16 +254,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/red_flag" />
-
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="105dp"
-        android:text="These are red flag/critical questions"
-        android:textColor="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
