@@ -6,10 +6,11 @@
     android:id="@+id/main"
     android:layout_height="match_parent">
     <include layout="@layout/back_button" />
+
     <LinearLayout
         android:id="@+id/child_card"
-        android:layout_width="300dp"
         android:layout_height="750dp"
+        android:layout_width="390dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
@@ -23,38 +24,109 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+
         <TextView
             android:id="@+id/textView32"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
             android:text="Flags Present:"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Are you having trouble speaking?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ToggleButton
+            android:id="@+id/toggle_firstQuestion"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textOff="NOT PRESENT"
+            android:textOn="PRESENT" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Are you experiencing any chest pulling or retractions?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ToggleButton
+            android:id="@+id/toggle_secondQuestion"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textOff="NOT PRESENT"
+            android:textOn="PRESENT" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Do you have blue or gray lips or nails?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ToggleButton
+            android:id="@+id/toggle_thirdQuestion"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textOff="NOT PRESENT"
+            android:textOn="PRESENT" />
+
+        <TextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
             android:text="Guidance Shown:"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/guidence_shown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
             android:id="@+id/textView34"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
-            android:text="User responses:"
+            android:text="User response:"
             android:textSize="20dp"
             android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/toggle_userResponse"
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textOff="ACTION PLAN"
+            android:textOn="CALL 911" />
 
         <TextView
             android:id="@+id/textView43"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+
             android:text="PEF(optional):"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -69,7 +141,7 @@
             android:textStyle="bold" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggle_shareProvider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -89,6 +161,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/child_card"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

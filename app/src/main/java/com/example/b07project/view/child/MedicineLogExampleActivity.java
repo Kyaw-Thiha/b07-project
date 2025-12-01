@@ -71,7 +71,7 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
     viewModel.loadLogByUser(uid);
 
     // 5. Add an example log when button is clicked
-    buttonAddExampleLog.setOnClickListener(v -> {
+    /*buttonAddExampleLog.setOnClickListener(v -> {
       long now = System.currentTimeMillis();
       MedicineLog log = new MedicineLog(
           now,
@@ -83,7 +83,7 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
 
       viewModel.addLog(uid, log);
       // ViewModel reloads and LiveData updates the UI
-    });
+    });*/
 
     // 6. Wire buttons to the example update/delete methods
 

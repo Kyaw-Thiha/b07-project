@@ -33,9 +33,6 @@
             android:name=".view.child.DoseCheckActivity"
             android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
         <activity
-            android:name=".view.child.ControllerMedicineInputActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
@@ -82,6 +79,9 @@
             android:exported="false" /> <!-- ========= PARENT DASHBOARD ========= -->
         <activity
             android:name=".view.parent.ParentDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.parent.AddActionPlan"
             android:exported="false" />
     </application>
 

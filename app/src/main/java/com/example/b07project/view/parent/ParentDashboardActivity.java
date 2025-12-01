@@ -3,6 +3,7 @@ package com.example.b07project.view.parent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import androidx.activity.EdgeToEdge;
@@ -91,6 +92,13 @@ public class ParentDashboardActivity extends BackButtonActivity {
         }
 
     }
+    public void add_action_plan(View view)
+    { Intent intent = new Intent(this,AddActionPlan.class);
+        startActivity(intent);
+    }
+
+    Button chooseChild = findViewById(R.id.chooseChild);
+    // TODO
 
 
-}
+    }

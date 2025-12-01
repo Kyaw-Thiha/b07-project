@@ -16,7 +16,7 @@
         android:hint="Enter value here"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/code_generator" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="205dp"
@@ -24,7 +24,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+        app:layout_constraintTop_toBottomOf="@+id/code_generator">
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +92,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
+        android:id="@+id/code_generator"
         android:layout_width="204dp"
         android:layout_height="43dp"
         android:layout_marginTop="56dp"
