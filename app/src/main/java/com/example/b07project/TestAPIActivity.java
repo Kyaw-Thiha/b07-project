@@ -208,6 +208,9 @@ public class TestAPIActivity extends AppCompatActivity {
       shareSettings.setIncludeTriggers(true);
       shareSettings.setIncludeSummaryCharts(true);
 
+      long endDate = now;
+      long startDate = now - (7L * 24L * 60L * 60L * 1000L);
+
       reportViewModel.createReport(
           parentUser,
           childUser,
@@ -217,6 +220,8 @@ public class TestAPIActivity extends AppCompatActivity {
           Collections.singletonList(pef),
           Collections.singletonList(checkIn),
           Collections.singletonList(incident),
+          startDate,
+          endDate,
           shareSettings);
 
       Toast
