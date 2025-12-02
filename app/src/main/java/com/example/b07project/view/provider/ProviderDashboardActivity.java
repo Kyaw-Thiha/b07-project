@@ -1,35 +1,32 @@
 package com.example.b07project.view.provider;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.b07project.model.ProviderChild;
 import com.example.b07project.R;
-import com.example.b07project.view.common.BackButtonActivity;
+import com.example.b07project.model.ProviderChild;
+import com.example.b07project.model.Report;
 import com.example.b07project.view.common.OnboardingActivity;
+import com.example.b07project.viewModel.ReportViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public class ProviderDashboardActivity extends OnboardingActivity {
     private FirebaseAuth mAuth;
@@ -38,6 +35,9 @@ public class ProviderDashboardActivity extends OnboardingActivity {
     private ProviderChildAdapter adapter;
     private final List<ProviderChild> children = new ArrayList<>();
     private ProgressBar loading;
+    private ReportViewModel reportViewModel;
+    private final DateFormat dateFormat =
+            DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
 
     @Override
     protected String getOnboardingPrefKey() {
@@ -65,7 +65,7 @@ public class ProviderDashboardActivity extends OnboardingActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_child_dashboard);
+        setContentView(R.layout.activity_provider_dashboard);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -82,64 +82,88 @@ public class ProviderDashboardActivity extends OnboardingActivity {
         recyclerView = findViewById(R.id.childrenRecycler);
         loading = findViewById(R.id.loading);
         if (loading != null) loading.setVisibility(View.VISIBLE);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ProviderChildAdapter(this, children);
         recyclerView.setAdapter(adapter);
 
-//        loadChildrenForProvider();
-    }
-    private void loadChildrenForProvider() {
-
-        if (loading != null) {
-            loading.setVisibility(View.VISIBLE);
-        }
-
-        String providerId = mUser.getUid();
-
-        DatabaseReference ref = FirebaseDatabase.getInstance()
-                .getReference("providersChildren")
-                .child(providerId);
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                children.clear();
-
-
-
-                for (DataSnapshot childSnap : snapshot.getChildren()) {
-                    // childId is the key under providerId
-                    String childId = childSnap.getKey();
-
-                    ProviderChild child = childSnap.getValue(ProviderChild.class);
-                    if (child == null) continue;
-
-                    child.setId(childId);    // make sure id is set on the model
-                    children.add(child);
-                }
-
-                adapter.notifyDataSetChanged();
-
-                if (loading != null) {
-                    loading.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                if (loading != null) {
-                    loading.setVisibility(View.GONE);
-                }
-
-                Toast.makeText(ProviderDashboardActivity.this,
-                        "Failed to load children: " + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+        reportViewModel = new ViewModelProvider(this).get(ReportViewModel.class);
+        reportViewModel.getReports().observe(this, this::onReportsLoaded);
+        reportViewModel.getErrorMessage().observe(this, message -> {
+            if (message != null) {
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             }
         });
+
+        reportViewModel.loadReportsByProvider(mUser.getUid());
     }
 
+    private void onReportsLoaded(List<Report> reports) {
+        children.clear();
+        if (reports != null) {
+            for (Report report : reports) {
+                ProviderChild child = mapReportToChild(report);
+                if (child != null) {
+                    children.add(child);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+        if (loading != null) {
+            loading.setVisibility(View.GONE);
+        }
+    }
 
+    private ProviderChild mapReportToChild(Report report) {
+        if (report == null || report.getChildId() == null) {
+            return null;
+        }
+        ProviderChild child = new ProviderChild();
+        child.setId(report.getChildId());
+        child.setName(report.getChildName() != null ? report.getChildName() : "Unknown child");
+        child.setAge(0);
+        child.setParentName(report.getParentName() != null ? report.getParentName() : "-");
+        child.setTodayZone(resolveTodayZone(report.getSummary()));
+        child.setRescue7d(resolveRescueCount(report.getSummary()));
+        child.setControllerAdherence(resolveAdherencePercent(report.getSummary()));
+        child.setLastUpdated(formatLastUpdated(report.getEndDate()));
+        return child;
+    }
+
+    private String formatLastUpdated(long endDate) {
+        if (endDate <= 0) {
+            return "-";
+        }
+        return dateFormat.format(new Date(endDate));
+    }
+
+    private String resolveTodayZone(Report.Summary summary) {
+        if (summary == null) {
+            return "-";
+        }
+        Map<String, Integer> distribution = summary.getZoneDistribution();
+        if (distribution == null || distribution.isEmpty()) {
+            return "-";
+        }
+        String bestZone = null;
+        int bestValue = Integer.MIN_VALUE;
+        for (Map.Entry<String, Integer> entry : distribution.entrySet()) {
+            int value = entry.getValue() != null ? entry.getValue() : 0;
+            if (value > bestValue) {
+                bestValue = value;
+                bestZone = entry.getKey();
+            }
+        }
+        return bestZone != null ? bestZone : "-";
+    }
+
+    private int resolveRescueCount(Report.Summary summary) {
+        return summary != null ? summary.getRescueCount() : 0;
+    }
+
+    private int resolveAdherencePercent(Report.Summary summary) {
+        if (summary == null) {
+            return 0;
+        }
+        return (int) Math.round(summary.getControllerAdherencePercent());
+    }
 }
-
