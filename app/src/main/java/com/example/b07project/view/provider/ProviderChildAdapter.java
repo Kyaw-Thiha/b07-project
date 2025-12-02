@@ -51,12 +51,13 @@ public class ProviderChildAdapter extends RecyclerView.Adapter<ProviderChildAdap
                 + child.getControllerAdherence() + "%");
         holder.lastUpdated.setText("Last updated: " + child.getLastUpdated());
 
-        // click name -> jump to report
-        holder.name.setOnClickListener(v -> {
+        View.OnClickListener openReport = v -> {
             Intent intent = new Intent(context, ChildReportActivity.class);
             intent.putExtra("childId", child.getId());
             context.startActivity(intent);
-        });
+        };
+        holder.itemView.setOnClickListener(openReport);
+        holder.name.setOnClickListener(openReport);
     }
 
     @Override
@@ -85,4 +86,3 @@ public class ProviderChildAdapter extends RecyclerView.Adapter<ProviderChildAdap
         }
     }
 }
-
