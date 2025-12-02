@@ -95,6 +95,7 @@ public class ProviderDashboardActivity extends OnboardingActivity {
         });
 
         reportViewModel.loadReportsByProvider(mUser.getUid());
+        runOnboardingIfFirstTime();
     }
 
     private void onReportsLoaded(List<Report> reports) {

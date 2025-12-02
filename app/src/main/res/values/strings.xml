@@ -128,6 +128,9 @@
     <string name="report_loading_placeholder">Loading…</string>
     <string name="report_export_missing">Report is still loading.</string>
     <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
+    <string name="provider_onboarding_welcome">Welcome back, Dr. %1$s</string>
+    <string name="provider_onboarding_subtitle_with_org">You&apos;re connected with %1$s families.</string>
+    <string name="provider_onboarding_data_source">Parents trust you with their child’s data, %1$s.</string>
     <string name="invite_code_expires">Expires: %1$s</string>
     <string name="invite_no_code">No active invite code.</string>
     <string name="notifications_empty">No notifications yet.</string>

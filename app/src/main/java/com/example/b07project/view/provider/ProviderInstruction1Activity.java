@@ -1,25 +1,45 @@
 package com.example.b07project.view.provider;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.b07project.R;
+import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.view.common.BackButtonActivity;
 import com.example.b07project.view.login.LoginActivity;
+import com.example.b07project.viewModel.ProviderProfileViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class ProviderInstruction1Activity extends BackButtonActivity{
+public class ProviderInstruction1Activity extends BackButtonActivity {
+    private ProviderProfileViewModel viewModel;
+    private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider_instrustion_1);
 
-        // right-down Next button
+        auth = FirebaseAuth.getInstance();
+        viewModel = new ViewModelProvider(this).get(ProviderProfileViewModel.class);
+
+        TextView title = findViewById(R.id.textTitle);
+        TextView subtitle = findViewById(R.id.textSubtitle);
+
+        viewModel.getProvider().observe(this, provider -> applyProfileCopy(provider, title, subtitle));
+
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null) {
+            viewModel.loadProvider(user.getUid());
+        }
+
         ImageButton buttonNext = findViewById(R.id.buttonNext);
-        // left-down corner Skip textview
         TextView buttonSkip = findViewById(R.id.buttonSkip);
 
-        // click Next → jump to Provider's Instruction Page 2
         buttonNext.setOnClickListener(v -> {
             Intent intent = new Intent(
                     ProviderInstruction1Activity.this,
@@ -28,7 +48,6 @@ public class ProviderInstruction1Activity extends BackButtonActivity{
             startActivity(intent);
         });
 
-        // click Skip → back to log in
         buttonSkip.setOnClickListener(v -> {
             Intent intent = new Intent(
                     ProviderInstruction1Activity.this,
@@ -37,5 +56,18 @@ public class ProviderInstruction1Activity extends BackButtonActivity{
             startActivity(intent);
             finish();
         });
+    }
+
+    private void applyProfileCopy(ProviderUser provider, TextView title, TextView subtitle) {
+        if (provider == null) {
+            return;
+        }
+        if (provider.getName() != null) {
+            title.setText(getString(R.string.provider_onboarding_welcome, provider.getName()));
+        }
+        if (provider.getOrganization() != null && !provider.getOrganization().isEmpty()) {
+            subtitle.setText(getString(R.string.provider_onboarding_subtitle_with_org,
+                    provider.getOrganization()));
+        }
     }
 }
