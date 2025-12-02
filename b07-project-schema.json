@@ -1,69 +1,1016 @@
 {
   "motivation": {
-    "test-child-4bd00357-e207-47a0-9805-538bd247b147": {
+    "FyHJy5wRX5PyS9QfbE3joSZmRqK2": {
       "streaks": {
         "medicineLog": {
           "best": 1,
           "current": 1,
-          "updatedAt": 20423
+          "updatedAt": 20395
         }
       }
     }
   },
   "reports": {
-    "-OfQdw9ssV_WoSlebBVp": {
+    "-OfVE3-NpniR8lC9F05L": {
       "checkIns": [
         {
-          "authorId": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7",
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 0",
+            "triggers": {
+              "cold_air": true,
+              "dust": true,
+              "exercise": true,
+              "illness": true,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": true
+            }
+          },
+          "time": 1764698636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
           "enteredByParent": true,
           "night_walking": {
             "entry_by_parent": false,
-            "note": "nothing",
+            "note": "note 1",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764612236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 2",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764525836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 3",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764439436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 4",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764353036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 5",
+            "triggers": {
+              "cold_air": true,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764266636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 6",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": true,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764180236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 7",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": true
+            }
+          },
+          "time": 1764093836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 8",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1764007436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 9",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763921036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 10",
+            "triggers": {
+              "cold_air": true,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763834636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 11",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763748236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 12",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": true,
+              "illness": true,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763661836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 13",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763575436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 14",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": true
+            }
+          },
+          "time": 1763489036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 15",
             "triggers": {
               "cold_air": true,
               "dust": false,
               "exercise": true,
               "illness": false,
               "perfume_odors": false,
-              "pets": true,
+              "pets": false,
               "smoke": false
             }
           },
-          "time": 1764621795981,
-          "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+          "time": 1763402636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 16",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763316236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 17",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763229836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 18",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": true,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763143436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 19",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1763057036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 20",
+            "triggers": {
+              "cold_air": true,
+              "dust": true,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762970636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 21",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": true
+            }
+          },
+          "time": 1762884236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 22",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762797836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 23",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762711436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 24",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": true,
+              "illness": true,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762625036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 25",
+            "triggers": {
+              "cold_air": true,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762538636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 26",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762452236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "cough": "cough",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 27",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": true,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762365836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "activity_limits": "limited",
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": true,
+            "note": "note 28",
+            "triggers": {
+              "cold_air": false,
+              "dust": true,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": true
+            }
+          },
+          "time": 1762279436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+          "enteredByParent": true,
+          "night_walking": {
+            "entry_by_parent": false,
+            "note": "note 29",
+            "triggers": {
+              "cold_air": false,
+              "dust": false,
+              "exercise": false,
+              "illness": false,
+              "perfume_odors": false,
+              "pets": false,
+              "smoke": false
+            }
+          },
+          "time": 1762193036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
         }
       ],
-      "childId": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
+      "childId": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
       "childName": "Test Child",
-      "createdAt": 1764621796024,
-      "endDate": 1764621795981,
+      "createdAt": 1764698636312,
+      "endDate": 1764698636251,
       "incidents": [
         {
+          "decision": "CALL_EMERGENCY",
           "flags": {
             "blueLips": false,
             "cantSpeakFullSentences": true,
+            "chestPulling": true,
+            "severeWheeze": true,
+            "unableToLieFlat": false
+          },
+          "guidance": "Escalated guidance",
+          "parentAlertSent": false,
+          "pefNumber": 2,
+          "rescueAttempts": 0,
+          "time": 1764266636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "decision": "HOME_STEPS",
+          "flags": {
+            "blueLips": false,
+            "cantSpeakFullSentences": false,
             "chestPulling": false,
             "severeWheeze": true,
             "unableToLieFlat": false
           },
-          "guidance": "guidance text",
+          "guidance": "Started home steps",
           "parentAlertSent": false,
-          "pefNumber": 3,
+          "pefNumber": 1,
           "rescueAttempts": 0,
-          "time": 1764621895981,
-          "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+          "time": 1763661836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
         }
       ],
       "medicineLogs": [
         {
           "after": "better",
-          "before": "worse",
-          "controllerPlanId": "-OfQdw9TcBx6tQ4osV5s",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
           "dose": 2,
-          "medicineId": "-OfQdw9RwD5D9n86gPj7",
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
           "medicineType": "controller",
-          "time": 1764621795981,
-          "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+          "time": 1764698636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1764720236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764612236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764525836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764439436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764353036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1764374636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764266636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764180236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764093836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1764007436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1764029036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763921036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763834636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763748236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763661836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1763683436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763575436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763489036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763402636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763316236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1763337836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763229836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763143436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1763057036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762970636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1762992236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762884236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762797836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762711436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762625036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1762646636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762538636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762452236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762365836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762279436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "worse",
+          "dose": 1,
+          "medicineType": "rescue",
+          "time": 1762301036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+        },
+        {
+          "after": "better",
+          "before": "same",
+          "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+          "dose": 2,
+          "medicineId": "-OfVE2zYrcxFSmX33VFi",
+          "medicineType": "controller",
+          "time": 1762193036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
         }
       ],
       "medicines": [
@@ -71,31 +1018,263 @@
           "canister_puffs": 200,
           "expiry_date": "2026-01-26",
           "initialCanisterPuffs": 200,
-          "inventoryId": "-OfQdw9RwD5D9n86gPj7",
-          "lastUpdated": 1764621795996,
+          "inventoryId": "-OfVE2zYrcxFSmX33VFi",
+          "lastUpdated": 1764698636259,
           "name": "Penicillin",
           "purchase_date": "2025-11-20",
           "replacement_reminder": "2026-01-26",
           "type": "controller",
-          "uid": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7"
+          "uid": "cr4S51jArJTFFag3r83wO965stI2"
         }
       ],
-      "parentId": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7",
+      "parentId": "cr4S51jArJTFFag3r83wO965stI2",
       "parentName": "Test Parent",
       "pefLogs": [
         {
           "personalBestAtEntry": 350,
-          "post_med": 300,
-          "pre_med": 250,
-          "time": 1764621795981,
-          "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
+          "post_med": 281,
+          "pre_med": 261,
+          "time": 1764698636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Yellow"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 346,
+          "pre_med": 326,
+          "time": 1764612236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 319,
+          "pre_med": 299,
+          "time": 1764525836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 309,
+          "pre_med": 289,
+          "time": 1764439436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 289,
+          "pre_med": 269,
+          "time": 1764353036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 282,
+          "pre_med": 262,
+          "time": 1764266636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 312,
+          "pre_med": 292,
+          "time": 1764180236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 278,
+          "pre_med": 258,
+          "time": 1764093836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 346,
+          "pre_med": 326,
+          "time": 1764007436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 306,
+          "pre_med": 286,
+          "time": 1763921036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 345,
+          "pre_med": 325,
+          "time": 1763834636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Yellow"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 289,
+          "pre_med": 269,
+          "time": 1763748236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 276,
+          "pre_med": 256,
+          "time": 1763661836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 337,
+          "pre_med": 317,
+          "time": 1763575436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 317,
+          "pre_med": 297,
+          "time": 1763489036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 274,
+          "pre_med": 254,
+          "time": 1763402636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 340,
+          "pre_med": 320,
+          "time": 1763316236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 333,
+          "pre_med": 313,
+          "time": 1763229836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 315,
+          "pre_med": 295,
+          "time": 1763143436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 292,
+          "pre_med": 272,
+          "time": 1763057036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 283,
+          "pre_med": 263,
+          "time": 1762970636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Yellow"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 303,
+          "pre_med": 283,
+          "time": 1762884236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 319,
+          "pre_med": 299,
+          "time": 1762797836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 291,
+          "pre_med": 271,
+          "time": 1762711436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 301,
+          "pre_med": 281,
+          "time": 1762625036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 340,
+          "pre_med": 320,
+          "time": 1762538636251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 320,
+          "pre_med": 300,
+          "time": 1762452236251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 281,
+          "pre_med": 261,
+          "time": 1762365836251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 295,
+          "pre_med": 275,
+          "time": 1762279436251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+          "zone": "Green"
+        },
+        {
+          "personalBestAtEntry": 350,
+          "post_med": 282,
+          "pre_med": 262,
+          "time": 1762193036251,
+          "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
           "zone": "Green"
         }
       ],
-      "providerId": "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef",
+      "providerId": "AaThrNWRiDdHpnG5TGfCOMHdl4t1",
       "providerName": "Test Provider",
       "shareSettings": {
-        "childId": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
+        "childId": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
         "includeCheckIns": true,
         "includeControllerSummary": true,
         "includeIncidents": true,
@@ -106,149 +1285,1384 @@
         "includeSummaryCharts": true,
         "includeSymptoms": true,
         "includeTriggers": true,
-        "parentId": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7",
-        "providerId": "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef"
+        "parentId": "cr4S51jArJTFFag3r83wO965stI2",
+        "providerId": "AaThrNWRiDdHpnG5TGfCOMHdl4t1"
       },
-      "startDate": 1764016995981,
+      "startDate": 1762106636251,
       "summary": {
         "categorical": [
           {
-            "label": "pets",
-            "value": 1
+            "label": "smoke",
+            "value": 5
           },
           {
             "label": "exercise",
-            "value": 1
+            "value": 10
+          },
+          {
+            "label": "dust",
+            "value": 8
           },
           {
             "label": "cold_air",
-            "value": 1
+            "value": 6
+          },
+          {
+            "label": "illness",
+            "value": 5
           }
         ],
         "controllerAdherencePercent": 0,
         "controllerScheduledDoses": 0,
-        "controllerTakenDoses": 2,
-        "lastRescueTime": 0,
-        "rescueCount": 0,
+        "controllerTakenDoses": 60,
+        "lastRescueTime": 1764720236251,
+        "rescueCount": 8,
         "symptomBurden": {
-          "night_walking": 1
+          "activity_limits": 15,
+          "cough": 10,
+          "night_walking": 30
         },
+        "timeSeries": [
+          {
+            "label": "Rescue",
+            "timestamp": 1764374400000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1762646400000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1764028800000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1763337600000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1764720000000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1762992000000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1762300800000,
+            "value": 1
+          },
+          {
+            "label": "Rescue",
+            "timestamp": 1763683200000,
+            "value": 1
+          }
+        ],
         "zoneDistribution": {
-          "Green": 1
+          "Green": 27,
+          "Yellow": 3
         }
       },
-      "uid": "-OfQdw9ssV_WoSlebBVp"
+      "uid": "-OfVE3-NpniR8lC9F05L"
     }
   },
   "users": {
     "children": {
-      "test-child-4bd00357-e207-47a0-9805-538bd247b147": {
+      "FyHJy5wRX5PyS9QfbE3joSZmRqK2": {
         "checkIn": {
-          "-OfQdw9lGNhE2EyNTAeA": {
-            "authorId": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7",
+          "-OfVE2zjOt_kvrOOMlj2": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 0",
+              "triggers": {
+                "cold_air": true,
+                "dust": true,
+                "exercise": true,
+                "illness": true,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": true
+              }
+            },
+            "time": 1764698636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zkzrYcJKJQvZcW": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
             "enteredByParent": true,
             "night_walking": {
               "entry_by_parent": false,
-              "note": "nothing",
+              "note": "note 1",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764612236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zlysgYu252OmXD": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 2",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764525836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zlysgYu252OmXE": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 3",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764439436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zm5FbW2IEs2NPs": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 4",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764353036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zm5FbW2IEs2NPt": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 5",
+              "triggers": {
+                "cold_air": true,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764266636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zm5FbW2IEs2NPu": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 6",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": true,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764180236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2znZorlqMXl2tdS": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 7",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": true
+              }
+            },
+            "time": 1764093836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2znZorlqMXl2tdT": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 8",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1764007436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zoEaYq2-tUKCpN": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 9",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763921036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zoEaYq2-tUKCpO": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 10",
+              "triggers": {
+                "cold_air": true,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763834636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zpWIRUDcJiW2qE": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 11",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763748236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zpWIRUDcJiW2qF": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 12",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": true,
+                "illness": true,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763661836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zpWIRUDcJiW2qG": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 13",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763575436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zqhColS0xHo5AW": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 14",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": true
+              }
+            },
+            "time": 1763489036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zrArkhVYGAD9dS": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 15",
               "triggers": {
                 "cold_air": true,
                 "dust": false,
                 "exercise": true,
                 "illness": false,
                 "perfume_odors": false,
-                "pets": true,
+                "pets": false,
                 "smoke": false
               }
             },
-            "time": 1764621795981,
-            "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+            "time": 1763402636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zrArkhVYGAD9dT": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 16",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763316236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zrArkhVYGAD9dU": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 17",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763229836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zsZpG4-4DOq9Bd": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 18",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": true,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763143436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zsZpG4-4DOq9Be": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 19",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1763057036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zta8fhH2W4aHz_": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 20",
+              "triggers": {
+                "cold_air": true,
+                "dust": true,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762970636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zta8fhH2W4aHza": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 21",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": true
+              }
+            },
+            "time": 1762884236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zta8fhH2W4aHzb": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 22",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762797836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zuwzCRnIQ0Emnp": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 23",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762711436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zuwzCRnIQ0Emnq": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 24",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": true,
+                "illness": true,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762625036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zvx4Sm6PEqDB8L": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 25",
+              "triggers": {
+                "cold_air": true,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762538636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zvx4Sm6PEqDB8M": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 26",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762452236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zwAwNaN-8G8y_i": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "cough": "cough",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 27",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": true,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762365836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zwAwNaN-8G8y_j": {
+            "activity_limits": "limited",
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": true,
+              "note": "note 28",
+              "triggers": {
+                "cold_air": false,
+                "dust": true,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": true
+              }
+            },
+            "time": 1762279436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zxfxgBTnaZQ_b-": {
+            "authorId": "cr4S51jArJTFFag3r83wO965stI2",
+            "enteredByParent": true,
+            "night_walking": {
+              "entry_by_parent": false,
+              "note": "note 29",
+              "triggers": {
+                "cold_air": false,
+                "dust": false,
+                "exercise": false,
+                "illness": false,
+                "perfume_odors": false,
+                "pets": false,
+                "smoke": false
+              }
+            },
+            "time": 1762193036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
           }
         },
         "controllerPlans": {
-          "-OfQdw9TcBx6tQ4osV5s": {
+          "-OfVE2zZZ3NkM48u2f7k": {
             "active": true,
-            "childId": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
-            "createdAt": 1764621795981,
+            "childId": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "createdAt": 1764698636251,
             "dosesPerDay": 2,
-            "medicineId": "-OfQdw9RwD5D9n86gPj7",
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
             "notes": "Sample plan",
-            "planId": "-OfQdw9TcBx6tQ4osV5s",
+            "planId": "-OfVE2zZZ3NkM48u2f7k",
             "planName": "Controller plan",
             "startDate": "2025-11-01",
             "timesOfDay": [
               "08:00",
               "20:00"
             ],
-            "updatedAt": 1764621795998
+            "updatedAt": 1764698636260
           }
         },
-        "currentZone": "Green",
+        "currentZone": "green",
         "dateOfBirth": "2016-01-01",
-        "email": "child+test-child-4bd00357-e207-47a0-9805-538bd247b147@example.com",
+        "email": "child+FyHJy5wRX5PyS9QfbE3joSZmRqK2@example.com",
         "incidentLog": {
-          "-OfQdw9pj3T078ijVDvF": {
+          "-OfVE3-KqUaq5vh6iy6w": {
+            "decision": "CALL_EMERGENCY",
             "flags": {
               "blueLips": false,
               "cantSpeakFullSentences": true,
+              "chestPulling": true,
+              "severeWheeze": true,
+              "unableToLieFlat": false
+            },
+            "guidance": "Escalated guidance",
+            "parentAlertSent": false,
+            "pefNumber": 2,
+            "rescueAttempts": 0,
+            "time": 1764266636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-LirmO-1sXgWfT": {
+            "decision": "HOME_STEPS",
+            "flags": {
+              "blueLips": false,
+              "cantSpeakFullSentences": false,
               "chestPulling": false,
               "severeWheeze": true,
               "unableToLieFlat": false
             },
-            "guidance": "guidance text",
+            "guidance": "Started home steps",
             "parentAlertSent": false,
-            "pefNumber": 3,
+            "pefNumber": 1,
             "rescueAttempts": 0,
-            "time": 1764621895981,
-            "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+            "time": 1763661836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
           }
         },
         "isAgeBelow9": true,
         "medicineLog": {
-          "-OfQdw9nDv162xXjTMEr": {
+          "-OfVE2zxfxgBTnaZQ_b0": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764698636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zyhZQMawJvj16J": {
             "after": "better",
             "before": "worse",
-            "controllerPlanId": "-OfQdw9TcBx6tQ4osV5s",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1764720236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zyhZQMawJvj16K": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
             "dose": 2,
-            "medicineId": "-OfQdw9RwD5D9n86gPj7",
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
             "medicineType": "controller",
-            "time": 1764621795981,
-            "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+            "time": 1764612236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zzFDGkIOER_oqE": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764525836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zzFDGkIOER_oqF": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764439436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE2zzFDGkIOER_oqG": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764353036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3--0TDX5jMVng1D": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1764374636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3--0TDX5jMVng1E": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764266636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3--0TDX5jMVng1F": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764180236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-2tVcPI8MQeVmE": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764093836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-3dI2AJk6OzZR4": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1764007436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-3dI2AJk6OzZR5": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1764029036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-4_pZgJnMl0P4R": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763921036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-4_pZgJnMl0P4S": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763834636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-4_pZgJnMl0P4T": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763748236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-5TukYByHyPEm3": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763661836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-5TukYByHyPEm4": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1763683436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-5TukYByHyPEm5": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763575436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-6UGtC0qmVQZhc": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763489036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-6UGtC0qmVQZhd": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763402636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-7eFhJjZtVg5um": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763316236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-7eFhJjZtVg5un": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1763337836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-7eFhJjZtVg5uo": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763229836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-8WqM2jkvjM5Kp": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763143436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-8WqM2jkvjM5Kq": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1763057036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-9rxrFnht1WVdM": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762970636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-9rxrFnht1WVdN": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1762992236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-9rxrFnht1WVdO": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762884236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-A4gCegNZVgONl": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762797836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-A4gCegNZVgONm": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762711436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-A4gCegNZVgONn": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762625036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-BCV2Bl_u3ODg_": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1762646636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-BCV2Bl_u3ODga": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762538636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-BCV2Bl_u3ODgb": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762452236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-CqZu-bfBOCfVz": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762365836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-CqZu-bfBOCfW-": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762279436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-CqZu-bfBOCfW0": {
+            "after": "better",
+            "before": "worse",
+            "dose": 1,
+            "medicineType": "rescue",
+            "time": 1762301036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
+          },
+          "-OfVE3-CqZu-bfBOCfW1": {
+            "after": "better",
+            "before": "same",
+            "controllerPlanId": "-OfVE2zZZ3NkM48u2f7k",
+            "dose": 2,
+            "medicineId": "-OfVE2zYrcxFSmX33VFi",
+            "medicineType": "controller",
+            "time": 1762193036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
           }
         },
         "name": "Test Child",
         "notification": {
-          "-OfQdw9qghcqi9TnLCeq": {
-            "childId": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
-            "createdAt": 1764621796017,
-            "notificationId": "-OfQdw9qghcqi9TnLCeq",
+          "-OfVE3-LirmO-1sXgWfU": {
+            "childId": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "createdAt": 1764698636270,
+            "notificationId": "-OfVE3-LirmO-1sXgWfU",
             "status": "pending",
-            "text": "Generated at Mon Dec 01 15:43:15 EST 2025",
+            "text": "Generated at Tue Dec 02 13:03:56 EST 2025",
             "title": "Firebase smoke test",
             "type": "triage_escalation"
           }
         },
-        "parentId": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7",
+        "parentId": "cr4S51jArJTFFag3r83wO965stI2",
         "parentNotes": "Sample note",
         "pefLog": {
-          "-OfQdw9o8cVln2_znvLU": {
+          "-OfVE3-DS5vi1wKkJVEI": {
             "personalBestAtEntry": 350,
-            "post_med": 300,
-            "pre_med": 250,
-            "time": 1764621795981,
-            "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
+            "post_med": 281,
+            "pre_med": 261,
+            "time": 1764698636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Yellow"
+          },
+          "-OfVE3-DS5vi1wKkJVEJ": {
+            "personalBestAtEntry": 350,
+            "post_med": 346,
+            "pre_med": 326,
+            "time": 1764612236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-DS5vi1wKkJVEK": {
+            "personalBestAtEntry": 350,
+            "post_med": 319,
+            "pre_med": 299,
+            "time": 1764525836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-EA8AQ1Xpgxhdv": {
+            "personalBestAtEntry": 350,
+            "post_med": 309,
+            "pre_med": 289,
+            "time": 1764439436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-EA8AQ1Xpgxhdw": {
+            "personalBestAtEntry": 350,
+            "post_med": 289,
+            "pre_med": 269,
+            "time": 1764353036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-EA8AQ1Xpgxhdx": {
+            "personalBestAtEntry": 350,
+            "post_med": 282,
+            "pre_med": 262,
+            "time": 1764266636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-EA8AQ1Xpgxhdy": {
+            "personalBestAtEntry": 350,
+            "post_med": 312,
+            "pre_med": 292,
+            "time": 1764180236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-FaZ6BSN4Jxc1G": {
+            "personalBestAtEntry": 350,
+            "post_med": 278,
+            "pre_med": 258,
+            "time": 1764093836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-FaZ6BSN4Jxc1H": {
+            "personalBestAtEntry": 350,
+            "post_med": 346,
+            "pre_med": 326,
+            "time": 1764007436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-FaZ6BSN4Jxc1I": {
+            "personalBestAtEntry": 350,
+            "post_med": 306,
+            "pre_med": 286,
+            "time": 1763921036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-FaZ6BSN4Jxc1J": {
+            "personalBestAtEntry": 350,
+            "post_med": 345,
+            "pre_med": 325,
+            "time": 1763834636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Yellow"
+          },
+          "-OfVE3-GOW_nR06KiXfm": {
+            "personalBestAtEntry": 350,
+            "post_med": 289,
+            "pre_med": 269,
+            "time": 1763748236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-GOW_nR06KiXfn": {
+            "personalBestAtEntry": 350,
+            "post_med": 276,
+            "pre_med": 256,
+            "time": 1763661836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-GOW_nR06KiXfo": {
+            "personalBestAtEntry": 350,
+            "post_med": 337,
+            "pre_med": 317,
+            "time": 1763575436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-GOW_nR06KiXfp": {
+            "personalBestAtEntry": 350,
+            "post_med": 317,
+            "pre_med": 297,
+            "time": 1763489036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-HSEe2LbY9m_Bc": {
+            "personalBestAtEntry": 350,
+            "post_med": 274,
+            "pre_med": 254,
+            "time": 1763402636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-HSEe2LbY9m_Bd": {
+            "personalBestAtEntry": 350,
+            "post_med": 340,
+            "pre_med": 320,
+            "time": 1763316236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-HSEe2LbY9m_Be": {
+            "personalBestAtEntry": 350,
+            "post_med": 333,
+            "pre_med": 313,
+            "time": 1763229836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-HSEe2LbY9m_Bf": {
+            "personalBestAtEntry": 350,
+            "post_med": 315,
+            "pre_med": 295,
+            "time": 1763143436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-InJA0HccQsXdW": {
+            "personalBestAtEntry": 350,
+            "post_med": 292,
+            "pre_med": 272,
+            "time": 1763057036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-InJA0HccQsXdX": {
+            "personalBestAtEntry": 350,
+            "post_med": 283,
+            "pre_med": 263,
+            "time": 1762970636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Yellow"
+          },
+          "-OfVE3-InJA0HccQsXdY": {
+            "personalBestAtEntry": 350,
+            "post_med": 303,
+            "pre_med": 283,
+            "time": 1762884236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-InJA0HccQsXdZ": {
+            "personalBestAtEntry": 350,
+            "post_med": 319,
+            "pre_med": 299,
+            "time": 1762797836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-InJA0HccQsXd_": {
+            "personalBestAtEntry": 350,
+            "post_med": 291,
+            "pre_med": 271,
+            "time": 1762711436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-JxZpzSDoBqwEU": {
+            "personalBestAtEntry": 350,
+            "post_med": 301,
+            "pre_med": 281,
+            "time": 1762625036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-JxZpzSDoBqwEV": {
+            "personalBestAtEntry": 350,
+            "post_med": 340,
+            "pre_med": 320,
+            "time": 1762538636251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-JxZpzSDoBqwEW": {
+            "personalBestAtEntry": 350,
+            "post_med": 320,
+            "pre_med": 300,
+            "time": 1762452236251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-JxZpzSDoBqwEX": {
+            "personalBestAtEntry": 350,
+            "post_med": 281,
+            "pre_med": 261,
+            "time": 1762365836251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-KqUaq5vh6iy6u": {
+            "personalBestAtEntry": 350,
+            "post_med": 295,
+            "pre_med": 275,
+            "time": 1762279436251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
+            "zone": "Green"
+          },
+          "-OfVE3-KqUaq5vh6iy6v": {
+            "personalBestAtEntry": 350,
+            "post_med": 282,
+            "pre_med": 262,
+            "time": 1762193036251,
+            "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
             "zone": "Green"
           }
         },
-        "personalBest": 350,
+        "personalBest": 281,
         "reports": {
-          "-OfQdw9ssV_WoSlebBVp": true
+          "-OfVE3-NpniR8lC9F05L": true
         },
         "roles": {
           "child": true
         },
         "triageSessions": {
-          "-OfQdw9rrRd0ILDAZoqM": {
-            "childId": "test-child-4bd00357-e207-47a0-9805-538bd247b147",
+          "-OfVE3-MWT2DORWEt3Dc": {
+            "blueLips": false,
+            "cantSpeak": false,
+            "chestPulling": false,
+            "childId": "FyHJy5wRX5PyS9QfbE3joSZmRqK2",
             "decision": "HOME_STEPS",
             "flags": {
               "blueLips": false,
@@ -259,82 +2673,83 @@
             },
             "guidanceShown": "Use rescue inhaler and start home steps.",
             "parentAlertSent": true,
-            "parentAlertSentAt": 1764621795981,
+            "parentAlertSentAt": 1764698636251,
             "pefNumber": 260,
+            "recentRescue": false,
             "rescueAttempts": 1,
-            "sessionId": "-OfQdw9rrRd0ILDAZoqM",
-            "startedAt": 1764621795981,
+            "sessionId": "-OfVE3-MWT2DORWEt3Dc",
+            "startedAt": 1764698636251,
             "status": "RESOLVED",
             "userResponse": "Following guidance"
           }
         },
-        "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+        "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
       }
     },
     "parents": {
-      "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7": {
-        "email": "parent+test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7@example.com",
+      "cr4S51jArJTFFag3r83wO965stI2": {
+        "email": "parent+cr4S51jArJTFFag3r83wO965stI2@example.com",
         "inventory": {
-          "-OfQdw9RwD5D9n86gPj7": {
+          "-OfVE2zYrcxFSmX33VFi": {
             "canister_puffs": 200,
             "expiry_date": "2026-01-26",
             "initialCanisterPuffs": 200,
-            "inventoryId": "-OfQdw9RwD5D9n86gPj7",
-            "lastUpdated": 1764621795996,
+            "inventoryId": "-OfVE2zYrcxFSmX33VFi",
+            "lastUpdated": 1764698636259,
             "name": "Penicillin",
             "purchase_date": "2025-11-20",
             "replacement_reminder": "2026-01-26",
             "type": "controller",
-            "uid": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7"
+            "uid": "cr4S51jArJTFFag3r83wO965stI2"
           }
         },
         "name": "Test Parent",
         "reports": {
-          "-OfQdw9ssV_WoSlebBVp": true
+          "-OfVE3-NpniR8lC9F05L": true
         },
         "roles": {
           "parent": true
         },
-        "uid": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7"
+        "uid": "cr4S51jArJTFFag3r83wO965stI2"
       }
     },
     "profiles": {
-      "test-child-4bd00357-e207-47a0-9805-538bd247b147": {
-        "email": "child+test-child-4bd00357-e207-47a0-9805-538bd247b147@example.com",
+      "AaThrNWRiDdHpnG5TGfCOMHdl4t1": {
+        "email": "provider+AaThrNWRiDdHpnG5TGfCOMHdl4t1@example.com",
+        "name": "Test Provider",
+        "roles": {
+          "provider": true
+        },
+        "uid": "AaThrNWRiDdHpnG5TGfCOMHdl4t1"
+      },
+      "FyHJy5wRX5PyS9QfbE3joSZmRqK2": {
+        "email": "child+FyHJy5wRX5PyS9QfbE3joSZmRqK2@example.com",
         "name": "Test Child",
         "roles": {
           "child": true
         },
-        "uid": "test-child-4bd00357-e207-47a0-9805-538bd247b147"
+        "uid": "FyHJy5wRX5PyS9QfbE3joSZmRqK2"
       },
-      "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7": {
-        "email": "parent+test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7@example.com",
+      "cr4S51jArJTFFag3r83wO965stI2": {
+        "email": "parent+cr4S51jArJTFFag3r83wO965stI2@example.com",
         "name": "Test Parent",
         "roles": {
           "parent": true
         },
-        "uid": "test-parent-ce645fd1-96fd-4d2f-8167-c433a4b05ff7"
-      },
-      "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef": {
-        "email": "provider+test-provider-2636177f-916a-4a0d-8289-b322ed9252ef@example.com",
-        "name": "Test Provider",
-        "roles": {
-          "provider": true
-        },
-        "uid": "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef"
+        "uid": "cr4S51jArJTFFag3r83wO965stI2"
       }
     },
     "providers": {
-      "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef": {
-        "email": "provider+test-provider-2636177f-916a-4a0d-8289-b322ed9252ef@example.com",
+      "AaThrNWRiDdHpnG5TGfCOMHdl4t1": {
+        "email": "provider+AaThrNWRiDdHpnG5TGfCOMHdl4t1@example.com",
         "name": "Test Provider",
         "reports": {
-          "-OfQdw9ssV_WoSlebBVp": true
+          "-OfVE3-NpniR8lC9F05L": true
         },
         "roles": {
           "provider": true
         },
-        "uid": "test-provider-2636177f-916a-4a0d-8289-b322ed9252ef"
+        "uid": "AaThrNWRiDdHpnG5TGfCOMHdl4t1"
       }
     }
   }
