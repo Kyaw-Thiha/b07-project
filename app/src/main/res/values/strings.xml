@@ -127,4 +127,7 @@
     <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
     <string name="invite_code_expires">Expires: %1$s</string>
     <string name="invite_no_code">No active invite code.</string>
+    <string name="notifications_empty">No notifications yet.</string>
+    <string name="mark_read">Mark as read</string>
+    <string name="delete">Delete</string>
 </resources>
