@@ -2,13 +2,12 @@ package com.example.b07project.model.User;
 
 import com.example.b07project.model.Medicine;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 public class ParentUser extends User {
-    private ArrayList<ChildUser> children;
-    private ArrayList<ProviderUser> providers;
-    private ArrayList<Medicine> inventory;
+    private Map<String, ChildUser> children;
+    private Map<String, ProviderUser> providers;
+    private Map<String, Medicine> inventory;
 
     public ParentUser() {
         super();
@@ -18,27 +17,27 @@ public class ParentUser extends User {
         super(uid, name, email, roles);
     }
 
-    public ArrayList<ChildUser> getChildren() {
+    public Map<String, ChildUser> getChildren() {
         return children;
     }
 
-    public void setChildren(ArrayList<ChildUser> children) {
+    public void setChildren(Map<String, ChildUser> children) {
         this.children = children;
     }
 
-    public ArrayList<ProviderUser> getProviders() {
+    public Map<String, ProviderUser> getProviders() {
         return providers;
     }
 
-    public void setProviders(ArrayList<ProviderUser> providers) {
+    public void setProviders(Map<String, ProviderUser> providers) {
         this.providers = providers;
     }
 
-    public ArrayList<Medicine> getInventory() {
+    public Map<String, Medicine> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Medicine> inventory) {
+    public void setInventory(Map<String, Medicine> inventory) {
         this.inventory = inventory;
     }
 }
