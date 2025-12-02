@@ -187,4 +187,7 @@
     <string name="inventory_item_expiry_format">Expires: %1$s</string>
     <string name="inventory_item_puffs_format">Canister puffs: %1$d</string>
     <string name="inventory_parent_missing">Unable to identify parent account.</string>
+    <string name="choose_child_button">Choose Child</string>
+    <string name="invite_provider_button">Invite Provider</string>
+    <string name="add_action_plan_button">Add Action Plan</string>
 </resources>
