@@ -125,4 +125,6 @@
     <string name="report_triage_flags">Flags: %1$s</string>
     <string name="report_export_pdf">Export report</string>
     <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
+    <string name="invite_code_expires">Expires: %1$s</string>
+    <string name="invite_no_code">No active invite code.</string>
 </resources>
