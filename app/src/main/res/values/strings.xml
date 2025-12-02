@@ -161,4 +161,10 @@
     <string name="child_rescue_emergency_toast">Your parent has been alerted of emergency!</string>
     <string name="child_rescue_notification_title">Emergency Alert</string>
     <string name="child_rescue_emergency_notification">Please check on your child immediately.</string>
+    <string name="child_report_parent_format">Shared by: %1$s</string>
+    <string name="child_report_summary_format">Rescue: %1$d days · Controller: %2$d%% · Symptoms: %3$d days</string>
+    <string name="child_report_summary_placeholder">Rescue: - · Controller: - · Symptoms: -</string>
+    <string name="error_missing_provider">Provider not found.</string>
+    <string name="error_missing_child">Unable to load child reports.</string>
+    <string name="error_missing_report">Unable to open report.</string>
 </resources>

@@ -41,10 +41,10 @@ Quick reference linking every Activity ("page") to its layout XML so you can jum
 - `MedicineLogExampleActivity` → `activity_medicine_log_example.xml`
 
 ## Provider Area
-- `ProviderDashboardActivity` → currently reuses `activity_child_dashboard.xml` (shared shell)
+- `ProviderDashboardActivity` → `activity_provider_dashboard.xml`
 - `ProviderInstruction1/2/3Activity` → `activity_provider_instrustion_1.xml`
 - `ProviderReportActivity` → `activity_provider_report.xml`
-- `ChildReportActivity` → pending layout (`child_report_page.xml` placeholder)
+- `ChildReportActivity` → `child_report_page.xml`
 
 ## Shared / Base
 - `BackButtonActivity` and `OnboardingActivity` are base classes; they provide navigation helpers but no layouts.
