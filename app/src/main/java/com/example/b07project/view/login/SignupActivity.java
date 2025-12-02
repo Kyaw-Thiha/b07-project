@@ -116,6 +116,7 @@ public class SignupActivity extends BackButtonActivity {
 
             if (userType == UserType.PROVIDER){
                 ProviderUser providerUser = new ProviderUser(uid, name, email, roles);
+                providerUser.setUid(uid);
                 providerProfileViewModel.createProvider(uid, providerUser);
                 Intent intent = new Intent(SignupActivity.this, ProviderInstruction1Activity.class);
                 startActivity(intent);
