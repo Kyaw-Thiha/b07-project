@@ -51,7 +51,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -64,6 +63,18 @@ public class TestAPIActivity extends AppCompatActivity {
 
   private static final String TAG = "TestAPIActivity";
   private static final int TREND_DAYS = 30;
+
+  private static final String PARENT_UID = "debug-parent-01";
+  private static final String CHILD_UID = "debug-child-01";
+  private static final String PROVIDER_UID = "debug-provider-01";
+
+  private static final String PARENT_EMAIL = "debug-parent@seed-users.example.com";
+  private static final String CHILD_EMAIL = "debug-child@seed-users.example.com";
+  private static final String PROVIDER_EMAIL = "debug-provider@seed-users.example.com";
+
+  private static final String PARENT_PASSWORD = "ParentPass123!";
+  private static final String CHILD_PASSWORD = "ChildPass123!";
+  private static final String PROVIDER_PASSWORD = "ProviderPass123!";
 
   private TextView textStatus;
   private Button buttonCreateSampleData;
@@ -111,13 +122,13 @@ public class TestAPIActivity extends AppCompatActivity {
   }
 
   private void createSampleData() {
-    String parentUid = generateFakeUid("parent");
-    String childUid = generateFakeUid("child");
-    String providerUid = generateFakeUid("provider");
+    String parentUid = PARENT_UID;
+    String childUid = CHILD_UID;
+    String providerUid = PROVIDER_UID;
 
-    ensureAuthUser(parentUid + "@seed-parent.example.com", "ParentPass123!", "Test Parent", UserType.PARENT);
-    ensureAuthUser(childUid + "@seed-child.example.com", "ChildPass123!", "Test Child", UserType.CHILD);
-    ensureAuthUser(providerUid + "@seed-provider.example.com", "ProviderPass123!", "Test Provider", UserType.PROVIDER);
+    ensureAuthUser(PARENT_EMAIL, PARENT_PASSWORD, "Test Parent", UserType.PARENT);
+    ensureAuthUser(CHILD_EMAIL, CHILD_PASSWORD, "Test Child", UserType.CHILD);
+    ensureAuthUser(PROVIDER_EMAIL, PROVIDER_PASSWORD, "Test Provider", UserType.PROVIDER);
 
     buttonCreateSampleData.setEnabled(false);
     textStatus
@@ -258,10 +269,6 @@ public class TestAPIActivity extends AppCompatActivity {
     } finally {
       buttonCreateSampleData.setEnabled(true);
     }
-  }
-
-  private String generateFakeUid(String type) {
-    return "test-" + type + "-" + UUID.randomUUID();
   }
 
   private List<MedicineLog> buildMedicineLogs(String childId, String medicineId, String planId, long now) {
