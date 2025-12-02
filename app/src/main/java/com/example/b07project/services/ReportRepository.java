@@ -41,6 +41,12 @@ public class ReportRepository {
     ref.addListenerForSingleValueEvent(listener);
   }
 
+  public void observeReport(String reportId, ValueEventListener listener) {
+    service.reportDatabase()
+        .child(reportId)
+        .addValueEventListener(listener);
+  }
+
   public void observeReportsByParent(String parentId, ValueEventListener listener) {
     service.reportDatabase()
         .orderByChild("parentId")
