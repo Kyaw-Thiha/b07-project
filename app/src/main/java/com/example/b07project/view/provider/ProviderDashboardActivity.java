@@ -1,5 +1,6 @@
 package com.example.b07project.view.provider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -17,6 +18,7 @@ import com.example.b07project.R;
 import com.example.b07project.model.ProviderChild;
 import com.example.b07project.model.Report;
 import com.example.b07project.view.common.OnboardingActivity;
+import com.example.b07project.view.login.AskUsertypeActivity;
 import com.example.b07project.viewModel.ReportViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -166,5 +168,11 @@ public class ProviderDashboardActivity extends OnboardingActivity {
             return 0;
         }
         return (int) Math.round(summary.getControllerAdherencePercent());
+    }
+
+    public void signOut(View view) {
+        Intent intent = new Intent(this, AskUsertypeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

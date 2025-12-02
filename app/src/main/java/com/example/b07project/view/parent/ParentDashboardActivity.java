@@ -27,6 +27,7 @@ import com.example.b07project.model.User.SessionManager;
 import com.example.b07project.view.child.LogChildMedicineActivity;
 import com.example.b07project.view.child.PefEntryActivity;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.example.b07project.view.login.AskUsertypeActivity;
 import com.example.b07project.viewModel.ChildProfileViewModel;
 import com.example.b07project.viewModel.NotificationViewModel;
 import com.example.b07project.viewModel.ParentProfileViewModel;
@@ -371,6 +372,12 @@ public class ParentDashboardActivity extends BackButtonActivity {
     {
         Intent intent = new Intent(this,AddActionPlan.class);
         startActivity(intent);
+    }
+
+    public void signOut(View view) {
+        Intent intent = new Intent(this, AskUsertypeActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
