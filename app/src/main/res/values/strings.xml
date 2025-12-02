@@ -134,4 +134,8 @@
     <string name="child_dashboard_no_user">Unable to load child dashboard. Please sign in again.</string>
     <string name="child_dashboard_no_profile">We couldn&apos;t load your profile just yet.</string>
     <string name="child_dashboard_pef_placeholder">--</string>
+    <string name="child_settings_invalid_input">Please fill out all thresholds with positive numbers.</string>
+    <string name="child_settings_thresholds_updated">Badge thresholds updated!</string>
+    <string name="child_settings_required">Required</string>
+    <string name="child_settings_positive_number">Enter a positive number</string>
 </resources>
