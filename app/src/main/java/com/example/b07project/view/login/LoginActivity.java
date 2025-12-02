@@ -151,10 +151,8 @@ public class LoginActivity extends BackButtonActivity {
 
             pendingNavigation = userType;
             if (userType == UserType.PARENT) {
-                startActivity(new Intent(LoginActivity.this, ParentDashboardActivity.class));
                 parentProfileViewModel.loadParent(uid);
             } else if (userType == UserType.PROVIDER) {
-                startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
                 providerProfileViewModel.loadProvider(uid);
             }
         });
@@ -167,21 +165,31 @@ public class LoginActivity extends BackButtonActivity {
 
     private void observeUserProfiles() {
         parentProfileViewModel.getParent().observe(this, parent -> {
-            if (parent != null && pendingNavigation == UserType.PARENT && pendingUid != null) {
-                SessionManager.setUser(parent);
-                pendingNavigation = null;
-                pendingUid = null;
-                startActivity(new Intent(LoginActivity.this, ParentDashboardActivity.class));
+            if (parent == null || pendingNavigation != UserType.PARENT || pendingUid == null) {
+                return;
             }
+            if (parent.getUid() == null || parent.getUid().isEmpty()) {
+                parent.setUid(pendingUid);
+            }
+            SessionManager.setUser(parent);
+            pendingNavigation = null;
+            String launchUid = pendingUid;
+            pendingUid = null;
+            Intent intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
+            intent.putExtra(ParentDashboardActivity.EXTRA_PARENT_UID, launchUid);
+            startActivity(intent);
+            finish();
         });
 
         providerProfileViewModel.getProvider().observe(this, provider -> {
-            if (provider != null && pendingNavigation == UserType.PROVIDER && pendingUid != null) {
-                SessionManager.setUser(provider);
-                pendingNavigation = null;
-                pendingUid = null;
-                startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
+            if (pendingNavigation != UserType.PROVIDER || pendingUid == null) {
+                return;
             }
+            SessionManager.setUser(provider);
+            pendingNavigation = null;
+            pendingUid = null;
+            startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
+            finish();
         });
 
         childProfileViewModel.getChild().observe(this, child -> {
@@ -190,6 +198,7 @@ public class LoginActivity extends BackButtonActivity {
                 pendingNavigation = null;
                 pendingUid = null;
                 startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+                finish();
             }
         });
     }

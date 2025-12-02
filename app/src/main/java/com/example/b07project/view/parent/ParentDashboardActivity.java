@@ -23,6 +23,7 @@ import com.example.b07project.model.Notification;
 import com.example.b07project.model.Report;
 import com.example.b07project.model.User.ChildUser;
 import com.example.b07project.model.User.ParentUser;
+import com.example.b07project.model.User.SessionManager;
 import com.example.b07project.view.child.LogChildMedicineActivity;
 import com.example.b07project.view.child.PefEntryActivity;
 import com.example.b07project.view.common.BackButtonActivity;
@@ -39,6 +40,8 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class ParentDashboardActivity extends BackButtonActivity {
+
+    public static final String EXTRA_PARENT_UID = "extra_parent_uid";
 
     private static final String PREF_SELECTED_CHILD = "PARENT_SELECTED_CHILD";
 
@@ -58,11 +61,14 @@ public class ParentDashboardActivity extends BackButtonActivity {
 
     private final List<ChildUser> availableChildren = new ArrayList<>();
     private ParentUser currentParent;
+    private String parentUid;
     private String selectedChildId;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
     private Report latestReport;
     private ActivityResultLauncher<Intent> chooseChildLauncher;
+    private FirebaseAuth.AuthStateListener authStateListener;
+    private boolean dataInitialized;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,18 +96,17 @@ public class ParentDashboardActivity extends BackButtonActivity {
         prefs = getSharedPreferences("APP_DATA", MODE_PRIVATE);
         selectedChildId = prefs.getString(PREF_SELECTED_CHILD, null);
 
+        parentUid = resolveParentUid();
+
         initViews();
         setupViewModels();
 
-        String parentUid = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : null;
-        if (parentUid == null) {
-            Toast.makeText(this, "Unable to load parent profile", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
+        if (TextUtils.isEmpty(parentUid)) {
+            Toast.makeText(this, "Loading parent account...", Toast.LENGTH_SHORT).show();
+            registerAuthListener();
+        } else {
+            loadParentData();
         }
-
-        parentProfileViewModel.loadParent(parentUid);
-        childProfileViewModel.observeChildrenForParent(parentUid);
     }
 
     private void initViews() {
@@ -145,6 +150,49 @@ public class ParentDashboardActivity extends BackButtonActivity {
             selectedChildId = availableChildren.get(0).getUid();
         }
         selectChild(selectedChildId, false);
+    }
+
+    private String resolveParentUid() {
+        String extraUid = getIntent().getStringExtra(EXTRA_PARENT_UID);
+        if (!TextUtils.isEmpty(extraUid)) {
+            return extraUid;
+        }
+        if (SessionManager.getUser() instanceof ParentUser) {
+            ParentUser cached = (ParentUser) SessionManager.getUser();
+            if (cached != null && !TextUtils.isEmpty(cached.getUid())) {
+                return cached.getUid();
+            }
+        }
+        if (auth != null && auth.getCurrentUser() != null) {
+            return auth.getCurrentUser().getUid();
+        }
+        return null;
+    }
+
+    private void registerAuthListener() {
+        if (auth == null || authStateListener != null) {
+            return;
+        }
+        authStateListener = firebaseAuth -> {
+            if (firebaseAuth.getCurrentUser() != null) {
+                parentUid = firebaseAuth.getCurrentUser().getUid();
+                loadParentData();
+            }
+        };
+        auth.addAuthStateListener(authStateListener);
+    }
+
+    private void loadParentData() {
+        if (dataInitialized || TextUtils.isEmpty(parentUid)) {
+            return;
+        }
+        dataInitialized = true;
+        if (auth != null && authStateListener != null) {
+            auth.removeAuthStateListener(authStateListener);
+            authStateListener = null;
+        }
+        parentProfileViewModel.loadParent(parentUid);
+        childProfileViewModel.observeChildrenForParent(parentUid);
     }
 
     private boolean hasChild(String childId) {
@@ -323,5 +371,14 @@ public class ParentDashboardActivity extends BackButtonActivity {
     {
         Intent intent = new Intent(this,AddActionPlan.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (auth != null && authStateListener != null) {
+            auth.removeAuthStateListener(authStateListener);
+            authStateListener = null;
+        }
+        super.onDestroy();
     }
 }

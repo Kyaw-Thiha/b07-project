@@ -150,6 +150,7 @@ public class TestAPIActivity extends AppCompatActivity {
           providerRole);
 
       ParentUser parentUser = new ParentUser(parentUid, parentBase.getName(), parentBase.getEmail(), parentRole);
+      parentUser.setUid(parentUid);
       int personalBest = 350;
       ChildUser childUser = new ChildUser(childUid, childBase.getName(), childBase.getEmail(), childRole, true,
           "2016-01-01", "Sample note", parentUid, personalBest, "Green", null);

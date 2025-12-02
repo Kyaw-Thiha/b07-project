@@ -110,6 +110,7 @@ public class SignupActivity extends BackButtonActivity {
 
             if (userType == UserType.PARENT){
                 ParentUser parentUser = new ParentUser(uid, name, email, roles);
+                parentUser.setUid(uid);
                 parentProfileViewModel.createParent(uid, parentUser);
             }
 
