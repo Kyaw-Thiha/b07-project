@@ -131,4 +131,11 @@ public class Service {
         .child(childId)
         .child("incidentLog");
   }
+
+  public DatabaseReference shareSettingsDatabase(String parentId) {
+    return database.getReference("users")
+        .child("parents")
+        .child(parentId)
+        .child("shareSettings");
+  }
 }
