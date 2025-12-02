@@ -86,8 +86,9 @@ public class LoginActivity extends BackButtonActivity {
 
         if (userType == UserType.PROVIDER) {
             text.setText("Provider Login");
-        }
-        else {
+        } else if (userType == UserType.CHILD) {
+            text.setText("Child Login");
+        } else {
             text.setText("Parent Login");
         }
 
