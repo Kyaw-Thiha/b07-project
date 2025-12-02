@@ -104,6 +104,9 @@
             android:name=".view.parent.InventoryListActivity"
             android:exported="false" />
         <activity
+            android:name=".view.parent.ManageChildActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.parent.NotificationsActivity"
             android:exported="false" />
         <activity android:name=".view.parent.ParentOnboardingPage1Activity" />

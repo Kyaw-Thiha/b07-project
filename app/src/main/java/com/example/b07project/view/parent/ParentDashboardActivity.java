@@ -361,9 +361,9 @@ public class ParentDashboardActivity extends BackButtonActivity {
         }
     }
 
-    public void manage_child(View view)
-    {
+    public void manage_child(View view) {
         Intent intent = new Intent(this, ManageChildActivity.class);
+        intent.putExtra(ManageChildActivity.EXTRA_CHILD_ID, selectedChildId);
         startActivity(intent);
     }
 

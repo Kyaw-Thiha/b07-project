@@ -1,6 +1,7 @@
 package com.example.b07project.view.parent;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -20,6 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ManageChildActivity extends BackButtonActivity {
+
+    public static final String EXTRA_CHILD_ID = "manage_child_child_id";
 
     private ShareSettingsViewModel shareSettingsViewModel;
     private ToggleButton toggleRescue;
@@ -48,8 +51,11 @@ public class ManageChildActivity extends BackButtonActivity {
         parentId = FirebaseAuth.getInstance().getCurrentUser() != null
                 ? FirebaseAuth.getInstance().getCurrentUser().getUid()
                 : null;
-        childId = getSharedPreferences("APP_DATA", MODE_PRIVATE)
-                .getString("PARENT_SELECTED_CHILD", null);
+        childId = getIntent().getStringExtra(EXTRA_CHILD_ID);
+        if (TextUtils.isEmpty(childId)) {
+            childId = getSharedPreferences("APP_DATA", MODE_PRIVATE)
+                    .getString("PARENT_SELECTED_CHILD", null);
+        }
 
         if (parentId == null || childId == null) {
             Toast.makeText(this, "Select a child before managing share settings.", Toast.LENGTH_SHORT).show();
