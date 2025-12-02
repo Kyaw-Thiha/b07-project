@@ -94,6 +94,9 @@
         <activity
             android:name=".view.parent.AddActionPlan"
             android:exported="false" />
+        <activity
+            android:name=".view.parent.ChooseChildActivity"
+            android:exported="false" />
         <activity android:name=".view.parent.ParentOnboardingPage1Activity" />
         <activity android:name=".view.parent.ParentOnboardingPage2Activity" />
         <activity android:name=".view.parent.ParentOnboardingPage3Activity" />

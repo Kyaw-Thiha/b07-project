@@ -31,6 +31,28 @@
     <include layout="@layout/back_button" />
 
     <TextView
+        android:id="@+id/textSelectChild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/select_child_prompt"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_button" />
+
+    <Spinner
+        android:id="@+id/spinnerChildSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSelectChild" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="296dp"
         android:layout_height="24dp"
@@ -44,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerChildSelector" />
 
     <CheckBox
         android:id="@+id/checkBox20"
@@ -168,6 +190,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPef"
         android:layout_width="328dp"
         android:layout_height="57dp"
         android:layout_marginStart="36dp"
@@ -177,7 +200,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"

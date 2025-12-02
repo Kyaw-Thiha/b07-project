@@ -11,7 +11,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -61,10 +62,22 @@ public class ParentDashboardActivity extends BackButtonActivity {
     private SharedPreferences prefs;
     private FirebaseAuth auth;
     private Report latestReport;
+    private ActivityResultLauncher<Intent> chooseChildLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        chooseChildLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        String childId = result.getData().getStringExtra("selectedChildId");
+                        if (!TextUtils.isEmpty(childId)) {
+                            selectChild(childId, true);
+                        }
+                    }
+                });
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_parent_dashboard);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -102,7 +115,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
         chooseChildButton = findViewById(R.id.chooseChild);
 
         chartToggle.setOnCheckedChangeListener((buttonView, isChecked) -> updateTrendSnippet(isChecked ? 30 : 7));
-        chooseChildButton.setOnClickListener(v -> showChildPicker());
+        chooseChildButton.setOnClickListener(v -> openChooseChildActivity());
     }
 
     private void setupViewModels() {
@@ -144,22 +157,9 @@ public class ParentDashboardActivity extends BackButtonActivity {
         return false;
     }
 
-    private void showChildPicker() {
-        if (availableChildren.isEmpty()) {
-            Toast.makeText(this, "No children linked to this account yet.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        CharSequence[] names = new CharSequence[availableChildren.size()];
-        for (int i = 0; i < availableChildren.size(); i++) {
-            names[i] = availableChildren.get(i).getName();
-        }
-        new AlertDialog.Builder(this)
-                .setTitle("Choose child")
-                .setItems(names, (dialog, which) -> {
-                    ChildUser chosen = availableChildren.get(which);
-                    selectChild(chosen.getUid(), true);
-                })
-                .show();
+    private void openChooseChildActivity() {
+        Intent intent = new Intent(this, ChooseChildActivity.class);
+        chooseChildLauncher.launch(intent);
     }
 
     private void selectChild(String childId, boolean persistSelection) {
