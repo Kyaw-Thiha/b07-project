@@ -147,4 +147,7 @@
     <string name="child_symptom_trigger_template">Triggers: %1$d</string>
     <string name="child_symptom_no_data">--</string>
     <string name="child_symptom_no_matches">No check-ins found for this date.</string>
+    <string name="child_medicine_no_controller">No controller doses logged yet.</string>
+    <string name="child_medicine_no_rescue">No rescue doses logged yet.</string>
+    <string name="child_medicine_dose_template">%1$d puffs</string>
 </resources>
