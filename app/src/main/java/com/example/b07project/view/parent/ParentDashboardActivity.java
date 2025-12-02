@@ -367,9 +367,8 @@ public class ParentDashboardActivity extends BackButtonActivity {
         startActivity(intent);
     }
 
-    public void Inventory(View view)
-    {
-        Intent intent = new Intent(this, InventoryActivity.class);
+    public void Inventory(View view) {
+        Intent intent = new Intent(this, InventoryListActivity.class);
         intent.putExtra(InventoryActivity.EXTRA_PARENT_UID, parentUid);
         startActivity(intent);
     }

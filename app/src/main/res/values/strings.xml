@@ -173,4 +173,12 @@
     <string name="error_missing_provider">Provider not found.</string>
     <string name="error_missing_child">Unable to load child reports.</string>
     <string name="error_missing_report">Unable to open report.</string>
+    <string name="inventory_list_title">Medicine Inventory</string>
+    <string name="inventory_list_empty">No inventory items yet. Tap below to add one.</string>
+    <string name="inventory_add_button">Add Inventory</string>
+    <string name="inventory_item_type_format">Type: %1$s</string>
+    <string name="inventory_item_purchase_format">Purchased: %1$s</string>
+    <string name="inventory_item_expiry_format">Expires: %1$s</string>
+    <string name="inventory_item_puffs_format">Canister puffs: %1$d</string>
+    <string name="inventory_parent_missing">Unable to identify parent account.</string>
 </resources>
