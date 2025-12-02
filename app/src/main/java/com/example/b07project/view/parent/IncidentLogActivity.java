@@ -1,6 +1,7 @@
 package com.example.b07project.view.parent;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -23,6 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class IncidentLogActivity extends BackButtonActivity {
+
+    public static final String EXTRA_CHILD_ID = "incident_child_id";
 
     private IncidentViewModel incidentViewModel;
     private ShareSettingsViewModel shareSettingsViewModel;
@@ -50,8 +53,11 @@ public class IncidentLogActivity extends BackButtonActivity {
             return insets;
         });
 
-        childId = getSharedPreferences("APP_DATA", MODE_PRIVATE)
-                .getString("PARENT_SELECTED_CHILD", null);
+        childId = getIntent().getStringExtra(EXTRA_CHILD_ID);
+        if (TextUtils.isEmpty(childId)) {
+            childId = getSharedPreferences("APP_DATA", MODE_PRIVATE)
+                    .getString("PARENT_SELECTED_CHILD", null);
+        }
         parentId = FirebaseAuth.getInstance().getCurrentUser() != null
                 ? FirebaseAuth.getInstance().getCurrentUser().getUid() : null;
 

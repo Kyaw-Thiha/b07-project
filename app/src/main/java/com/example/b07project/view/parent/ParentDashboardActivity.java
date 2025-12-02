@@ -389,6 +389,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
 
     public void incident_log(View view){
         Intent intent = new Intent(this, IncidentLogActivity.class);
+        intent.putExtra(IncidentLogActivity.EXTRA_CHILD_ID, selectedChildId);
         startActivity(intent);
     }
 
