@@ -40,6 +40,9 @@ import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ReportViewModel;
 import com.example.b07project.viewModel.TriageSessionViewModel;
 import com.example.b07project.viewModel.UserViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -78,6 +81,7 @@ public class TestAPIActivity extends AppCompatActivity {
   private ChildProfileViewModel childProfileViewModel;
   private UserViewModel userViewModel;
   private ReportViewModel reportViewModel;
+  private FirebaseAuth firebaseAuth;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,7 @@ public class TestAPIActivity extends AppCompatActivity {
     childProfileViewModel = provider.get(ChildProfileViewModel.class);
     userViewModel = provider.get(UserViewModel.class);
     reportViewModel = provider.get(ReportViewModel.class);
+    firebaseAuth = FirebaseAuth.getInstance();
 
     buttonCreateSampleData.setOnClickListener(v -> createSampleData());
   }
@@ -109,6 +114,10 @@ public class TestAPIActivity extends AppCompatActivity {
     String parentUid = generateFakeUid("parent");
     String childUid = generateFakeUid("child");
     String providerUid = generateFakeUid("provider");
+
+    ensureAuthUser(parentUid + "@seed-parent.example.com", "ParentPass123!", "Test Parent", UserType.PARENT);
+    ensureAuthUser(childUid + "@seed-child.example.com", "ChildPass123!", "Test Child", UserType.CHILD);
+    ensureAuthUser(providerUid + "@seed-provider.example.com", "ProviderPass123!", "Test Provider", UserType.PROVIDER);
 
     buttonCreateSampleData.setEnabled(false);
     textStatus
@@ -318,5 +327,36 @@ public class TestAPIActivity extends AppCompatActivity {
     incident2.setDecision("HOME_STEPS");
     incidents.add(incident2);
     return incidents;
+  }
+
+  private void ensureAuthUser(String email, String password, String displayName, UserType type) {
+    firebaseAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(task -> {
+      if (!task.isSuccessful()) {
+        Log.w(TAG, "Failed to check auth user " + email, task.getException());
+        return;
+      }
+      boolean exists = task.getResult() != null
+          && task.getResult().getSignInMethods() != null
+          && !task.getResult().getSignInMethods().isEmpty();
+      if (exists) {
+        Log.d(TAG, "Auth user already exists for " + email);
+        return;
+      }
+
+      firebaseAuth.createUserWithEmailAndPassword(email, password)
+          .addOnCompleteListener(createTask -> {
+            if (!createTask.isSuccessful()) {
+              Log.e(TAG, "Failed to create auth user " + email, createTask.getException());
+              return;
+            }
+            FirebaseUser user = createTask.getResult().getUser();
+            if (user != null) {
+              user.updateProfile(new UserProfileChangeRequest.Builder()
+                  .setDisplayName(displayName + " (" + type.name() + ")")
+                  .build());
+              Log.d(TAG, "Created auth user " + email);
+            }
+          });
+    });
   }
 }
