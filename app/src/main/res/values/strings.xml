@@ -131,4 +131,7 @@
     <string name="mark_read">Mark as read</string>
     <string name="delete">Delete</string>
     <string name="select_child_prompt">Select a child</string>
+    <string name="child_dashboard_no_user">Unable to load child dashboard. Please sign in again.</string>
+    <string name="child_dashboard_no_profile">We couldn&apos;t load your profile just yet.</string>
+    <string name="child_dashboard_pef_placeholder">--</string>
 </resources>
