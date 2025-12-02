@@ -1,6 +1,7 @@
 package com.example.b07project.view.parent;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +11,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class InventoryActivity extends BackButtonActivity {
+    TextInputEditText Item_name,purchase_date,expiry_date,replacement_reminder_date;
+    Button addInventory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +26,11 @@ public class InventoryActivity extends BackButtonActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Item_name = findViewById(R.id.Item_name);
+        purchase_date = findViewById(R.id.purchase_date);
+        expiry_date = findViewById(R.id.expiry_date);
+        replacement_reminder_date = findViewById(R.id.replacement_reminder_date);
+        addInventory= findViewById(R.id.add_inventory);
     }
+    // Firebase stuff TODO
 }

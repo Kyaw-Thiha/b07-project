@@ -14,10 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:text="Add Inventory"
+        android:text="Action Plan"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginBottom="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +27,7 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="145dp">
 
@@ -37,51 +36,51 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Item_name"
-                android:layout_marginBottom="12dp"
+                android:id="@+id/green_zone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Item Name" />
+                android:layout_marginBottom="16dp"
+                android:hint="Green Zone: Enter action Plan" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/purchase_date"
-                    android:layout_marginBottom="12dp"
+                    android:id="@+id/yellow_zone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Purchase Date (dd/mm/yy)" />
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Yellow Zone : Enter action Plan" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/expiry_date"
-                        android:layout_marginBottom="12dp"
+                        android:id="@+id/red_zone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Expiry Date (dd/mm/yy)" />
+                        android:layout_marginBottom="16dp"
+                        android:hint="Red Zone: Enter action Plan" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/replacement_reminder_date"
-                            android:layout_marginBottom="20dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Replacement Reminder Date (dd/yy/mm)" />
-
                         <Button
-                            android:id="@+id/add_inventory"
-                            android:layout_marginLeft="240dp"
+                            android:id="@+id/action_plan_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Add Inventory" />
+                            android:layout_marginLeft="250dp"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:paddingStart="16dp"
+                            android:paddingLeft="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingRight="16dp"
+                            android:text="Add Action Plan" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>

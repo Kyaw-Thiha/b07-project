@@ -77,12 +77,12 @@
         android:id="@+id/button11"
         android:layout_width="116dp"
         android:layout_height="88dp"
-        android:layout_marginTop="720dp"
+        android:layout_marginTop="752dp"
         android:layout_marginEnd="210dp"
         android:onClick="medicine_log"
         android:text="@string/child_log_medicine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,12 +90,12 @@
         android:id="@+id/button3"
         android:layout_width="116dp"
         android:layout_height="88dp"
-        android:layout_marginTop="608dp"
+        android:layout_marginTop="644dp"
         android:layout_marginEnd="210dp"
-        android:text="@string/peak_flow_button"
         android:onClick="peak_flow"
+        android:text="@string/peak_flow_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,8 +103,8 @@
         android:id="@+id/button4"
         android:layout_width="116dp"
         android:layout_height="88dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="308dp"
         android:onClick="manage_child"
         android:text="@string/manage_child_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,7 @@
         android:layout_width="116dp"
         android:layout_height="88dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="720dp"
+        android:layout_marginTop="752dp"
         android:layout_marginEnd="70dp"
         android:onClick="Inventory"
         android:text="@string/Inventory_button"
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -139,7 +139,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="576dp"
+        android:onClick="add_action_plan"
+        android:text="Add Action Plan"
+        android:textColor="#ffffff"
+        app:backgroundTint="@color/turquoise"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/chooseChild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
