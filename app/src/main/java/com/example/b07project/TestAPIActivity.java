@@ -41,11 +41,15 @@ import com.example.b07project.viewModel.ReportViewModel;
 import com.example.b07project.viewModel.TriageSessionViewModel;
 import com.example.b07project.viewModel.UserViewModel;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Simple Activity with a button that pushes one sample record for every
@@ -56,6 +60,7 @@ import java.util.UUID;
 public class TestAPIActivity extends AppCompatActivity {
 
   private static final String TAG = "TestAPIActivity";
+  private static final int TREND_DAYS = 30;
 
   private TextView textStatus;
   private Button buttonCreateSampleData;
@@ -165,16 +170,12 @@ public class TestAPIActivity extends AppCompatActivity {
       controllerPlan.setUpdatedAt(now);
       controllerPlanViewModel.addPlan(childUid, controllerPlan);
 
-      MedicineLog medicineLog = new MedicineLog(now, 2, "worse", "better", childUid);
-      medicineLog.setMedicineId(med.getInventoryId());
-      medicineLog.setControllerPlanId(controllerPlan.getPlanId());
-      medicineLog.setMedicineType("controller");
-      PEF pef = new PEF(now, 250, 300, childUid);
-      pef.setPersonalBestAtEntry(personalBest);
-      pef.setZone("Green");
+      List<MedicineLog> medicineLogs = buildMedicineLogs(childUid, med.getInventoryId(),
+          controllerPlan.getPlanId(), now);
+      List<PEF> pefLogs = buildPefLogs(childUid, personalBest, now);
+      List<CheckIn> checkIns = buildCheckIns(childUid, parentUid, now);
+      List<Incident> incidents = buildIncidents(childUid, now);
 
-      Incident.Flags flags = new Incident.Flags(true, false, false, true, false);
-      Incident incident = new Incident(now + 100000, flags, "guidance text", 3, childUid);
       Notification notification = new Notification(
           "Firebase smoke test",
           "Generated at " + new Date(now).toString());
@@ -195,10 +196,18 @@ public class TestAPIActivity extends AppCompatActivity {
       triageSession.setUserResponse("Following guidance");
 
       // Fire the writes through each ViewModel
-      checkInViewModel.addCheckIn(childUid, checkIn);
-      medicineLogViewModel.addLog(childUid, medicineLog);
-      pefViewModel.addPEF(childUid, pef);
-      incidentViewModel.addIncident(childUid, incident);
+      for (CheckIn entry : checkIns) {
+        checkInViewModel.addCheckIn(childUid, entry);
+      }
+      for (MedicineLog log : medicineLogs) {
+        medicineLogViewModel.addLog(childUid, log);
+      }
+      for (PEF entry : pefLogs) {
+        pefViewModel.addPEF(childUid, entry);
+      }
+      for (Incident incident : incidents) {
+        incidentViewModel.addIncident(childUid, incident);
+      }
       notificationViewModel.addNotification(childUid, notification);
       triageSessionViewModel.addSession(childUid, triageSession);
       ShareSettings shareSettings = new ShareSettings();
@@ -207,19 +216,21 @@ public class TestAPIActivity extends AppCompatActivity {
       shareSettings.setIncludeSymptoms(true);
       shareSettings.setIncludeTriggers(true);
       shareSettings.setIncludeSummaryCharts(true);
+      shareSettings.setIncludePefLogs(true);
+      shareSettings.setIncludeIncidents(true);
 
       long endDate = now;
-      long startDate = now - (7L * 24L * 60L * 60L * 1000L);
+      long startDate = now - TimeUnit.DAYS.toMillis(TREND_DAYS);
 
       reportViewModel.createReport(
           parentUser,
           childUser,
           providerUser,
           Collections.singletonList(med),
-          Collections.singletonList(medicineLog),
-          Collections.singletonList(pef),
-          Collections.singletonList(checkIn),
-          Collections.singletonList(incident),
+          medicineLogs,
+          pefLogs,
+          checkIns,
+          incidents,
           startDate,
           endDate,
           shareSettings);
@@ -242,5 +253,70 @@ public class TestAPIActivity extends AppCompatActivity {
 
   private String generateFakeUid(String type) {
     return "test-" + type + "-" + UUID.randomUUID();
+  }
+
+  private List<MedicineLog> buildMedicineLogs(String childId, String medicineId, String planId, long now) {
+    List<MedicineLog> logs = new ArrayList<>();
+    for (int i = 0; i < TREND_DAYS; i++) {
+      long day = now - TimeUnit.DAYS.toMillis(i);
+      MedicineLog controller = new MedicineLog(day, 2, "same", "better", childId);
+      controller.setMedicineId(medicineId);
+      controller.setControllerPlanId(planId);
+      controller.setMedicineType("controller");
+      logs.add(controller);
+
+      if (i % 4 == 0) {
+        MedicineLog rescue = new MedicineLog(day + TimeUnit.HOURS.toMillis(6), 1, "worse", "better", childId);
+        rescue.setMedicineType("rescue");
+        logs.add(rescue);
+      }
+    }
+    return logs;
+  }
+
+  private List<PEF> buildPefLogs(String childId, int personalBest, long now) {
+    List<PEF> logs = new ArrayList<>();
+    Random random = new Random();
+    for (int i = 0; i < TREND_DAYS; i++) {
+      long day = now - TimeUnit.DAYS.toMillis(i);
+      int offset = random.nextInt(80);
+      PEF pef = new PEF(day, personalBest - offset - 20, personalBest - offset, childId);
+      pef.setPersonalBestAtEntry(personalBest);
+      pef.setZone(i % 10 == 0 ? "Yellow" : "Green");
+      logs.add(pef);
+    }
+    return logs;
+  }
+
+  private List<CheckIn> buildCheckIns(String childId, String authorId, long now) {
+    List<CheckIn> entries = new ArrayList<>();
+    for (int i = 0; i < TREND_DAYS; i++) {
+      long day = now - TimeUnit.DAYS.toMillis(i);
+      CheckIn.Triggers triggers = new CheckIn.Triggers(i % 3 == 0, i % 5 == 0, i % 4 == 0,
+          false, i % 7 == 0, i % 6 == 0, false);
+      CheckIn.NightWalking nightWalking = new CheckIn.NightWalking(i % 2 == 0, triggers, "note " + i);
+      CheckIn checkIn = new CheckIn(day, nightWalking, i % 2 == 0 ? "limited" : null,
+          i % 3 == 0 ? "cough" : null, childId);
+      checkIn.setAuthorId(authorId);
+      checkIn.setEnteredByParent(true);
+      entries.add(checkIn);
+    }
+    return entries;
+  }
+
+  private List<Incident> buildIncidents(String childId, long now) {
+    List<Incident> incidents = new ArrayList<>();
+    Incident.Flags severeFlags = new Incident.Flags(true, true, false, true, false);
+    Incident incident1 = new Incident(now - TimeUnit.DAYS.toMillis(5), severeFlags,
+        "Escalated guidance", 2, childId);
+    incident1.setDecision("CALL_EMERGENCY");
+    incidents.add(incident1);
+
+    Incident.Flags moderateFlags = new Incident.Flags(false, false, false, true, false);
+    Incident incident2 = new Incident(now - TimeUnit.DAYS.toMillis(12), moderateFlags,
+        "Started home steps", 1, childId);
+    incident2.setDecision("HOME_STEPS");
+    incidents.add(incident2);
+    return incidents;
   }
 }
