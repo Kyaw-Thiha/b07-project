@@ -19,6 +19,8 @@ import com.example.b07project.model.User.BaseUser;
 import com.example.b07project.model.User.ParentUser;
 import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
+import com.example.b07project.view.child.ChildOnboardingPage1Activity;
+import com.example.b07project.view.parent.ParentOnboardingPage1Activity;
 import com.example.b07project.view.provider.ProviderInstruction1Activity;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
@@ -116,10 +118,16 @@ public class SignupActivity extends BackButtonActivity {
             if (userType == UserType.PROVIDER){
                 ProviderUser providerUser = new ProviderUser(uid, name, email, roles);
                 providerProfileViewModel.createProvider(uid, providerUser);
-                Intent intent = new Intent(SignupActivity.this, ProviderInstruction1Activity.class);
-                startActivity(intent);
-                finish();
             }
+            if (userType == UserType.CHILD) {
+                startActivity(new Intent(SignupActivity.this, ChildOnboardingPage1Activity.class));
+            } else if (userType == UserType.PARENT) {
+                startActivity(new Intent(SignupActivity.this, ParentOnboardingPage1Activity.class));
+            } else if (userType == UserType.PROVIDER) {
+                startActivity(new Intent(SignupActivity.this, ProviderInstruction1Activity.class));
+            }
+
+            finish();
 
         });
     }
