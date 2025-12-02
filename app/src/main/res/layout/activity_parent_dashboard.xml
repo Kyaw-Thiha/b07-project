@@ -6,34 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textSelectedChild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="No child selected"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/card"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/card_background"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256">
+        app:layout_constraintTop_toBottomOf="@+id/textSelectedChild">
 
         <TextView
-            android:id="@+id/textView29"
-            android:layout_width="140dp"
-            android:layout_height="21dp"
+            android:id="@+id/textWeeklyRescue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/weekly_rescue_count"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView23"
-            android:layout_width="140dp"
-            android:layout_height="21dp"
+            android:id="@+id/textChildZone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/child_zone_text"
             android:textStyle="bold" />
 
@@ -52,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textLastRescue"
         android:layout_width="140dp"
         android:layout_height="21dp"
         android:layout_marginStart="220dp"
@@ -63,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/textTrendSnippet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -155,12 +164,12 @@
         android:id="@+id/chooseChild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Choose Child"
         android:textColor="#ffffff"
         app:backgroundTint="@color/turquoise"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textSelectedChild"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -177,6 +186,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imageNotifications"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="340dp"
@@ -187,15 +197,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <TextView
+        android:id="@+id/textNotificationBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="416dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/notification_badge"
+        android:gravity="center"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:padding="2dp"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/imageNotifications"
+        app:layout_constraintEnd_toEndOf="@id/imageNotifications" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
@@ -208,8 +225,7 @@
         android:textOff="7 days"
         android:textOn="30 days"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="toggle_chart_clicked"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

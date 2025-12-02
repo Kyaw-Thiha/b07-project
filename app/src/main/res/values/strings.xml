@@ -69,8 +69,14 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="weekly_rescue_count">Weekly Rescue Count:</string>
+    <string name="weekly_rescue_template">Weekly Rescue Count: %1$d</string>
     <string name="last_rescue_time">Last Rescue Time:</string>
+    <string name="last_rescue_template">Last Rescue Time: %1$s</string>
     <string name="trend_snippet">Trend Snippet:</string>
+    <string name="trend_snippet_template">Trend Snippet: %1$d rescues in the past %2$d days</string>
+    <string name="dashboard_no_reports">Trend Snippet: No data yet</string>
+    <string name="child_zone_template">Today\'s Zone: %1$s</string>
+    <string name="no_child_selected">No child selected</string>
     <string name="manage_child_button">Manage Child</string>
     <string name="Inventory_button">Inventory</string>
     <string name="incident_log_button">Incident Log</string>
