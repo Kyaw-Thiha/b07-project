@@ -68,7 +68,8 @@ public class LogChildMedicineActivity extends BackButtonActivity {
     public void addDose(View view){
         Intent intent = new Intent(this, DoseCheckActivity.class);
         //start dose check activity remembering the previous state
-        intent.putExtra("previous_activity", "LogChildMedicineActivity");
+        intent.putExtra(DoseCheckActivity.EXTRA_PREVIOUS, "LogChildMedicineActivity");
+        intent.putExtra(DoseCheckActivity.EXTRA_MEDICINE_TYPE, "controller");
         startActivity(intent);
 
     }

@@ -8,14 +8,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.b07project.R;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.example.b07project.viewModel.MedicineLogViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Collections;
 
 public class DoseCheckActivity extends BackButtonActivity {
+
+    public static final String EXTRA_PREVIOUS = "previous_activity";
+    public static final String EXTRA_MEDICINE_TYPE = "medicine_type";
+    public static final String EXTRA_FEELING = "feeling";
+    public static final String EXTRA_LOG_ID = "log_id";
+
+    private MedicineLogViewModel medicineLogViewModel;
+    private String childId;
+    private String medicineType;
+    private String feeling;
+    private String logId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +43,24 @@ public class DoseCheckActivity extends BackButtonActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        String previous = getIntent().getStringExtra("previous_activity");
+        childId = FirebaseAuth.getInstance().getCurrentUser() != null
+                ? FirebaseAuth.getInstance().getCurrentUser().getUid()
+                : null;
+        if (childId == null) {
+            Toast.makeText(this, R.string.child_dashboard_no_user, Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
+
+        medicineLogViewModel = new ViewModelProvider(this).get(MedicineLogViewModel.class);
+
+        String previous = getIntent().getStringExtra(EXTRA_PREVIOUS);
+        medicineType = getIntent().getStringExtra(EXTRA_MEDICINE_TYPE);
+        if (medicineType == null) {
+            medicineType = "controller";
+        }
+        feeling = getIntent().getStringExtra(EXTRA_FEELING);
+        logId = getIntent().getStringExtra(EXTRA_LOG_ID);
 
         if ("LogChildMedicineActivity".equals(previous)) {
             //make pre-dose text visible
@@ -55,62 +88,22 @@ public class DoseCheckActivity extends BackButtonActivity {
     }
 
     public void betterDose(View view){
-        TextView preDose=findViewById(R.id.textView36);
-        int preDoseVisible = preDose.getVisibility();
-        String msg = "Its great that you feel better!";
-        //add pre dose check in if pre-dose button visible
-        if(preDoseVisible==View.VISIBLE){
-                //add  that the child reported better predose
-
-        }
-        else{
-            //add post dose check in if postdose button visible
-            //add the child reported better postdose
-
-        }
-        //make a toast saying predose check
-        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
+        handleDoseSelection(getString(R.string.child_dose_better));
     }
 
     public void normalDose(View view){
-        TextView preDose=findViewById(R.id.textView36);
-        int preDoseVisible = preDose.getVisibility();
-        String msg = "It's okay to feel normal!";
-        //add pre dose check in if pre-dose button visible
-        if(preDoseVisible==View.VISIBLE){
-            //add  that the child reported better predose
-
-        }
-        else{
-            //add post dose check in if postdose button visible
-            //add the child reported better postdose
-
-        }
-        //make a toast saying predose check
-        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
+        handleDoseSelection(getString(R.string.child_dose_normal));
     }
 
     public void worseDose(View view){
-        TextView preDose=findViewById(R.id.textView36);
-        int preDoseVisible = preDose.getVisibility();
-        String msg;
-        //add pre dose check in if pre-dose button visible
-        if(preDoseVisible==View.VISIBLE){
-            //add  that the child reported better predose
-            msg = "Let's see you feel better after!";
-        }
-        else{
-            //add post dose check in if postdose button visible
-            //add the child reported better postdose
-            msg = "Your parent has been reported of worse condition!";
-        }
-        //make a toast saying predose check
-        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
+        handleDoseSelection(getString(R.string.child_dose_worse));
     }
 
     public void preDoseCheck(View view){
-        //go to controller medicine input
         Intent intent = new Intent(this, ControllerMedicineInputActivity.class);
+        intent.putExtra(EXTRA_PREVIOUS, "DoseCheckActivity");
+        intent.putExtra(EXTRA_MEDICINE_TYPE, medicineType != null ? medicineType : "controller");
+        intent.putExtra(EXTRA_FEELING, feeling);
         startActivity(intent);
     }
 
@@ -118,5 +111,30 @@ public class DoseCheckActivity extends BackButtonActivity {
         //go back to dashboard after saving
         Intent intent = new Intent(this, ChildDashboardActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    private void handleDoseSelection(String selection) {
+        TextView preDose=findViewById(R.id.textView36);
+        int preDoseVisible = preDose.getVisibility();
+        if (preDoseVisible == View.VISIBLE) {
+            feeling = selection;
+            Intent intent = new Intent(this, ControllerMedicineInputActivity.class);
+            intent.putExtra(EXTRA_PREVIOUS, "DoseCheckActivity");
+            intent.putExtra(EXTRA_MEDICINE_TYPE, medicineType != null ? medicineType : "controller");
+            intent.putExtra(EXTRA_FEELING, feeling);
+            startActivity(intent);
+            return;
+        }
+
+        if (logId == null) {
+            Toast.makeText(this, R.string.child_medicine_missing_log, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        medicineLogViewModel.updateInventory(childId, logId,
+                Collections.singletonMap("after", selection));
+        Toast.makeText(this, selection, Toast.LENGTH_LONG).show();
+        postDoseCheck(null);
     }
 }

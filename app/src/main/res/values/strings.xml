@@ -150,4 +150,9 @@
     <string name="child_medicine_no_controller">No controller doses logged yet.</string>
     <string name="child_medicine_no_rescue">No rescue doses logged yet.</string>
     <string name="child_medicine_dose_template">%1$d puffs</string>
+    <string name="child_dose_better">Feeling better</string>
+    <string name="child_dose_normal">Feeling normal</string>
+    <string name="child_dose_worse">Feeling worse</string>
+    <string name="child_medicine_missing_log">We couldn&apos;t find this dose log yet. Please retry.</string>
+    <string name="child_medicine_missing_fields">Please enter both dose and time.</string>
 </resources>

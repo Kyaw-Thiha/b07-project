@@ -14,11 +14,16 @@ public class MedicineLogRepository {
   }
 
   public void add(String userId, MedicineLog medicine) {
+    addAndReturnId(userId, medicine);
+  }
+
+  public String addAndReturnId(String userId, MedicineLog medicine) {
     DatabaseReference ref = service
         .medicineLogDatabase(userId)
         .push();
 
     ref.setValue(medicine);
+    return ref.getKey();
   }
 
   public void update(String userId, String medicineId, Map<String, Object> updates) {
