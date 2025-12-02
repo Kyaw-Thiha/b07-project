@@ -71,10 +71,25 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/replacement_reminder_date"
+                            android:layout_marginBottom="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Replacement Reminder Date (dd/mm/yy)" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/canister_puffs"
+                            android:layout_marginBottom="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Canister Puffs (numeric)"
+                            android:inputType="number" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/medicine_type"
                             android:layout_marginBottom="20dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Replacement Reminder Date (dd/yy/mm)" />
+                            android:hint="Medicine Type (rescue/controller)" />
 
                         <Button
                             android:id="@+id/add_inventory"
@@ -90,4 +105,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
