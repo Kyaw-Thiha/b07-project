@@ -104,6 +104,9 @@
             android:name=".view.provider.ProviderDashboardActivity"
             android:exported="false" />
         <activity
+            android:name=".view.provider.ProviderReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.provider.ProviderInstruction1Activity" />
         <activity
             android:name=".view.provider.ProviderInstruction2Activity" />

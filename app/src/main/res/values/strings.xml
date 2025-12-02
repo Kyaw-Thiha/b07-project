@@ -108,4 +108,14 @@
     <string name="chart_zone_distribution">Zone Distribution</string>
     <string name="chart_zone_trend">Zone Trend</string>
     <string name="chart_pef_trend">PEF Trend</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="report_rescue_days">Rescue days</string>
+    <string name="report_controller_adherence">Controller adherence</string>
+    <string name="report_symptom_days">Symptom days</string>
+    <string name="report_trends_title">Shared charts</string>
+    <string name="report_triage_title">Notable triage incidents</string>
+    <string name="report_triage_decision">Decision: %1$s</string>
+    <string name="report_triage_guidance">Guidance: %1$s</string>
+    <string name="report_triage_flags">Flags: %1$s</string>
+    <string name="report_export_pdf">Export report</string>
 </resources>

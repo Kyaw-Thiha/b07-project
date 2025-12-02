@@ -32,6 +32,7 @@ public class ReportViewModel extends ViewModel {
   private final MutableLiveData<Boolean> reportCreated = new MutableLiveData<>();
   private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
   private final MutableLiveData<List<Report>> reports = new MutableLiveData<>();
+  private final MutableLiveData<Report> selectedReport = new MutableLiveData<>();
 
   public LiveData<Boolean> getReportCreated() {
     return reportCreated;
@@ -43,6 +44,10 @@ public class ReportViewModel extends ViewModel {
 
   public LiveData<List<Report>> getReports() {
     return reports;
+  }
+
+  public LiveData<Report> getSelectedReport() {
+    return selectedReport;
   }
 
   public void createReport(ParentUser parent, ChildUser child, ProviderUser provider,
@@ -131,6 +136,25 @@ public class ReportViewModel extends ViewModel {
 
   public void loadReportsByProvider(String providerId) {
     repository.observeReportsByProvider(providerId, buildReportsListener());
+  }
+
+  public void loadReportById(String reportId) {
+    if (reportId == null) {
+      selectedReport.postValue(null);
+      return;
+    }
+    repository.observeReport(reportId, new ValueEventListener() {
+      @Override
+      public void onDataChange(@NonNull DataSnapshot snapshot) {
+        Report report = snapshot.getValue(Report.class);
+        selectedReport.postValue(report);
+      }
+
+      @Override
+      public void onCancelled(@NonNull DatabaseError error) {
+        errorMessage.postValue("Failed to load report");
+      }
+    });
   }
 
   private ValueEventListener buildReportsListener() {
