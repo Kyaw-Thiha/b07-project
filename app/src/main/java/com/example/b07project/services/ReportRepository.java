@@ -4,7 +4,11 @@ import com.example.b07project.model.Report;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ReportRepository {
   private final Service service;
@@ -99,5 +103,21 @@ public class ReportRepository {
         }
       }
     });
+  }
+
+  public void exportReport(String reportId, DatabaseReference.CompletionListener listener) {
+    if (reportId == null) {
+      if (listener != null) {
+        listener.onComplete(DatabaseError.fromException(
+            new IllegalArgumentException("Missing report id")), service.reportExportQueue());
+      }
+      return;
+    }
+    DatabaseReference exportRef = service.reportExportQueue().push();
+    Map<String, Object> payload = new HashMap<>();
+    payload.put("reportId", reportId);
+    payload.put("requestedAt", ServerValue.TIMESTAMP);
+    payload.put("status", "pending");
+    exportRef.setValue(payload, listener);
   }
 }

@@ -60,6 +60,10 @@ public class Service {
         .child("reports");
   }
 
+  public DatabaseReference reportExportQueue() {
+    return database.getReference("reportExports");
+  }
+
   public DatabaseReference parentInviteDatabase(String parentId) {
     return database.getReference("users")
         .child("parents")

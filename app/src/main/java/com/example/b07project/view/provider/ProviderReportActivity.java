@@ -1,12 +1,15 @@
 package com.example.b07project.view.provider;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import com.example.b07project.R;
 import com.example.b07project.databinding.ActivityProviderReportBinding;
 import com.example.b07project.model.Incident;
 import com.example.b07project.model.Report;
@@ -27,6 +30,8 @@ public class ProviderReportActivity extends BackButtonActivity {
   private ActivityProviderReportBinding binding;
   private ReportViewModel reportViewModel;
   private final TriageIncidentAdapter triageAdapter = new TriageIncidentAdapter();
+  private String reportId;
+  @Nullable private Report currentReport;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,17 @@ public class ProviderReportActivity extends BackButtonActivity {
     setupActions();
 
     reportViewModel = new ViewModelProvider(this).get(ReportViewModel.class);
-    String reportId = getIntent().getStringExtra(EXTRA_REPORT_ID);
+    reportId = getIntent().getStringExtra(EXTRA_REPORT_ID);
+    if (reportId == null) {
+      Toast.makeText(this, R.string.error_missing_report, Toast.LENGTH_SHORT).show();
+      finish();
+      return;
+    }
+
     reportViewModel.getSelectedReport().observe(this, this::bindReport);
+    reportViewModel.getErrorMessage().observe(this, this::showError);
+    reportViewModel.getExportMessage().observe(this, this::handleExportMessage);
+    reportViewModel.getExportInProgress().observe(this, this::setExportInProgress);
     reportViewModel.loadReportById(reportId);
   }
 
@@ -49,15 +63,22 @@ public class ProviderReportActivity extends BackButtonActivity {
   }
 
   private void setupActions() {
-    binding.reportExportButton.setOnClickListener(
-        v -> Toast.makeText(this, "Export coming soon", Toast.LENGTH_SHORT).show());
+    binding.reportExportButton.setOnClickListener(v -> {
+      if (currentReport == null || reportId == null) {
+        Toast.makeText(this, R.string.report_export_missing, Toast.LENGTH_SHORT).show();
+        return;
+      }
+      reportViewModel.exportReport(reportId);
+    });
   }
 
   private void bindReport(Report report) {
+    currentReport = report;
     if (report == null) {
+      showEmptyReportState();
       return;
     }
-    binding.reportChildName.setText(report.getChildName());
+    binding.reportChildName.setText(safeText(report.getChildName()));
     binding.reportDateRange.setText(formatDateRange(report.getStartDate(), report.getEndDate()));
     bindSummary(report.getSummary());
     bindTriage(report.getIncidents());
@@ -74,7 +95,7 @@ public class ProviderReportActivity extends BackButtonActivity {
     binding.reportRescueCount.setText(String.valueOf(summary.getRescueCount()));
     int percent = (int) Math.round(summary.getControllerAdherencePercent());
     binding.reportControllerPercent.setText(
-        getString(com.example.b07project.R.string.percentage_format, percent));
+        getString(R.string.percentage_format, percent));
     binding.reportSymptomSummary.setText(formatSymptomBurden(summary.getSymptomBurden()));
   }
 
@@ -83,6 +104,9 @@ public class ProviderReportActivity extends BackButtonActivity {
   }
 
   private void attachCharts(TrendInput input) {
+    if (input == null || binding == null) {
+      return;
+    }
     setTrendInput(binding.chartRescueUsage.getId(), input);
     setTrendInput(binding.chartControllerAdherence.getId(), input);
     setTrendInput(binding.chartZoneDistribution.getId(), input);
@@ -97,6 +121,9 @@ public class ProviderReportActivity extends BackButtonActivity {
   }
 
   private TrendInput buildTrendInput(Report report) {
+    if (report == null) {
+      return TrendInput.empty();
+    }
     return new TrendInput(report.getMedicineLogs(), report.getPefLogs(), report.getCheckIns());
   }
 
@@ -114,5 +141,39 @@ public class ProviderReportActivity extends BackButtonActivity {
       total += value != null ? value : 0;
     }
     return total + " days";
+  }
+
+  private void setExportInProgress(Boolean exporting) {
+    boolean inProgress = exporting != null && exporting;
+    binding.reportExportButton.setEnabled(!inProgress);
+    binding.reportExportButton.setText(inProgress
+        ? getString(R.string.report_export_in_progress)
+        : getString(R.string.report_export_pdf));
+  }
+
+  private void handleExportMessage(String message) {
+    if (TextUtils.isEmpty(message)) {
+      return;
+    }
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    reportViewModel.clearExportMessage();
+  }
+
+  private void showError(String message) {
+    if (TextUtils.isEmpty(message)) {
+      return;
+    }
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+  }
+
+  private void showEmptyReportState() {
+    binding.reportChildName.setText(R.string.report_loading_placeholder);
+    binding.reportDateRange.setText("-");
+    bindSummary(null);
+    bindTriage(null);
+  }
+
+  private String safeText(String value) {
+    return TextUtils.isEmpty(value) ? getString(R.string.report_loading_placeholder) : value;
   }
 }
