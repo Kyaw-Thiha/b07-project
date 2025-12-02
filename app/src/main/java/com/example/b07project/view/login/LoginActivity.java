@@ -165,13 +165,17 @@ public class LoginActivity extends BackButtonActivity {
 
     private void observeUserProfiles() {
         parentProfileViewModel.getParent().observe(this, parent -> {
-            if (parent == null || pendingNavigation != UserType.PARENT || pendingUid == null) {
+            if (pendingNavigation != UserType.PARENT || pendingUid == null) {
                 return;
             }
-            if (parent.getUid() == null || parent.getUid().isEmpty()) {
-                parent.setUid(pendingUid);
+            ParentUser resolvedParent = parent;
+            if (resolvedParent == null) {
+                resolvedParent = new ParentUser();
             }
-            SessionManager.setUser(parent);
+            if (resolvedParent.getUid() == null || resolvedParent.getUid().isEmpty()) {
+                resolvedParent.setUid(pendingUid);
+            }
+            SessionManager.setUser(resolvedParent);
             pendingNavigation = null;
             String launchUid = pendingUid;
             pendingUid = null;
