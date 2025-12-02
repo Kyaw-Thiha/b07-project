@@ -144,4 +144,7 @@
     <string name="child_checkin_date_required">Please enter the date as dd/mm/yyyy</string>
     <string name="child_checkin_selection_required">Please select at least one answer before submitting.</string>
     <string name="child_checkin_success">Thank you for checking in!</string>
+    <string name="child_symptom_trigger_template">Triggers: %1$d</string>
+    <string name="child_symptom_no_data">--</string>
+    <string name="child_symptom_no_matches">No check-ins found for this date.</string>
 </resources>
