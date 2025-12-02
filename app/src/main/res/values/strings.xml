@@ -155,4 +155,7 @@
     <string name="child_dose_worse">Feeling worse</string>
     <string name="child_medicine_missing_log">We couldn&apos;t find this dose log yet. Please retry.</string>
     <string name="child_medicine_missing_fields">Please enter both dose and time.</string>
+    <string name="child_pef_required">Required</string>
+    <string name="child_pef_positive">Enter a positive number</string>
+    <string name="child_pef_saved">PEF saved!</string>
 </resources>
