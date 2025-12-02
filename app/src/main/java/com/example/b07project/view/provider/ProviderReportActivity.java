@@ -48,6 +48,7 @@ public class ProviderReportActivity extends BackButtonActivity {
       finish();
       return;
     }
+    Toast.makeText(this, "Loading report: " + reportId, Toast.LENGTH_SHORT).show();
 
     reportViewModel.getSelectedReport().observe(this, this::bindReport);
     reportViewModel.getErrorMessage().observe(this, this::showError);
@@ -75,6 +76,7 @@ public class ProviderReportActivity extends BackButtonActivity {
   private void bindReport(Report report) {
     currentReport = report;
     if (report == null) {
+      Toast.makeText(this, "Report failed to load", Toast.LENGTH_SHORT).show();
       showEmptyReportState();
       return;
     }
@@ -117,6 +119,8 @@ public class ProviderReportActivity extends BackButtonActivity {
     Fragment fragment = getSupportFragmentManager().findFragmentById(containerId);
     if (fragment instanceof BaseTrendFragment) {
       ((BaseTrendFragment) fragment).setTrendInput(input);
+    } else {
+      Toast.makeText(this, "Chart missing for container " + containerId, Toast.LENGTH_SHORT).show();
     }
   }
 

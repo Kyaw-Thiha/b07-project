@@ -15,6 +15,7 @@ class TrendChartViewHolder extends RecyclerView.ViewHolder {
   private final ChartRenderContext renderContext;
   private final TrendChartAdapter.RangeListener rangeListener;
   private TrendStrategy boundStrategy;
+  private boolean suppressRangeCallback;
 
   TrendChartViewHolder(@NonNull ItemTrendChartBinding binding,
       TrendChartAdapter.RangeListener listener) {
@@ -24,7 +25,7 @@ class TrendChartViewHolder extends RecyclerView.ViewHolder {
     this.renderContext = new ChartRenderContext(binding);
 
     binding.rangeToggle.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
-      if (!isChecked || boundStrategy == null) {
+      if (suppressRangeCallback || !isChecked || boundStrategy == null) {
         return;
       }
       DateRange range = checkedId == binding.range30.getId()
@@ -37,7 +38,9 @@ class TrendChartViewHolder extends RecyclerView.ViewHolder {
   void bind(TrendStrategy strategy, List<TrendPoint> points) {
     boundStrategy = strategy;
     binding.chartTitle.setText(strategy.title());
+    suppressRangeCallback = true;
     binding.rangeToggle.check(binding.range7.getId());
+    suppressRangeCallback = false;
     List<TrendPoint> safePoints = points != null ? points : Collections.emptyList();
     strategy.render(safePoints, renderContext);
   }

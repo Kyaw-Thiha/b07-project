@@ -130,9 +130,8 @@
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/chart_rescue_usage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.example.b07project.view.charts.fragments.RescueUsageTrendFragment"
-                    tools:layout_height="320dp" />
+                    android:layout_height="320dp"
+                    android:name="com.example.b07project.view.charts.fragments.RescueUsageTrendFragment" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -143,9 +142,8 @@
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/chart_controller_adherence"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.example.b07project.view.charts.fragments.ControllerAdherenceTrendFragment"
-                    tools:layout_height="320dp" />
+                    android:layout_height="320dp"
+                    android:name="com.example.b07project.view.charts.fragments.ControllerAdherenceTrendFragment" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -156,9 +154,8 @@
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/chart_zone_distribution"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.example.b07project.view.charts.fragments.ZoneDistributionFragment"
-                    tools:layout_height="320dp" />
+                    android:layout_height="320dp"
+                    android:name="com.example.b07project.view.charts.fragments.ZoneDistributionFragment" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -169,9 +166,8 @@
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/chart_pef_trend"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.example.b07project.view.charts.fragments.PefTrendFragment"
-                    tools:layout_height="320dp" />
+                    android:layout_height="320dp"
+                    android:name="com.example.b07project.view.charts.fragments.PefTrendFragment" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView

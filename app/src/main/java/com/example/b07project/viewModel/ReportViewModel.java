@@ -161,6 +161,9 @@ public class ReportViewModel extends ViewModel {
       @Override
       public void onDataChange(@NonNull DataSnapshot snapshot) {
         Report report = snapshot.getValue(Report.class);
+        if (report != null) {
+          report.setUid(snapshot.getKey());
+        }
         selectedReport.postValue(report);
       }
 
@@ -195,6 +198,7 @@ public class ReportViewModel extends ViewModel {
         for (DataSnapshot childSnapshot : snapshot.getChildren()) {
           Report report = childSnapshot.getValue(Report.class);
           if (report != null) {
+            report.setUid(childSnapshot.getKey());
             data.add(report);
           }
         }
