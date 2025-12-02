@@ -1,22 +1,29 @@
 package com.example.b07project.view.provider;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.b07project.R;
 import com.example.b07project.databinding.ActivityProviderReportBinding;
 import com.example.b07project.model.Incident;
 import com.example.b07project.model.Report;
+import com.example.b07project.util.ReportExportUtils;
 import com.example.b07project.view.charts.TrendInput;
 import com.example.b07project.view.charts.fragments.BaseTrendFragment;
 import com.example.b07project.view.common.BackButtonActivity;
 import com.example.b07project.viewModel.ReportViewModel;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -48,12 +55,9 @@ public class ProviderReportActivity extends BackButtonActivity {
       finish();
       return;
     }
-    Toast.makeText(this, "Loading report: " + reportId, Toast.LENGTH_SHORT).show();
 
     reportViewModel.getSelectedReport().observe(this, this::bindReport);
     reportViewModel.getErrorMessage().observe(this, this::showError);
-    reportViewModel.getExportMessage().observe(this, this::handleExportMessage);
-    reportViewModel.getExportInProgress().observe(this, this::setExportInProgress);
     reportViewModel.loadReportById(reportId);
   }
 
@@ -65,18 +69,17 @@ public class ProviderReportActivity extends BackButtonActivity {
 
   private void setupActions() {
     binding.reportExportButton.setOnClickListener(v -> {
-      if (currentReport == null || reportId == null) {
+      if (currentReport == null) {
         Toast.makeText(this, R.string.report_export_missing, Toast.LENGTH_SHORT).show();
         return;
       }
-      reportViewModel.exportReport(reportId);
+      exportReport(currentReport);
     });
   }
 
   private void bindReport(Report report) {
     currentReport = report;
     if (report == null) {
-      Toast.makeText(this, "Report failed to load", Toast.LENGTH_SHORT).show();
       showEmptyReportState();
       return;
     }
@@ -147,22 +150,6 @@ public class ProviderReportActivity extends BackButtonActivity {
     return total + " days";
   }
 
-  private void setExportInProgress(Boolean exporting) {
-    boolean inProgress = exporting != null && exporting;
-    binding.reportExportButton.setEnabled(!inProgress);
-    binding.reportExportButton.setText(inProgress
-        ? getString(R.string.report_export_in_progress)
-        : getString(R.string.report_export_pdf));
-  }
-
-  private void handleExportMessage(String message) {
-    if (TextUtils.isEmpty(message)) {
-      return;
-    }
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    reportViewModel.clearExportMessage();
-  }
-
   private void showError(String message) {
     if (TextUtils.isEmpty(message)) {
       return;
@@ -175,6 +162,59 @@ public class ProviderReportActivity extends BackButtonActivity {
     binding.reportDateRange.setText("-");
     bindSummary(null);
     bindTriage(null);
+  }
+
+  private void exportReport(Report report) {
+    CharSequence[] options = {
+        getString(R.string.report_export_option_pdf),
+        getString(R.string.report_export_option_json)
+    };
+    new AlertDialog.Builder(this)
+        .setTitle(R.string.report_export_choose_format)
+        .setItems(options, (dialog, which) -> {
+          if (which == 0) {
+            generateExport(report, ExportFormat.PDF);
+          } else {
+            generateExport(report, ExportFormat.JSON);
+          }
+        })
+        .show();
+  }
+
+  private void generateExport(Report report, ExportFormat format) {
+    try {
+      File file = format == ExportFormat.PDF
+          ? ReportExportUtils.writePdf(this, report)
+          : ReportExportUtils.writeJson(this, report);
+      String mime = format == ExportFormat.PDF ? "application/pdf" : "application/json";
+      Toast.makeText(this,
+          getString(R.string.report_export_saved, file.getName()), Toast.LENGTH_SHORT).show();
+      shareExportFile(file, mime);
+    } catch (IOException e) {
+      Toast.makeText(this,
+          getString(R.string.report_export_error, e.getMessage()),
+          Toast.LENGTH_LONG).show();
+    }
+  }
+
+  private void shareExportFile(File file, String mimeType) {
+    if (file == null) {
+      Toast.makeText(this, R.string.report_export_missing, Toast.LENGTH_SHORT).show();
+      return;
+    }
+    Uri uri = FileProvider.getUriForFile(this,
+        getPackageName() + ".fileprovider", file);
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    shareIntent.setType(mimeType);
+    shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    startActivity(Intent.createChooser(shareIntent,
+        getString(R.string.report_export_share_title)));
+  }
+
+  private enum ExportFormat {
+    PDF,
+    JSON
   }
 
   private String safeText(String value) {

@@ -127,6 +127,12 @@
     <string name="report_export_in_progress">Exporting...</string>
     <string name="report_loading_placeholder">Loading…</string>
     <string name="report_export_missing">Report is still loading.</string>
+    <string name="report_export_choose_format">Export report as</string>
+    <string name="report_export_option_pdf">PDF</string>
+    <string name="report_export_option_json">JSON</string>
+    <string name="report_export_share_title">Share report</string>
+    <string name="report_export_saved">Saved to app documents: %1$s</string>
+    <string name="report_export_error">Failed to export: %1$s</string>
     <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
     <string name="provider_onboarding_welcome">Welcome back, Dr. %1$s</string>
     <string name="provider_onboarding_subtitle_with_org">You\'re connected with %1$s families.</string>
