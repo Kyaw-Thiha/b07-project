@@ -124,4 +124,5 @@
     <string name="report_triage_guidance">Guidance: %1$s</string>
     <string name="report_triage_flags">Flags: %1$s</string>
     <string name="report_export_pdf">Export report</string>
+    <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
 </resources>
