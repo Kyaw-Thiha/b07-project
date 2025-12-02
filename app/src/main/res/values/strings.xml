@@ -129,7 +129,7 @@
     <string name="report_export_missing">Report is still loading.</string>
     <string name="incident_guidance_placeholder">No guidance recorded yet.</string>
     <string name="provider_onboarding_welcome">Welcome back, Dr. %1$s</string>
-    <string name="provider_onboarding_subtitle_with_org">You&apos;re connected with %1$s families.</string>
+    <string name="provider_onboarding_subtitle_with_org">You\'re connected with %1$s families.</string>
     <string name="provider_onboarding_data_source">Parents trust you with their child’s data, %1$s.</string>
     <string name="invite_code_expires">Expires: %1$s</string>
     <string name="invite_no_code">No active invite code.</string>
@@ -138,7 +138,7 @@
     <string name="delete">Delete</string>
     <string name="select_child_prompt">Select a child</string>
     <string name="child_dashboard_no_user">Unable to load child dashboard. Please sign in again.</string>
-    <string name="child_dashboard_no_profile">We couldn&apos;t load your profile just yet.</string>
+    <string name="child_dashboard_no_profile">We couldn\'t load your profile just yet.</string>
     <string name="child_dashboard_pef_placeholder">--</string>
     <string name="child_settings_invalid_input">Please fill out all thresholds with positive numbers.</string>
     <string name="child_settings_thresholds_updated">Badge thresholds updated!</string>
@@ -159,7 +159,7 @@
     <string name="child_dose_better">Feeling better</string>
     <string name="child_dose_normal">Feeling normal</string>
     <string name="child_dose_worse">Feeling worse</string>
-    <string name="child_medicine_missing_log">We couldn&apos;t find this dose log yet. Please retry.</string>
+    <string name="child_medicine_missing_log">We couldn\'t find this dose log yet. Please retry.</string>
     <string name="child_medicine_missing_fields">Please enter both dose and time.</string>
     <string name="child_pef_required">Required</string>
     <string name="child_pef_positive">Enter a positive number</string>

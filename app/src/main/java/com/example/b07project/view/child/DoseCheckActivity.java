@@ -81,7 +81,7 @@ public class DoseCheckActivity extends BackButtonActivity {
             postDose.setVisibility(View.VISIBLE);
             //make post dose button visible and clickable
             Button preDoseButton=findViewById(R.id.button12);
-            Button postDoseButton=findViewById(R.id.button13);
+            Button postDoseButton=findViewById(R.id.invite_button);
             preDoseButton.setVisibility(View.GONE);
             postDoseButton.setVisibility(View.VISIBLE);
         }

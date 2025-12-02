@@ -104,7 +104,7 @@ public class InviteProviderActivity extends BackButtonActivity {
             return;
         }
         codeInput.setText(invite.getCode());
-        if (invite.getExpiresAt() != null) {
+        if (invite.getExpiresAt() > 0) {
             String formatted = DateFormat.getDateTimeInstance(
                     DateFormat.SHORT,
                     DateFormat.SHORT,
