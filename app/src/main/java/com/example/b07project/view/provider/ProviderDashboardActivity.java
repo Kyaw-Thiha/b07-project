@@ -31,6 +31,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ProviderDashboardActivity extends OnboardingActivity {
+
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private RecyclerView recyclerView;
@@ -76,11 +77,13 @@ public class ProviderDashboardActivity extends OnboardingActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+
         if (mUser == null) {
-            Toast.makeText(this, "error!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error: no logged-in provider.", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
+
         recyclerView = findViewById(R.id.childrenRecycler);
         loading = findViewById(R.id.loading);
         if (loading != null) loading.setVisibility(View.VISIBLE);

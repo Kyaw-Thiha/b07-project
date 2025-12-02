@@ -22,7 +22,7 @@ public class ProviderInstruction1Activity extends BackButtonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_provider_instrustion_1);
+        setContentView(R.layout.activity_provider_instruction_1);
 
         auth = FirebaseAuth.getInstance();
         viewModel = new ViewModelProvider(this).get(ProviderProfileViewModel.class);
