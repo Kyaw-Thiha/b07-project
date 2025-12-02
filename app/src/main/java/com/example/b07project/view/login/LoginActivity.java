@@ -151,8 +151,10 @@ public class LoginActivity extends BackButtonActivity {
 
             pendingNavigation = userType;
             if (userType == UserType.PARENT) {
+                startActivity(new Intent(LoginActivity.this, ParentDashboardActivity.class));
                 parentProfileViewModel.loadParent(uid);
             } else if (userType == UserType.PROVIDER) {
+                startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
                 providerProfileViewModel.loadProvider(uid);
             }
         });
