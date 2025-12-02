@@ -370,6 +370,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
     public void Inventory(View view)
     {
         Intent intent = new Intent(this, InventoryActivity.class);
+        intent.putExtra(InventoryActivity.EXTRA_PARENT_UID, parentUid);
         startActivity(intent);
     }
     public void medicine_log(View view)

@@ -151,6 +151,10 @@ public class LoginActivity extends BackButtonActivity {
             pendingNavigation = null;
             String launchUid = pendingUid;
             pendingUid = null;
+            getSharedPreferences("APP_DATA", MODE_PRIVATE)
+                    .edit()
+                    .putString("PARENT_UID", launchUid)
+                    .apply();
             Intent intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
             intent.putExtra(ParentDashboardActivity.EXTRA_PARENT_UID, launchUid);
             startActivity(intent);

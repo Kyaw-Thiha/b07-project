@@ -13,12 +13,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.b07project.R;
 import com.example.b07project.model.Medicine;
+import com.example.b07project.model.User.ParentUser;
+import com.example.b07project.model.User.SessionManager;
 import com.example.b07project.view.common.BackButtonActivity;
 import com.example.b07project.viewModel.MedicineViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class InventoryActivity extends BackButtonActivity {
+    public static final String EXTRA_PARENT_UID = "inventory_parent_uid";
     private TextInputEditText itemNameInput;
     private TextInputEditText purchaseDateInput;
     private TextInputEditText expiryDateInput;
@@ -40,9 +43,20 @@ public class InventoryActivity extends BackButtonActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        parentUid = getSharedPreferences("APP_DATA", MODE_PRIVATE).getString("PARENT_UID", null);
+        parentUid = getIntent().getStringExtra(EXTRA_PARENT_UID);
+        if (parentUid == null) {
+            parentUid = getSharedPreferences("APP_DATA", MODE_PRIVATE).getString("PARENT_UID", null);
+        }
+        if (parentUid == null && SessionManager.getUser() instanceof ParentUser) {
+            parentUid = ((ParentUser) SessionManager.getUser()).getUid();
+        }
         if (parentUid == null && FirebaseAuth.getInstance().getCurrentUser() != null) {
             parentUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+        if (parentUid == null) {
+            Toast.makeText(this, "Unable to determine parent account.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
         }
         initViews();
         setupViewModel();
