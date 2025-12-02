@@ -27,6 +27,11 @@ import com.example.b07project.model.User.SessionManager;
 import com.example.b07project.view.child.LogChildMedicineActivity;
 import com.example.b07project.view.child.PefEntryActivity;
 import com.example.b07project.view.common.BackButtonActivity;
+import com.example.b07project.view.charts.ChartBindingUtils;
+import com.example.b07project.view.charts.TrendInput;
+import com.example.b07project.view.charts.TrendPoint;
+import com.example.b07project.view.charts.strategy.RescueUsageStrategy;
+import com.example.b07project.view.charts.util.DateRange;
 import com.example.b07project.view.login.AskUsertypeActivity;
 import com.example.b07project.viewModel.ChildProfileViewModel;
 import com.example.b07project.viewModel.NotificationViewModel;
@@ -59,6 +64,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
     private TextView notificationBadge;
     private ToggleButton chartToggle;
     private Button chooseChildButton;
+    private com.github.mikephil.charting.charts.LineChart rescueTrendChart;
 
     private final List<ChildUser> availableChildren = new ArrayList<>();
     private ParentUser currentParent;
@@ -70,6 +76,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
     private ActivityResultLauncher<Intent> chooseChildLauncher;
     private FirebaseAuth.AuthStateListener authStateListener;
     private boolean dataInitialized;
+    private final RescueUsageStrategy rescueUsageStrategy = new RescueUsageStrategy();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,9 +126,11 @@ public class ParentDashboardActivity extends BackButtonActivity {
         notificationBadge = findViewById(R.id.textNotificationBadge);
         chartToggle = findViewById(R.id.toggleButton);
         chooseChildButton = findViewById(R.id.chooseChild);
+        rescueTrendChart = findViewById(R.id.chartRescueTrend);
 
         chartToggle.setOnCheckedChangeListener((buttonView, isChecked) -> updateTrendSnippet(isChecked ? 30 : 7));
         chooseChildButton.setOnClickListener(v -> openChooseChildActivity());
+        ChartBindingUtils.styleLineChart(rescueTrendChart);
     }
 
     private void setupViewModels() {
@@ -257,6 +266,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
             weeklyRescueText.setText(R.string.weekly_rescue_count);
             lastRescueText.setText(R.string.last_rescue_time);
             trendSnippetText.setText(R.string.dashboard_no_reports);
+            updateRescueTrendChart();
             return;
         }
         Report newest = reports.get(0);
@@ -286,6 +296,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
         }
 
         updateTrendSnippet(chartToggle.isChecked() ? 30 : 7);
+        updateRescueTrendChart();
     }
 
     private int computeRescues(Report.Summary summary, int days) {
@@ -310,6 +321,24 @@ public class ParentDashboardActivity extends BackButtonActivity {
         }
         int rescues = computeRescues(latestReport.getSummary(), days);
         trendSnippetText.setText(getString(R.string.trend_snippet_template, rescues, days));
+    }
+
+    private void updateRescueTrendChart() {
+        if (rescueTrendChart == null) {
+            return;
+        }
+        if (latestReport == null) {
+            rescueTrendChart.clear();
+            rescueTrendChart.setNoDataText(getString(R.string.dashboard_no_reports));
+            return;
+        }
+        TrendInput input = new TrendInput(
+                latestReport.getMedicineLogs(),
+                latestReport.getPefLogs(),
+                latestReport.getCheckIns());
+        List<TrendPoint> points = rescueUsageStrategy.compute(input, DateRange.thirtyDays());
+        rescueTrendChart.setData(ChartBindingUtils.toLineData(points));
+        rescueTrendChart.invalidate();
     }
 
     private void bindNotifications(List<Notification> notifications) {

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.b07project.databinding.FragmentTrendChartBinding;
 import com.example.b07project.view.charts.TrendChartAdapter;
 import com.example.b07project.view.charts.TrendInput;
@@ -39,6 +40,7 @@ public abstract class BaseTrendFragment extends Fragment {
     TrendChartAdapter adapter = new TrendChartAdapter(
         (strategyId, range) -> viewModel.setRange(strategyId, range));
     adapter.submitStrategies(strategies);
+    binding.chartRecycler.setLayoutManager(new LinearLayoutManager(requireContext()));
     binding.chartRecycler.setAdapter(adapter);
 
     viewModel.setStrategies(strategies);
