@@ -13,11 +13,12 @@
         android:id="@+id/textView25"
         android:layout_width="249dp"
         android:layout_height="38dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="4dp"
         android:text="YOU DO NOT HAVE THIS BADGE YET"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -25,7 +26,7 @@
         android:id="@+id/textView24"
         android:layout_width="249dp"
         android:layout_height="38dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="4dp"
         android:text="YOU DO NOT HAVE THIS BADGE YET"
         android:textSize="14sp"
@@ -38,9 +39,10 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="4dp"
         android:text="YOU EARNED THE TECHNIQUES BADGE"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -66,10 +68,9 @@
         android:id="@+id/imageView8"
         android:layout_width="142dp"
         android:layout_height="135dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="52dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/controller_week_badge" />
@@ -78,8 +79,8 @@
         android:id="@+id/imageView13"
         android:layout_width="156dp"
         android:layout_height="163dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
@@ -101,9 +102,10 @@
         android:layout_width="427dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:text="You can earn this badge by having a low rescue month"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -113,6 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
         android:text="YOU EARNED THE LOW RESCUE BADGE"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -131,40 +134,41 @@
         android:id="@+id/imageView14"
         android:layout_width="130dp"
         android:layout_height="138dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/textView22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.293"
         app:srcCompat="@drawable/sessions_badge" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="409dp"
         android:layout_height="37dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="6dp"
         android:layout_marginBottom="48dp"
         android:text="You can earn this badge by completing 10 high-quality technique sessions"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="427dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="36dp"
         android:text="You can earn this badge by having your first PERFECT controller week"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView13"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/textView20"
@@ -175,10 +179,12 @@
         android:layout_marginBottom="43dp"
         android:text="YOU EARNED THE CONTROLLER WEEK BADGE"
         android:textSize="14sp"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.306" />
 
     <ImageView
         android:id="@+id/imageView18"

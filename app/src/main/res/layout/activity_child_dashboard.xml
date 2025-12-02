@@ -8,41 +8,24 @@
     android:background="@color/white"
     android:visibility="visible">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="393dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="9dp"
-        android:background="@color/light_purple"
-        android:text="@string/child_welcome"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="159dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="126dp"
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="116dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="83dp"
+        android:onClick="symptomLog"
+        android:text="@string/child_log_symptom"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:srcCompat="@drawable/rounded_edge_button" />
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="122dp"
-        android:layout_height="80dp"
+        android:layout_height="84dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="14dp"
@@ -194,18 +177,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="28dp"
         android:onClick="signOut"
         android:text="@string/sign_out_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView11"
         android:layout_width="55dp"
         android:layout_height="53dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="180dp"
+        android:contentDescription="red zone"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/textView32"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/red_zone" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="green zone"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -216,38 +214,25 @@
         android:id="@+id/imageView10"
         android:layout_width="55dp"
         android:layout_height="53dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="yellow zone "
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/yellow_zone" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="55dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="180dp"
-        android:contentDescription="red zone"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/textView32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/red_zone" />
-
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="80dp"
         android:text="10"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
@@ -38,9 +39,7 @@ public class DoseCheckActivity extends BackButtonActivity {
             Button preDoseButton=findViewById(R.id.button12);
             Button postDoseButton=findViewById(R.id.invite_button);
             preDoseButton.setVisibility(View.VISIBLE);
-            postDoseButton.setVisibility(View.INVISIBLE);
-            preDoseButton.setClickable(true);
-            postDoseButton.setClickable(false);
+            postDoseButton.setVisibility(View.GONE);
         } else if ("ControllerMedicineInputActivity".equals(previous)) {
             //make post-dose text visible
             TextView preDose=findViewById(R.id.textView36);
@@ -49,29 +48,64 @@ public class DoseCheckActivity extends BackButtonActivity {
             postDose.setVisibility(View.VISIBLE);
             //make post dose button visible and clickable
             Button preDoseButton=findViewById(R.id.button12);
-            Button postDoseButton=findViewById(R.id.invite_button);
-            preDoseButton.setVisibility(View.INVISIBLE);
+            Button postDoseButton=findViewById(R.id.button13);
+            preDoseButton.setVisibility(View.GONE);
             postDoseButton.setVisibility(View.VISIBLE);
-            preDoseButton.setClickable(false);
-            postDoseButton.setClickable(true);
         }
     }
 
     public void betterDose(View view){
+        TextView preDose=findViewById(R.id.textView36);
+        int preDoseVisible = preDose.getVisibility();
+        String msg = "Its great that you feel better!";
         //add pre dose check in if pre-dose button visible
-        //make a toast saying predose check
-        //add post dose check in if postdose button visible
+        if(preDoseVisible==View.VISIBLE){
+                //add  that the child reported better predose
 
+        }
+        else{
+            //add post dose check in if postdose button visible
+            //add the child reported better postdose
+
+        }
+        //make a toast saying predose check
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     public void normalDose(View view){
+        TextView preDose=findViewById(R.id.textView36);
+        int preDoseVisible = preDose.getVisibility();
+        String msg = "It's okay to feel normal!";
         //add pre dose check in if pre-dose button visible
-        //add post dose check in if postdose button visible
+        if(preDoseVisible==View.VISIBLE){
+            //add  that the child reported better predose
+
+        }
+        else{
+            //add post dose check in if postdose button visible
+            //add the child reported better postdose
+
+        }
+        //make a toast saying predose check
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     public void worseDose(View view){
+        TextView preDose=findViewById(R.id.textView36);
+        int preDoseVisible = preDose.getVisibility();
+        String msg;
         //add pre dose check in if pre-dose button visible
-        //add post dose check in if postdose button visible
+        if(preDoseVisible==View.VISIBLE){
+            //add  that the child reported better predose
+            msg = "Let's see you feel better after!";
+        }
+        else{
+            //add post dose check in if postdose button visible
+            //add the child reported better postdose
+            msg = "Your parent has been reported of worse condition!";
+        }
+        //make a toast saying predose check
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     public void preDoseCheck(View view){

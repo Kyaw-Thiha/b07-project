@@ -11,7 +11,10 @@ public class Report {
   private String providerId;
   private String providerName;
   private long createdAt;
-  private ShareOptions shareOptions;
+  private long startDate;
+  private long endDate;
+  private ShareSettings shareSettings;
+  private Summary summary;
   private List<Medicine> medicines;
   private List<MedicineLog> medicineLogs;
   private List<PEF> pefLogs;
@@ -85,12 +88,36 @@ public class Report {
     this.createdAt = createdAt;
   }
 
-  public ShareOptions getShareOptions() {
-    return shareOptions;
+  public long getStartDate() {
+    return startDate;
   }
 
-  public void setShareOptions(ShareOptions shareOptions) {
-    this.shareOptions = shareOptions;
+  public void setStartDate(long startDate) {
+    this.startDate = startDate;
+  }
+
+  public long getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(long endDate) {
+    this.endDate = endDate;
+  }
+
+  public ShareSettings getShareSettings() {
+    return shareSettings;
+  }
+
+  public void setShareSettings(ShareSettings shareSettings) {
+    this.shareSettings = shareSettings;
+  }
+
+  public Summary getSummary() {
+    return summary;
+  }
+
+  public void setSummary(Summary summary) {
+    this.summary = summary;
   }
 
   public List<Medicine> getMedicines() {
@@ -133,54 +160,147 @@ public class Report {
     this.incidents = incidents;
   }
 
-  public static class ShareOptions {
-    private boolean includeMedicines = true;
-    private boolean includeMedicineLogs = true;
-    private boolean includePefLogs = true;
-    private boolean includeCheckIns = true;
-    private boolean includeIncidents = true;
+  public static class Summary {
+    private int rescueCount;
+    private long lastRescueTime;
+    private double controllerAdherencePercent;
+    private int controllerScheduledDoses;
+    private int controllerTakenDoses;
+    private java.util.Map<String, Integer> symptomBurden;
+    private java.util.Map<String, Integer> zoneDistribution;
+    private java.util.List<TimeSeriesPoint> timeSeries;
+    private java.util.List<CategorySlice> categorical;
 
-    public ShareOptions() {
+    public Summary() {
     }
 
-    public boolean isIncludeMedicines() {
-      return includeMedicines;
+    public int getRescueCount() {
+      return rescueCount;
     }
 
-    public void setIncludeMedicines(boolean includeMedicines) {
-      this.includeMedicines = includeMedicines;
+    public void setRescueCount(int rescueCount) {
+      this.rescueCount = rescueCount;
     }
 
-    public boolean isIncludeMedicineLogs() {
-      return includeMedicineLogs;
+    public long getLastRescueTime() {
+      return lastRescueTime;
     }
 
-    public void setIncludeMedicineLogs(boolean includeMedicineLogs) {
-      this.includeMedicineLogs = includeMedicineLogs;
+    public void setLastRescueTime(long lastRescueTime) {
+      this.lastRescueTime = lastRescueTime;
     }
 
-    public boolean isIncludePefLogs() {
-      return includePefLogs;
+    public double getControllerAdherencePercent() {
+      return controllerAdherencePercent;
     }
 
-    public void setIncludePefLogs(boolean includePefLogs) {
-      this.includePefLogs = includePefLogs;
+    public void setControllerAdherencePercent(double controllerAdherencePercent) {
+      this.controllerAdherencePercent = controllerAdherencePercent;
     }
 
-    public boolean isIncludeCheckIns() {
-      return includeCheckIns;
+    public int getControllerScheduledDoses() {
+      return controllerScheduledDoses;
     }
 
-    public void setIncludeCheckIns(boolean includeCheckIns) {
-      this.includeCheckIns = includeCheckIns;
+    public void setControllerScheduledDoses(int controllerScheduledDoses) {
+      this.controllerScheduledDoses = controllerScheduledDoses;
     }
 
-    public boolean isIncludeIncidents() {
-      return includeIncidents;
+    public int getControllerTakenDoses() {
+      return controllerTakenDoses;
     }
 
-    public void setIncludeIncidents(boolean includeIncidents) {
-      this.includeIncidents = includeIncidents;
+    public void setControllerTakenDoses(int controllerTakenDoses) {
+      this.controllerTakenDoses = controllerTakenDoses;
+    }
+
+    public java.util.Map<String, Integer> getSymptomBurden() {
+      return symptomBurden;
+    }
+
+    public void setSymptomBurden(java.util.Map<String, Integer> symptomBurden) {
+      this.symptomBurden = symptomBurden;
+    }
+
+    public java.util.Map<String, Integer> getZoneDistribution() {
+      return zoneDistribution;
+    }
+
+    public void setZoneDistribution(java.util.Map<String, Integer> zoneDistribution) {
+      this.zoneDistribution = zoneDistribution;
+    }
+
+    public java.util.List<TimeSeriesPoint> getTimeSeries() {
+      return timeSeries;
+    }
+
+    public void setTimeSeries(java.util.List<TimeSeriesPoint> timeSeries) {
+      this.timeSeries = timeSeries;
+    }
+
+    public java.util.List<CategorySlice> getCategorical() {
+      return categorical;
+    }
+
+    public void setCategorical(java.util.List<CategorySlice> categorical) {
+      this.categorical = categorical;
+    }
+
+    public static class TimeSeriesPoint {
+      private long timestamp;
+      private int value;
+      private String label;
+
+      public TimeSeriesPoint() {
+      }
+
+      public long getTimestamp() {
+        return timestamp;
+      }
+
+      public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+      }
+
+      public int getValue() {
+        return value;
+      }
+
+      public void setValue(int value) {
+        this.value = value;
+      }
+
+      public String getLabel() {
+        return label;
+      }
+
+      public void setLabel(String label) {
+        this.label = label;
+      }
+    }
+
+    public static class CategorySlice {
+      private String label;
+      private int value;
+
+      public CategorySlice() {
+      }
+
+      public String getLabel() {
+        return label;
+      }
+
+      public void setLabel(String label) {
+        this.label = label;
+      }
+
+      public int getValue() {
+        return value;
+      }
+
+      public void setValue(int value) {
+        this.value = value;
+      }
     }
   }
 }

@@ -6,6 +6,8 @@ public class CheckIn {
   private String activity_limits;
   private String cough;
   private String uid;
+  private String authorId;
+  private boolean enteredByParent;
 
   public CheckIn() {
   }
@@ -59,6 +61,22 @@ public class CheckIn {
     this.uid = uid;
   }
 
+  public String getAuthorId() {
+    return authorId;
+  }
+
+  public void setAuthorId(String authorId) {
+    this.authorId = authorId;
+  }
+
+  public boolean isEnteredByParent() {
+    return enteredByParent;
+  }
+
+  public void setEnteredByParent(boolean enteredByParent) {
+    this.enteredByParent = enteredByParent;
+  }
+
   public static class NightWalking {
     private boolean entry_by_parent;
     private Triggers triggers;
@@ -102,7 +120,8 @@ public class CheckIn {
     private boolean exercise;
     private boolean cold_air;
     private boolean dust;
-    private boolean smoking_weed_hopefully_not;
+    private boolean pets;
+    private boolean smoke;
     private boolean illness;
     private boolean perfume_odors;
 
@@ -110,11 +129,12 @@ public class CheckIn {
     }
 
     public Triggers(boolean exercise, boolean cold_air, boolean dust,
-                    boolean smoking_weed_hopefully_not, boolean illness, boolean perfume_odors) {
+                    boolean pets, boolean smoke, boolean illness, boolean perfume_odors) {
       this.exercise = exercise;
       this.cold_air = cold_air;
       this.dust = dust;
-      this.smoking_weed_hopefully_not = smoking_weed_hopefully_not;
+      this.pets = pets;
+      this.smoke = smoke;
       this.illness = illness;
       this.perfume_odors = perfume_odors;
     }
@@ -143,12 +163,20 @@ public class CheckIn {
       this.dust = dust;
     }
 
-    public boolean isSmoking_weed_hopefully_not() {
-      return smoking_weed_hopefully_not;
+    public boolean isPets() {
+      return pets;
     }
 
-    public void setSmoking_weed_hopefully_not(boolean smoking_weed_hopefully_not) {
-      this.smoking_weed_hopefully_not = smoking_weed_hopefully_not;
+    public void setPets(boolean pets) {
+      this.pets = pets;
+    }
+
+    public boolean isSmoke() {
+      return smoke;
+    }
+
+    public void setSmoke(boolean smoke) {
+      this.smoke = smoke;
     }
 
     public boolean isIllness() {

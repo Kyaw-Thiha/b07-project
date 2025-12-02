@@ -31,7 +31,8 @@
             android:exported="false" />
         <activity
             android:name=".view.child.DoseCheckActivity"
-            android:exported="false" /> <!-- ========= LOGIN FLOW ========= -->
+            android:exported="false" />
+        <!-- ========= LOGIN FLOW ========= -->
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="false" />
@@ -55,7 +56,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- ========= CHILD DASHBOARD FLOW ========= -->
+        </activity>
+        <!-- ========= CHILD DASHBOARD FLOW ========= -->
+        <activity
+            android:name=".view.child.ChildOnboardingPage1Activity" />
+        <activity
+            android:name=".view.child.ChildOnboardingPage2Activity" />
+        <activity
+            android:name=".view.child.ChildOnboardingPage3Activity" />
+        <activity
+            android:name=".view.child.ChildOnboardingPage4Activity" />
         <activity
             android:name=".view.child.ChildBadgeActivity"
             android:exported="false" />
@@ -76,13 +86,34 @@
             android:exported="false" />
         <activity
             android:name=".view.child.LogChildSymptomActivity"
-            android:exported="false" /> <!-- ========= PARENT DASHBOARD ========= -->
+            android:exported="false" />
+        <!-- ========= PARENT DASHBOARD ========= -->
         <activity
             android:name=".view.parent.ParentDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".view.parent.AddActionPlan"
             android:exported="false" />
+        <activity android:name=".view.parent.ParentOnboardingPage1Activity" />
+        <activity android:name=".view.parent.ParentOnboardingPage2Activity" />
+        <activity android:name=".view.parent.ParentOnboardingPage3Activity" />
+        <activity android:name=".view.parent.ParentOnboardingPage4Activity" />
+
+        <!-- ========= PARENT DASHBOARD ========= -->
+        <activity
+            android:name=".view.provider.ProviderDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.provider.ProviderInstruction1Activity" />
+        <activity
+            android:name=".view.provider.ProviderInstruction2Activity" />
+        <activity
+            android:name=".view.provider.ProviderInstruction3Activity" />
+
+        <!-- ========= API Tester ========= -->
+        <activity
+            android:name=".TestAPIActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

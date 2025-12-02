@@ -27,12 +27,13 @@ public class LogChildMedicineActivity extends BackButtonActivity {
             return insets;
         });
         //get three most recent doses and times
-        controllerDose1();
-        controllerDose2();
-        controllerDose3();
-        rescueDose1();
-        rescueDose2();
-        rescueDose3();
+        //get the database
+        controllerDose1(5, "2:30");
+        controllerDose2(5, "2:30");
+        controllerDose3(5, "2:30");
+        rescueDose1(5, "2:30");
+        rescueDose2(5, "2:30");
+        rescueDose3(5, "2:30");
     }
 
     public void addDose(View view){
@@ -43,32 +44,32 @@ public class LogChildMedicineActivity extends BackButtonActivity {
 
     }
 
-    public void controllerDose1(){
+    public void controllerDose1(int dose, String time){
         TextView firstDose = findViewById(R.id.textView116);
         TextView firstTime = findViewById(R.id.textView92);
     }
 
-    public void controllerDose2(){
+    public void controllerDose2(int dose, String time){
         TextView secondDose = findViewById(R.id.textView90);
         TextView secondTime = findViewById(R.id.textView115);
     }
 
-    public void controllerDose3(){
+    public void controllerDose3(int dose, String time){
         TextView thirdDose = findViewById(R.id.textView117);
         TextView thirdTime = findViewById(R.id.textView91);
     }
 
-    public void rescueDose1(){
+    public void rescueDose1(int dose, String time){
         TextView firstDose = findViewById(R.id.textView83);
         TextView firstTime = findViewById(R.id.textView82);
     }
 
-    public void rescueDose2(){
+    public void rescueDose2(int dose, String time){
         TextView secondDose = findViewById(R.id.textView85);
         TextView secondTime = findViewById(R.id.textView84);
     }
 
-    public void rescueDose3(){
+    public void rescueDose3(int dose, String time){
         TextView thirdDose = findViewById(R.id.textView86);
         TextView thirdTime = findViewById(R.id.textView89);
     }
