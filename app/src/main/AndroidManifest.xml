@@ -113,6 +113,9 @@
             android:name=".view.parent.IncidentLogActivity"
             android:exported="false" />
         <activity
+            android:name=".view.parent.SelectChildActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.parent.NotificationsActivity"
             android:exported="false" />
         <activity android:name=".view.parent.ParentOnboardingPage1Activity" />

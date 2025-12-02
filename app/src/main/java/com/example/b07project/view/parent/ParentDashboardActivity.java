@@ -216,7 +216,7 @@ public class ParentDashboardActivity extends BackButtonActivity {
     }
 
     private void openChooseChildActivity() {
-        Intent intent = new Intent(this, ChooseChildActivity.class);
+        Intent intent = new Intent(this, SelectChildActivity.class);
         chooseChildLauncher.launch(intent);
     }
 
@@ -401,6 +401,11 @@ public class ParentDashboardActivity extends BackButtonActivity {
     public void add_action_plan(View view)
     {
         Intent intent = new Intent(this,AddActionPlan.class);
+        startActivity(intent);
+    }
+
+    public void start_triage(View view) {
+        Intent intent = new Intent(this, ChooseChildActivity.class);
         startActivity(intent);
     }
 

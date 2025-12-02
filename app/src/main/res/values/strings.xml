@@ -190,4 +190,6 @@
     <string name="choose_child_button">Choose Child</string>
     <string name="invite_provider_button">Invite Provider</string>
     <string name="add_action_plan_button">Add Action Plan</string>
+    <string name="select_child_title">Select a child</string>
+    <string name="start_triage_button">Start Triage</string>
 </resources>

@@ -234,6 +234,16 @@
                 app:backgroundTint="@color/turquoise" />
 
             <Button
+                android:id="@+id/buttonTriage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:onClick="start_triage"
+                android:text="@string/start_triage_button"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/light_purple" />
+
+            <Button
                 android:id="@+id/buttonParentSignOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
