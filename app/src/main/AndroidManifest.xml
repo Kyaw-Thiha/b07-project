@@ -107,6 +107,9 @@
             android:name=".view.provider.ProviderDashboardActivity"
             android:exported="false" />
         <activity
+            android:name=".view.provider.ChildReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.provider.ProviderReportActivity"
             android:exported="false" />
         <activity
