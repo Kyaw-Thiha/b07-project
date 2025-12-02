@@ -64,10 +64,6 @@ public class TestAPIActivity extends AppCompatActivity {
   private static final String TAG = "TestAPIActivity";
   private static final int TREND_DAYS = 30;
 
-  private static final String PARENT_UID = "debug-parent-01";
-  private static final String CHILD_UID = "debug-child-01";
-  private static final String PROVIDER_UID = "debug-provider-01";
-
   private static final String PARENT_EMAIL = "debug-parent@seed-users.example.com";
   private static final String CHILD_EMAIL = "debug-child@seed-users.example.com";
   private static final String PROVIDER_EMAIL = "debug-provider@seed-users.example.com";
@@ -122,15 +118,21 @@ public class TestAPIActivity extends AppCompatActivity {
   }
 
   private void createSampleData() {
-    String parentUid = PARENT_UID;
-    String childUid = CHILD_UID;
-    String providerUid = PROVIDER_UID;
-
-    ensureAuthUser(PARENT_EMAIL, PARENT_PASSWORD, "Test Parent", UserType.PARENT);
-    ensureAuthUser(CHILD_EMAIL, CHILD_PASSWORD, "Test Child", UserType.CHILD);
-    ensureAuthUser(PROVIDER_EMAIL, PROVIDER_PASSWORD, "Test Provider", UserType.PROVIDER);
-
+    firebaseAuth.signOut();
     buttonCreateSampleData.setEnabled(false);
+    textStatus.setText("Ensuring sample users...");
+    ensureAuthUser(PARENT_EMAIL, PARENT_PASSWORD, "Test Parent", UserType.PARENT, parentId -> {
+      ensureAuthUser(CHILD_EMAIL, CHILD_PASSWORD, "Test Child", UserType.CHILD, childId -> {
+        ensureAuthUser(PROVIDER_EMAIL, PROVIDER_PASSWORD, "Test Provider", UserType.PROVIDER, providerId -> {
+          runOnUiThread(() -> createSampleDataInternal(parentId, childId, providerId));
+          firebaseAuth.signOut();
+        });
+      });
+    });
+  }
+
+  private void createSampleDataInternal(String parentUid, String childUid, String providerUid) {
+
     textStatus
         .setText("Creating data for parent " + parentUid + ", child " + childUid + ", provider " + providerUid + "...");
 
@@ -337,24 +339,38 @@ public class TestAPIActivity extends AppCompatActivity {
     return incidents;
   }
 
-  private void ensureAuthUser(String email, String password, String displayName, UserType type) {
+  private interface UidCallback {
+    void onUid(String uid);
+  }
+
+  private void ensureAuthUser(String email, String password, String displayName, UserType type, UidCallback callback) {
     firebaseAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(task -> {
       if (!task.isSuccessful()) {
-        Log.w(TAG, "Failed to check auth user " + email, task.getException());
+        handleSeedError("Failed to check auth user " + email, task.getException());
         return;
       }
       boolean exists = task.getResult() != null
           && task.getResult().getSignInMethods() != null
           && !task.getResult().getSignInMethods().isEmpty();
       if (exists) {
-        Log.d(TAG, "Auth user already exists for " + email);
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(signInTask -> {
+              if (!signInTask.isSuccessful()) {
+                handleSeedError("Failed to sign in existing auth user " + email, signInTask.getException());
+                return;
+              }
+              FirebaseUser user = signInTask.getResult().getUser();
+              if (user != null) {
+                runOnUiThread(() -> callback.onUid(user.getUid()));
+              }
+            });
         return;
       }
 
       firebaseAuth.createUserWithEmailAndPassword(email, password)
           .addOnCompleteListener(createTask -> {
             if (!createTask.isSuccessful()) {
-              Log.e(TAG, "Failed to create auth user " + email, createTask.getException());
+              handleSeedError("Failed to create auth user " + email, createTask.getException());
               return;
             }
             FirebaseUser user = createTask.getResult().getUser();
@@ -363,8 +379,21 @@ public class TestAPIActivity extends AppCompatActivity {
                   .setDisplayName(displayName + " (" + type.name() + ")")
                   .build());
               Log.d(TAG, "Created auth user " + email);
+              runOnUiThread(() -> callback.onUid(user.getUid()));
             }
           });
+    });
+  }
+
+  private void handleSeedError(String message, Exception ex) {
+    String fullMessage = ex != null && ex.getMessage() != null
+        ? message + ": " + ex.getMessage()
+        : message;
+    Log.e(TAG, fullMessage, ex);
+    runOnUiThread(() -> {
+      Toast.makeText(this, fullMessage, Toast.LENGTH_LONG).show();
+      textStatus.setText(fullMessage);
+      buttonCreateSampleData.setEnabled(true);
     });
   }
 }
