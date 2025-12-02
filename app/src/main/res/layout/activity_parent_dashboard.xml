@@ -4,212 +4,255 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".view.parent.ParentDashboardActivity">
 
-    <LinearLayout
-        android:id="@+id/card"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/card_background"
-        android:orientation="vertical"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/dashboardScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="140dp"
-            android:layout_height="21dp"
-            android:text="@string/weekly_rescue_count"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
 
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="140dp"
-            android:layout_height="21dp"
-            android:text="@string/child_zone_text"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textSelectedChild"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/child_dashboard_no_profile"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="168dp"
-        android:text="@string/my_dashboard"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+                <Button
+                    android:id="@+id/chooseChild"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_child_button"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/turquoise" />
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="140dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="228dp"
-        android:text="@string/last_rescue_time"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp">
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="344dp"
-        android:text="@string/trend_snippet"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/imageNotifications"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/notifications_button"
+                        android:onClick="notifications"
+                        android:src="@drawable/notifications_button" />
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="116dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="752dp"
-        android:layout_marginEnd="210dp"
-        android:onClick="medicine_log"
-        android:text="@string/child_log_medicine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.988"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textNotificationBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/notification_badge"
+                        android:gravity="center"
+                        android:minHeight="20dp"
+                        android:minWidth="20dp"
+                        android:padding="2dp"
+                        android:text="0"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="116dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="644dp"
-        android:layout_marginEnd="210dp"
-        android:onClick="peak_flow"
-        android:text="@string/peak_flow_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.988"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="116dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="308dp"
-        android:onClick="manage_child"
-        android:text="@string/manage_child_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
+                <Button
+                    android:id="@+id/button24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:onClick="incident_log"
+                    android:text="@string/incident_log_button"
+                    android:textColor="@android:color/black"
+                    app:backgroundTint="@color/light_purple" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="116dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="752dp"
-        android:layout_marginEnd="70dp"
-        android:onClick="Inventory"
-        android:text="@string/Inventory_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="provider"
+                    android:text="@string/invite_provider_button"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/turquoise" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/button24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="incident_log"
-        android:text="@string/incident_log_button"
-        android:textColor="#000000"
-        app:backgroundTint="@color/light_purple"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_background"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-    <Button
-        android:id="@+id/button54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="576dp"
-        android:onClick="add_action_plan"
-        android:text="Add Action Plan"
-        android:textColor="#ffffff"
-        app:backgroundTint="@color/turquoise"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textWeeklyRescue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weekly_rescue_count"
+                    android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/chooseChild"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="80dp"
-        android:text="Choose Child"
-        android:textColor="#ffffff"
-        app:backgroundTint="@color/turquoise"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textChildZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/child_zone_text"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="80dp"
-        android:onClick="provider"
-        android:text="Invite Provider"
-        android:textColor="#ffffff"
-        app:backgroundTint="@color/turquoise"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/my_dashboard"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="16dp"
-        android:onClick="notifications"
-        android:src="@drawable/notifications_button"
-        android:contentDescription="@string/notifications_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textLastRescue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/last_rescue_time"
+                android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="416dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+            <TextView
+                android:id="@+id/textTrendSnippet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/trend_snippet"
+                android:textStyle="bold" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:layout_marginEnd="28dp"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:textOff="7 days"
-        android:textOn="30 days"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="toggle_chart_clicked"/>
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:background="#000000"
+                android:textColor="@android:color/white"
+                android:textOff="@string/range_7d"
+                android:textOn="@string/range_30d" />
 
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartRescueTrend"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:onClick="peak_flow"
+                    android:text="@string/peak_flow_button" />
+
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="medicine_log"
+                    android:text="@string/child_log_medicine" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:onClick="manage_child"
+                    android:text="@string/manage_child_button" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="Inventory"
+                    android:text="@string/Inventory_button" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button54"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:onClick="add_action_plan"
+                android:text="@string/add_action_plan_button"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/turquoise" />
+
+            <Button
+                android:id="@+id/buttonTriage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:onClick="start_triage"
+                android:text="@string/start_triage_button"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/light_purple" />
+
+            <Button
+                android:id="@+id/buttonParentSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:onClick="signOut"
+                android:text="@string/sign_out_button" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

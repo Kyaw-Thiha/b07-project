@@ -12,11 +12,18 @@ public class IncidentRepository {
   }
 
   public void add(String userId, Incident incident) {
+    addAndReturnId(userId, incident);
+  }
+
+  public String addAndReturnId(String userId, Incident incident) {
     DatabaseReference ref = service
         .incidentDatabase(userId)
         .push();
 
+    String id = ref.getKey();
+    incident.setUid(userId);
     ref.setValue(incident);
+    return id;
   }
 
   public void update(String userId, String incidentId, Map<String, Object> updates) {

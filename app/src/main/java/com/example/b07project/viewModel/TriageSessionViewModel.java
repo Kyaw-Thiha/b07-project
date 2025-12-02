@@ -44,6 +44,12 @@ public class TriageSessionViewModel extends ViewModel {
     loadSessions(childId);
   }
 
+  public String addSessionAndReturnId(String childId, TriageSession session) {
+    String id = repository.addAndReturnId(childId, session);
+    loadSessions(childId);
+    return id;
+  }
+
   public void updateSession(String childId, String sessionId, Map<String, Object> updates) {
     repository.update(childId, sessionId, updates);
     loadSessions(childId);

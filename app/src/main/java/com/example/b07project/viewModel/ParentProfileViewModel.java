@@ -34,6 +34,9 @@ public class ParentProfileViewModel extends ViewModel {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ParentUser value = snapshot.getValue(ParentUser.class);
+                if (value != null && (value.getUid() == null || value.getUid().isEmpty())) {
+                    value.setUid(uid);
+                }
                 parent.setValue(value);
             }
 

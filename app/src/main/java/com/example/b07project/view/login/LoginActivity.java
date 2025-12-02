@@ -86,8 +86,9 @@ public class LoginActivity extends BackButtonActivity {
 
         if (userType == UserType.PROVIDER) {
             text.setText("Provider Login");
-        }
-        else {
+        } else if (userType == UserType.CHILD) {
+            text.setText("Child Login");
+        } else {
             text.setText("Parent Login");
         }
 
@@ -119,41 +120,13 @@ public class LoginActivity extends BackButtonActivity {
             String uid = mAuth.getCurrentUser().getUid();
             pendingUid = uid;
 
-            if (userType == UserType.CHILD) {
-                Intent intent = getIntent();
-                if (intent.hasExtra("child-user-age-below-9")) {
-                    Boolean age_below_9 = intent.getBooleanExtra("child-user-age-below-9", false);
-                    String child_uid = db.getReference("children").push().getKey();
-                    ChildUser user = new ChildUser(child_uid, "placeholder name", "", null, age_below_9,
-                            null, null, uid, null, null, null);
-                    SessionManager.setUser(user);
-
-                    childProfileViewModel.createChild(child_uid, user);
-
-                    DatabaseReference childRef = service.parentUserDatabase()
-                            .child(uid)
-                            .child("children")
-                            .child(user.getUid());
-                    Map<String, Object> data = new HashMap();
-                    data.put("name", user.getName());
-                    data.put("ageBelow9", user.getIsAgeBelow9());
-                    data.put("parentId", uid);
-                    data.put("optionalNote", "none");
-                    data.put("medicineLog", null);
-                    data.put("incidentLog", null);
-                    data.put("PEFLog", null);
-                    data.put("symptomsLog", null);
-                    childRef.setValue(data);
-                }
-                startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
-                return;
-            }
-
             pendingNavigation = userType;
             if (userType == UserType.PARENT) {
                 parentProfileViewModel.loadParent(uid);
             } else if (userType == UserType.PROVIDER) {
                 providerProfileViewModel.loadProvider(uid);
+            } else if (userType == UserType.CHILD) {
+                childProfileViewModel.loadChild(uid);
             }
         });
     }
@@ -165,30 +138,61 @@ public class LoginActivity extends BackButtonActivity {
 
     private void observeUserProfiles() {
         parentProfileViewModel.getParent().observe(this, parent -> {
-            if (parent != null && pendingNavigation == UserType.PARENT && pendingUid != null) {
-                SessionManager.setUser(parent);
+            if (pendingNavigation != UserType.PARENT || pendingUid == null) {
+                return;
+            }
+            if (parent == null) {
+                Toast.makeText(this, "Parent profile not found. Please contact support.", Toast.LENGTH_SHORT).show();
                 pendingNavigation = null;
                 pendingUid = null;
-                startActivity(new Intent(LoginActivity.this, ParentDashboardActivity.class));
+                return;
             }
+            SessionManager.setUser(parent);
+            pendingNavigation = null;
+            String launchUid = pendingUid;
+            pendingUid = null;
+            getSharedPreferences("APP_DATA", MODE_PRIVATE)
+                    .edit()
+                    .putString("PARENT_UID", launchUid)
+                    .apply();
+            Intent intent = new Intent(LoginActivity.this, ParentDashboardActivity.class);
+            intent.putExtra(ParentDashboardActivity.EXTRA_PARENT_UID, launchUid);
+            startActivity(intent);
+            finish();
         });
 
         providerProfileViewModel.getProvider().observe(this, provider -> {
-            if (provider != null && pendingNavigation == UserType.PROVIDER && pendingUid != null) {
-                SessionManager.setUser(provider);
+            if (pendingNavigation != UserType.PROVIDER || pendingUid == null) {
+                return;
+            }
+            if (provider == null) {
+                Toast.makeText(this, "Provider profile not found. Please contact support.", Toast.LENGTH_SHORT).show();
                 pendingNavigation = null;
                 pendingUid = null;
-                startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
+                return;
             }
+            SessionManager.setUser(provider);
+            pendingNavigation = null;
+            pendingUid = null;
+            startActivity(new Intent(LoginActivity.this, ProviderDashboardActivity.class));
+            finish();
         });
 
         childProfileViewModel.getChild().observe(this, child -> {
-            if (child != null && pendingNavigation == UserType.CHILD && pendingUid != null) {
-                SessionManager.setUser(child);
+            if (pendingNavigation != UserType.CHILD || pendingUid == null) {
+                return;
+            }
+            if (child == null) {
+                Toast.makeText(this, "Child profile not found. Please contact support.", Toast.LENGTH_SHORT).show();
                 pendingNavigation = null;
                 pendingUid = null;
-                startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+                return;
             }
+            SessionManager.setUser(child);
+            pendingNavigation = null;
+            pendingUid = null;
+            startActivity(new Intent(LoginActivity.this, ChildDashboardActivity.class));
+            finish();
         });
     }
 }

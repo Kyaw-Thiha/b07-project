@@ -40,6 +40,9 @@ import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.ReportViewModel;
 import com.example.b07project.viewModel.TriageSessionViewModel;
 import com.example.b07project.viewModel.UserViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +51,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -61,6 +63,14 @@ public class TestAPIActivity extends AppCompatActivity {
 
   private static final String TAG = "TestAPIActivity";
   private static final int TREND_DAYS = 30;
+
+  private static final String PARENT_EMAIL = "debug-parent@seed-users.example.com";
+  private static final String CHILD_EMAIL = "debug-child@seed-users.example.com";
+  private static final String PROVIDER_EMAIL = "debug-provider@seed-users.example.com";
+
+  private static final String PARENT_PASSWORD = "ParentPass123!";
+  private static final String CHILD_PASSWORD = "ChildPass123!";
+  private static final String PROVIDER_PASSWORD = "ProviderPass123!";
 
   private TextView textStatus;
   private Button buttonCreateSampleData;
@@ -78,6 +88,7 @@ public class TestAPIActivity extends AppCompatActivity {
   private ChildProfileViewModel childProfileViewModel;
   private UserViewModel userViewModel;
   private ReportViewModel reportViewModel;
+  private FirebaseAuth firebaseAuth;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -101,16 +112,27 @@ public class TestAPIActivity extends AppCompatActivity {
     childProfileViewModel = provider.get(ChildProfileViewModel.class);
     userViewModel = provider.get(UserViewModel.class);
     reportViewModel = provider.get(ReportViewModel.class);
+    firebaseAuth = FirebaseAuth.getInstance();
 
     buttonCreateSampleData.setOnClickListener(v -> createSampleData());
   }
 
   private void createSampleData() {
-    String parentUid = generateFakeUid("parent");
-    String childUid = generateFakeUid("child");
-    String providerUid = generateFakeUid("provider");
-
+    firebaseAuth.signOut();
     buttonCreateSampleData.setEnabled(false);
+    textStatus.setText("Ensuring sample users...");
+    ensureAuthUser(PARENT_EMAIL, PARENT_PASSWORD, "Test Parent", UserType.PARENT, parentId -> {
+      ensureAuthUser(CHILD_EMAIL, CHILD_PASSWORD, "Test Child", UserType.CHILD, childId -> {
+        ensureAuthUser(PROVIDER_EMAIL, PROVIDER_PASSWORD, "Test Provider", UserType.PROVIDER, providerId -> {
+          runOnUiThread(() -> createSampleDataInternal(parentId, childId, providerId));
+          firebaseAuth.signOut();
+        });
+      });
+    });
+  }
+
+  private void createSampleDataInternal(String parentUid, String childUid, String providerUid) {
+
     textStatus
         .setText("Creating data for parent " + parentUid + ", child " + childUid + ", provider " + providerUid + "...");
 
@@ -130,11 +152,14 @@ public class TestAPIActivity extends AppCompatActivity {
           providerRole);
 
       ParentUser parentUser = new ParentUser(parentUid, parentBase.getName(), parentBase.getEmail(), parentRole);
+      parentUser.setUid(parentUid);
       int personalBest = 350;
       ChildUser childUser = new ChildUser(childUid, childBase.getName(), childBase.getEmail(), childRole, true,
           "2016-01-01", "Sample note", parentUid, personalBest, "Green", null);
+      childUser.setUid(childUid);
       ProviderUser providerUser = new ProviderUser(providerUid, providerBase.getName(), providerBase.getEmail(),
           providerRole);
+      providerUser.setUid(providerUid);
 
       userViewModel.createUser(parentUid, parentBase);
       userViewModel.createUser(childUid, childBase);
@@ -251,10 +276,6 @@ public class TestAPIActivity extends AppCompatActivity {
     }
   }
 
-  private String generateFakeUid(String type) {
-    return "test-" + type + "-" + UUID.randomUUID();
-  }
-
   private List<MedicineLog> buildMedicineLogs(String childId, String medicineId, String planId, long now) {
     List<MedicineLog> logs = new ArrayList<>();
     for (int i = 0; i < TREND_DAYS; i++) {
@@ -318,5 +339,63 @@ public class TestAPIActivity extends AppCompatActivity {
     incident2.setDecision("HOME_STEPS");
     incidents.add(incident2);
     return incidents;
+  }
+
+  private interface UidCallback {
+    void onUid(String uid);
+  }
+
+  private void ensureAuthUser(String email, String password, String displayName, UserType type, UidCallback callback) {
+    firebaseAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(task -> {
+      if (!task.isSuccessful()) {
+        handleSeedError("Failed to check auth user " + email, task.getException());
+        return;
+      }
+      boolean exists = task.getResult() != null
+          && task.getResult().getSignInMethods() != null
+          && !task.getResult().getSignInMethods().isEmpty();
+      if (exists) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(signInTask -> {
+              if (!signInTask.isSuccessful()) {
+                handleSeedError("Failed to sign in existing auth user " + email, signInTask.getException());
+                return;
+              }
+              FirebaseUser user = signInTask.getResult().getUser();
+              if (user != null) {
+                runOnUiThread(() -> callback.onUid(user.getUid()));
+              }
+            });
+        return;
+      }
+
+      firebaseAuth.createUserWithEmailAndPassword(email, password)
+          .addOnCompleteListener(createTask -> {
+            if (!createTask.isSuccessful()) {
+              handleSeedError("Failed to create auth user " + email, createTask.getException());
+              return;
+            }
+            FirebaseUser user = createTask.getResult().getUser();
+            if (user != null) {
+              user.updateProfile(new UserProfileChangeRequest.Builder()
+                  .setDisplayName(displayName + " (" + type.name() + ")")
+                  .build());
+              Log.d(TAG, "Created auth user " + email);
+              runOnUiThread(() -> callback.onUid(user.getUid()));
+            }
+          });
+    });
+  }
+
+  private void handleSeedError(String message, Exception ex) {
+    String fullMessage = ex != null && ex.getMessage() != null
+        ? message + ": " + ex.getMessage()
+        : message;
+    Log.e(TAG, fullMessage, ex);
+    runOnUiThread(() -> {
+      Toast.makeText(this, fullMessage, Toast.LENGTH_LONG).show();
+      textStatus.setText(fullMessage);
+      buttonCreateSampleData.setEnabled(true);
+    });
   }
 }

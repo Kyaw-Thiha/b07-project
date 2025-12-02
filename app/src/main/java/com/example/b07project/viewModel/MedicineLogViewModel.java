@@ -81,6 +81,13 @@ public class MedicineLogViewModel extends ViewModel {
         loadLogByUser(uid);
     }
 
+    public String addLogAndReturnId(String uid, MedicineLog item) {
+        String id = medicineLogRepository.addAndReturnId(uid, item);
+        motivationManager.onMedicineLogAdded(uid, item);
+        loadLogByUser(uid);
+        return id;
+    }
+
     // UPDATE
     public void updateInventory(String uid, String medicineId, Map<String, Object> updates) {
         medicineLogRepository.update(uid, medicineId, updates);

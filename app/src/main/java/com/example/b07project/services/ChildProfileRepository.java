@@ -32,4 +32,18 @@ public class ChildProfileRepository {
         DatabaseReference ref = service.childUserDatabase().child(uid);
         ref.addValueEventListener(listener);
     }
+
+    public void queryByParent(String parentId, ValueEventListener listener) {
+        service.childUserDatabase()
+                .orderByChild("parentId")
+                .equalTo(parentId)
+                .addListenerForSingleValueEvent(listener);
+    }
+
+    public void observeByParent(String parentId, ValueEventListener listener) {
+        service.childUserDatabase()
+                .orderByChild("parentId")
+                .equalTo(parentId)
+                .addValueEventListener(listener);
+    }
 }

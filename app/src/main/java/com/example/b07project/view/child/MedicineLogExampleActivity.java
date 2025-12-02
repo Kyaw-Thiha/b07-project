@@ -10,6 +10,7 @@
 package com.example.b07project.view.child;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.b07project.R;
 import com.example.b07project.model.MedicineLog;
 import com.example.b07project.viewModel.MedicineLogViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,11 +38,11 @@ import java.util.Map;
  */
 public class MedicineLogExampleActivity extends AppCompatActivity {
 
+  private static final boolean DEBUG_TOOLS_ENABLED = false;
+
   private MedicineLogViewModel viewModel;
   private TextView textStatus;
-
-  // In real app: FirebaseAuth.getInstance().getCurrentUser().getUid()
-  private final String uid = "REPLACE_WITH_REAL_UID";
+  private String uid;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,50 +54,59 @@ public class MedicineLogExampleActivity extends AppCompatActivity {
     Button buttonUpdateExampleLog = findViewById(R.id.buttonUpdateExampleLog);
     Button buttonDeleteExampleLog = findViewById(R.id.buttonDeleteExampleLog);
 
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    if (user == null) {
+      textStatus.setText(R.string.child_dashboard_no_user);
+      return;
+    }
+    uid = user.getUid();
+
     // 1. Get ViewModel (pattern your friends should copy)
     viewModel = new ViewModelProvider(this).get(MedicineLogViewModel.class);
+    setupObservers();
 
-    // 2. Observe list of logs
-    viewModel.getLog().observe(this, logs -> {
-      int count = (logs == null) ? 0 : logs.size();
-      textStatus.setText("Total logs: " + count);
-    });
-
-    // 3. Observe errors
-    viewModel.getLogError().observe(this, error -> {
-      if (error != null && !error.isEmpty()) {
-        textStatus.setText(error);
-      }
-    });
-
-    // 4. Initial load for this user
     viewModel.loadLogByUser(uid);
 
-    // 5. Add an example log when button is clicked
-    /*buttonAddExampleLog.setOnClickListener(v -> {
-      long now = System.currentTimeMillis();
-      MedicineLog log = new MedicineLog(
-          now,
-          2, // doseCount
-          250f, // preCheck
-          290f, // postCheck
-          4.5f // breathRating
-      );
+    if (DEBUG_TOOLS_ENABLED) {
+      buttonUpdateExampleLog.setOnClickListener(v -> exampleUpdateLog());
+      buttonDeleteExampleLog.setOnClickListener(v -> exampleDeleteLog());
+      buttonAddExampleLog.setOnClickListener(v -> addExampleLog());
+    } else {
+      buttonAddExampleLog.setVisibility(View.GONE);
+      buttonUpdateExampleLog.setVisibility(View.GONE);
+      buttonDeleteExampleLog.setVisibility(View.GONE);
+    }
+  }
 
-      viewModel.addLog(uid, log);
-      // ViewModel reloads and LiveData updates the UI
-    });*/
+  private void setupObservers() {
+    viewModel.getLog().observe(this, logs -> {
+      int count = (logs == null) ? 0 : logs.size();
+      updateStatus("Total logs: " + count);
+    });
 
-    // 6. Wire buttons to the example update/delete methods
+    viewModel.getLogError().observe(this, error -> {
+      if (error != null && !error.isEmpty()) {
+        updateStatus(error);
+      }
+    });
+  }
 
-    // When clicked, this will call updateInventory(...) with example data.
-    buttonUpdateExampleLog.setOnClickListener(v -> exampleUpdateLog());
+  private void updateStatus(String text) {
+    if (textStatus != null) {
+      textStatus.setText(text);
+    }
+  }
 
-    // When clicked, this will call deleteInventory(...) with example data.
-    buttonDeleteExampleLog.setOnClickListener(v -> exampleDeleteLog());
-
-    // NOTE: exampleUpdateLog() and exampleDeleteLog() are just templates.
-    // Replace the "REPLACE_WITH_REAL_LOG_ID" with a real key from Firebase.
+  private void addExampleLog() {
+    long now = System.currentTimeMillis();
+    MedicineLog log = new MedicineLog(
+        now,
+        2,
+        "250",
+        "290",
+        uid
+    );
+    viewModel.addLog(uid, log);
   }
 
   /**

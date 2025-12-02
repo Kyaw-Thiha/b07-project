@@ -112,11 +112,13 @@ public class SignupActivity extends BackButtonActivity {
 
             if (userType == UserType.PARENT){
                 ParentUser parentUser = new ParentUser(uid, name, email, roles);
+                parentUser.setUid(uid);
                 parentProfileViewModel.createParent(uid, parentUser);
             }
 
             if (userType == UserType.PROVIDER){
                 ProviderUser providerUser = new ProviderUser(uid, name, email, roles);
+                providerUser.setUid(uid);
                 providerProfileViewModel.createProvider(uid, providerUser);
             }
             if (userType == UserType.CHILD) {

@@ -33,6 +33,8 @@ public class ReportViewModel extends ViewModel {
   private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
   private final MutableLiveData<List<Report>> reports = new MutableLiveData<>();
   private final MutableLiveData<Report> selectedReport = new MutableLiveData<>();
+  private final MutableLiveData<Boolean> exportInProgress = new MutableLiveData<>(false);
+  private final MutableLiveData<String> exportMessage = new MutableLiveData<>();
 
   public LiveData<Boolean> getReportCreated() {
     return reportCreated;
@@ -48,6 +50,18 @@ public class ReportViewModel extends ViewModel {
 
   public LiveData<Report> getSelectedReport() {
     return selectedReport;
+  }
+
+  public LiveData<Boolean> getExportInProgress() {
+    return exportInProgress;
+  }
+
+  public LiveData<String> getExportMessage() {
+    return exportMessage;
+  }
+
+  public void clearExportMessage() {
+    exportMessage.setValue(null);
   }
 
   public void createReport(ParentUser parent, ChildUser child, ProviderUser provider,
@@ -147,12 +161,31 @@ public class ReportViewModel extends ViewModel {
       @Override
       public void onDataChange(@NonNull DataSnapshot snapshot) {
         Report report = snapshot.getValue(Report.class);
+        if (report != null) {
+          report.setUid(snapshot.getKey());
+        }
         selectedReport.postValue(report);
       }
 
       @Override
       public void onCancelled(@NonNull DatabaseError error) {
         errorMessage.postValue("Failed to load report");
+      }
+    });
+  }
+
+  public void exportReport(String reportId) {
+    if (reportId == null) {
+      exportMessage.setValue("Missing report id");
+      return;
+    }
+    exportInProgress.setValue(true);
+    repository.exportReport(reportId, (error, ref) -> {
+      exportInProgress.postValue(false);
+      if (error != null) {
+        exportMessage.postValue("Failed to request export: " + error.getMessage());
+      } else {
+        exportMessage.postValue("Report export requested. We will notify you when it is ready.");
       }
     });
   }
@@ -165,6 +198,7 @@ public class ReportViewModel extends ViewModel {
         for (DataSnapshot childSnapshot : snapshot.getChildren()) {
           Report report = childSnapshot.getValue(Report.class);
           if (report != null) {
+            report.setUid(childSnapshot.getKey());
             data.add(report);
           }
         }

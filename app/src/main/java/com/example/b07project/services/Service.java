@@ -60,6 +60,10 @@ public class Service {
         .child("reports");
   }
 
+  public DatabaseReference reportExportQueue() {
+    return database.getReference("reportExports");
+  }
+
   public DatabaseReference parentInviteDatabase(String parentId) {
     return database.getReference("users")
         .child("parents")
@@ -130,5 +134,12 @@ public class Service {
         .child("children")
         .child(childId)
         .child("incidentLog");
+  }
+
+  public DatabaseReference shareSettingsDatabase(String parentId) {
+    return database.getReference("users")
+        .child("parents")
+        .child(parentId)
+        .child("shareSettings");
   }
 }

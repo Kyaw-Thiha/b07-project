@@ -42,7 +42,8 @@ public class ProviderChildAdapter extends RecyclerView.Adapter<ProviderChildAdap
         holder.index.setText(String.valueOf(displayIndex));
 
         // add ProviderChild to TextView
-        holder.name.setText(child.getName() + " (" + child.getAge() + ")");
+        String ageSuffix = child.getAge() > 0 ? " (" + child.getAge() + ")" : "";
+        holder.name.setText(child.getName() + ageSuffix);
         holder.parent.setText("Parent: " + child.getParentName());
         holder.todayZone.setText("Today zone: " + child.getTodayZone());
         holder.rescue7d.setText("Rescue (7d): " + child.getRescue7d());
@@ -50,12 +51,13 @@ public class ProviderChildAdapter extends RecyclerView.Adapter<ProviderChildAdap
                 + child.getControllerAdherence() + "%");
         holder.lastUpdated.setText("Last updated: " + child.getLastUpdated());
 
-        // click name -> jump to report
-        holder.name.setOnClickListener(v -> {
+        View.OnClickListener openReport = v -> {
             Intent intent = new Intent(context, ChildReportActivity.class);
             intent.putExtra("childId", child.getId());
             context.startActivity(intent);
-        });
+        };
+        holder.itemView.setOnClickListener(openReport);
+        holder.name.setOnClickListener(openReport);
     }
 
     @Override
@@ -84,5 +86,3 @@ public class ProviderChildAdapter extends RecyclerView.Adapter<ProviderChildAdap
         }
     }
 }
-
-
