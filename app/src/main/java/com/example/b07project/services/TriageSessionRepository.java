@@ -14,6 +14,10 @@ public class TriageSessionRepository {
   }
 
   public void add(String childId, TriageSession session) {
+    addAndReturnId(childId, session);
+  }
+
+  public String addAndReturnId(String childId, TriageSession session) {
     DatabaseReference ref = service.triageSessionDatabase(childId).push();
     session.setSessionId(ref.getKey());
     session.setChildId(childId);
@@ -21,6 +25,7 @@ public class TriageSessionRepository {
       session.setStartedAt(System.currentTimeMillis());
     }
     ref.setValue(session);
+    return session.getSessionId();
   }
 
   public void update(String childId, String sessionId, Map<String, Object> updates) {

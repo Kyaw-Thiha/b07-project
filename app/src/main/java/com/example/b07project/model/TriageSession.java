@@ -6,6 +6,10 @@ public class TriageSession {
   private long startedAt;
   private Long resolvedAt;
   private Incident.Flags flags;
+  private boolean cantSpeak;
+  private boolean chestPulling;
+  private boolean blueLips;
+  private boolean recentRescue;
   private int rescueAttempts;
   private Integer pefNumber;
   private String decision;
@@ -57,6 +61,38 @@ public class TriageSession {
 
   public void setFlags(Incident.Flags flags) {
     this.flags = flags;
+  }
+
+  public boolean isCantSpeak() {
+    return cantSpeak;
+  }
+
+  public void setCantSpeak(boolean cantSpeak) {
+    this.cantSpeak = cantSpeak;
+  }
+
+  public boolean isChestPulling() {
+    return chestPulling;
+  }
+
+  public void setChestPulling(boolean chestPulling) {
+    this.chestPulling = chestPulling;
+  }
+
+  public boolean isBlueLips() {
+    return blueLips;
+  }
+
+  public void setBlueLips(boolean blueLips) {
+    this.blueLips = blueLips;
+  }
+
+  public boolean isRecentRescue() {
+    return recentRescue;
+  }
+
+  public void setRecentRescue(boolean recentRescue) {
+    this.recentRescue = recentRescue;
   }
 
   public int getRescueAttempts() {

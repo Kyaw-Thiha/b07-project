@@ -158,4 +158,7 @@
     <string name="child_pef_required">Required</string>
     <string name="child_pef_positive">Enter a positive number</string>
     <string name="child_pef_saved">PEF saved!</string>
+    <string name="child_rescue_emergency_toast">Your parent has been alerted of emergency!</string>
+    <string name="child_rescue_notification_title">Emergency Alert</string>
+    <string name="child_rescue_emergency_notification">Please check on your child immediately.</string>
 </resources>

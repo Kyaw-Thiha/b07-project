@@ -62,6 +62,12 @@ public class IncidentViewModel extends ViewModel {
         loadIncidentByUser(uid);
     }
 
+    public String addIncidentAndReturnId(String uid, Incident item) {
+        String id = incidentRepository.addAndReturnId(uid, item);
+        loadIncidentByUser(uid);
+        return id;
+    }
+
     // UPDATE
     public void updateIncident(String uid, String itemId, Map<String, Object> updates) {
         incidentRepository.update(uid, itemId, updates);
