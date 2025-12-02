@@ -138,4 +138,7 @@
     <string name="child_settings_thresholds_updated">Badge thresholds updated!</string>
     <string name="child_settings_required">Required</string>
     <string name="child_settings_positive_number">Enter a positive number</string>
+    <string name="child_badge_progress_template">%1$d / %2$d</string>
+    <string name="child_badge_progress_no_target">%1$d logged</string>
+    <string name="child_badge_progress_placeholder">Keep going!</string>
 </resources>
