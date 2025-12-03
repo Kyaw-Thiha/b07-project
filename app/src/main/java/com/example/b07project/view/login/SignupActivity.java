@@ -1,7 +1,9 @@
 package com.example.b07project.view.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,12 +18,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.b07project.R;
 
 import com.example.b07project.model.User.BaseUser;
+import com.example.b07project.model.User.ChildUser;
 import com.example.b07project.model.User.ParentUser;
 import com.example.b07project.model.User.ProviderUser;
 import com.example.b07project.model.User.UserType;
 import com.example.b07project.view.child.ChildOnboardingPage1Activity;
 import com.example.b07project.view.parent.ParentOnboardingPage1Activity;
 import com.example.b07project.view.provider.ProviderInstruction1Activity;
+import com.example.b07project.viewModel.ChildProfileViewModel;
 import com.example.b07project.viewModel.ParentProfileViewModel;
 import com.example.b07project.viewModel.ProviderProfileViewModel;
 import com.example.b07project.viewModel.UserViewModel;
@@ -42,6 +46,7 @@ public class SignupActivity extends BackButtonActivity {
     private FirebaseAuth mAuth;
     private UserType userType;
     private UserViewModel userViewModel;
+    private ChildProfileViewModel childProfileViewModel;
     private ParentProfileViewModel parentProfileViewModel;
     private ProviderProfileViewModel providerProfileViewModel;
 
@@ -65,6 +70,7 @@ public class SignupActivity extends BackButtonActivity {
         mAuth = FirebaseAuth.getInstance();
         userType = UserType.valueOf(getSharedPreferences("APP_DATA",MODE_PRIVATE).getString("USER_TYPE", null));
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        childProfileViewModel = new ViewModelProvider(this).get(ChildProfileViewModel.class);
         parentProfileViewModel = new ViewModelProvider(this).get(ParentProfileViewModel.class);
         providerProfileViewModel = new ViewModelProvider(this).get(ProviderProfileViewModel.class);
 
@@ -110,6 +116,24 @@ public class SignupActivity extends BackButtonActivity {
             BaseUser baseUser = new BaseUser(uid, name, email, roles);
             userViewModel.createUser(uid, baseUser);
 
+            if (userType == UserType.CHILD){
+                Intent second_intent = getIntent();
+                ChildUser childUser = new ChildUser(uid,
+                        name,
+                        email,
+                        roles,
+                        second_intent.getBooleanExtra("child-user-age-below-9", true),
+                        "",
+                        "",
+                        "",
+                        0,
+                        "",
+                        new HashMap<>()
+                );
+                childUser.setUid(uid);
+                childProfileViewModel.createChild(uid, childUser);
+            }
+
             if (userType == UserType.PARENT){
                 ParentUser parentUser = new ParentUser(uid, name, email, roles);
                 parentUser.setUid(uid);
@@ -130,7 +154,6 @@ public class SignupActivity extends BackButtonActivity {
             }
 
             finish();
-
         });
     }
 
