@@ -30,6 +30,7 @@ public class LogChildSymptomActivity extends BackButtonActivity {
     private CheckInViewModel checkInViewModel;
     private String childId;
     private CalendarView calendarView;
+    private TextView calendarMessage;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.getDefault());
     private final SimpleDateFormat dateFilterFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
     private List<CheckIn> cachedCheckIns = new ArrayList<>();
@@ -54,7 +55,9 @@ public class LogChildSymptomActivity extends BackButtonActivity {
         }
 
         calendarView = findViewById(R.id.calendarView);
+        calendarMessage = findViewById(R.id.textView114);
         calendarView.setVisibility(View.GONE);
+        calendarMessage.setVisibility(View.GONE);
 
         checkInViewModel = new ViewModelProvider(this).get(CheckInViewModel.class);
         checkInViewModel.getCheckIn().observe(this, this::populateHeaders);
@@ -129,6 +132,7 @@ public class LogChildSymptomActivity extends BackButtonActivity {
     }
     public void filter(View view){
         calendarView.setVisibility(View.VISIBLE);
+        calendarMessage.setVisibility(View.VISIBLE);
         calendarView.setOnDateChangeListener((cal, year, month, dayOfMonth) -> {
             String key = String.format(Locale.getDefault(), "%04d%02d%02d", year, month + 1, dayOfMonth);
             populateHeaders(filterByDateKey(key));

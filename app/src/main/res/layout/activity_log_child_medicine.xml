@@ -158,9 +158,11 @@
         android:id="@+id/textView86"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="86dp"
+        android:layout_marginStart="280dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="73dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView84" />
 
@@ -198,10 +200,12 @@
         android:id="@+id/textView89"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="89dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="264dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView85" />
 
     <TextView
