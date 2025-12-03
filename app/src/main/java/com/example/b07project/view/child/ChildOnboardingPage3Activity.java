@@ -23,6 +23,7 @@ public class ChildOnboardingPage3Activity extends AppCompatActivity {
                 Intent intent = new Intent(ChildOnboardingPage3Activity.this,
                         ChildOnboardingPage4Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

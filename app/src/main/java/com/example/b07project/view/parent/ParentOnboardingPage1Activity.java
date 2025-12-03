@@ -24,6 +24,7 @@ public class ParentOnboardingPage1Activity extends BackButtonActivity {
                         ParentOnboardingPage2Activity.class
                 );
                 startActivity(intent);
+                finish();
             }
         });
     }
